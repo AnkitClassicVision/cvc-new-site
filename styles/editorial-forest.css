@@ -1,0 +1,2294 @@
+/* ==========================================================================
+   FOREST EDITORIAL DESIGN SYSTEM
+   Classic Vision Care - Refined Nature-Inspired Aesthetic
+   ========================================================================== */
+
+/* Google Fonts - Fraunces (Display) + Instrument Sans (Body) */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Instrument+Sans:wght@400;500;600;700&display=swap");
+
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES
+   ========================================================================== */
+
+:root {
+  /* Primary Forest Palette */
+  --forest: #1a3028;
+  --forest-deep: #0f1f18;
+  --forest-light: #2d4a3e;
+  --sage: #7a9b8a;
+  --sage-light: #a8c4b5;
+
+  /* Cream & Neutrals */
+  --cream: #f8f5f0;
+  --cream-dark: #ebe6dd;
+  --charcoal: #2a2a2a;
+  --white: #ffffff;
+
+  /* Gold Accents */
+  --gold: #c9a227;
+  --gold-light: #e8d48a;
+  --gold-glow: rgba(201, 162, 39, 0.3);
+
+  /* Legacy variable mappings for compatibility */
+  --cvc-forest: var(--forest);
+  --cvc-forest-dark: var(--forest-deep);
+  --cvc-gold: var(--gold);
+  --cvc-gold-light: var(--gold-light);
+  --cvc-ivory: var(--cream);
+  --cvc-sand: var(--cream-dark);
+  --cvc-ink: var(--charcoal);
+  --cvc-moss: var(--sage);
+  --cvc-bark: #3a2f2a;
+
+  /* Functional Colors */
+  --cvc-fog: rgba(26, 48, 40, 0.12);
+  --cvc-line: rgba(26, 48, 40, 0.12);
+
+  /* Shadows */
+  --cvc-shadow: 0 24px 60px rgba(26, 48, 40, 0.18);
+  --cvc-shadow-tight: 0 16px 36px rgba(26, 48, 40, 0.12);
+  --shadow-elevated: 0 15px 40px rgba(26, 48, 40, 0.25);
+
+  /* Easing Functions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Typography Scale */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealLine {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotateCircle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes imageReveal {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes imageScale {
+  0% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 var(--gold-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px 10px transparent;
+  }
+}
+
+@keyframes splitTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.cvc-editorial {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--cream);
+  position: relative;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Noise Texture Overlay */
+body.cvc-editorial::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Decorative Background Gradients */
+body.cvc-editorial::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(26, 48, 40, 0.08), transparent 55%),
+    radial-gradient(circle at 82% 12%, rgba(201, 162, 39, 0.12), transparent 45%),
+    radial-gradient(circle at 78% 85%, rgba(122, 155, 138, 0.1), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.cvc-editorial > *:not(.ef-header):not(.ef-topbar):not(header) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure header and topbar stay above content */
+body.cvc-editorial > .ef-header,
+body.cvc-editorial > .ef-topbar,
+body.cvc-editorial > header {
+  position: relative;
+  z-index: 100;
+}
+
+/* Selection Styling */
+body.cvc-editorial ::selection {
+  background: var(--gold);
+  color: var(--forest-deep);
+}
+
+body.cvc-editorial ::-moz-selection {
+  background: var(--gold);
+  color: var(--forest-deep);
+}
+
+/* ==========================================================================
+   SCROLL PROGRESS BAR
+   ========================================================================== */
+
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--forest), var(--gold));
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+
+.cvc-editorial .font-display {
+  font-family: var(--font-display) !important;
+  letter-spacing: -0.02em;
+  font-weight: 300;
+}
+
+.cvc-editorial .font-body {
+  font-family: var(--font-body) !important;
+}
+
+.cvc-editorial h1,
+.cvc-editorial h2,
+.cvc-editorial h3,
+.cvc-editorial h4,
+.cvc-editorial h5,
+.cvc-editorial h6 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--forest);
+}
+
+.cvc-editorial h1 {
+  font-size: clamp(3rem, 5.5vw, 4.5rem);
+  letter-spacing: -0.03em;
+}
+
+.cvc-editorial h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.cvc-editorial h3 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.cvc-editorial h4 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 400;
+}
+
+.cvc-editorial p,
+.cvc-editorial li {
+  color: var(--charcoal);
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+.cvc-editorial a {
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+/* ==========================================================================
+   NAVIGATION & HEADER
+   ========================================================================== */
+
+.cvc-editorial .ef-topbar {
+  border-bottom: 1px solid var(--cvc-line);
+  background: var(--forest-deep);
+  backdrop-filter: blur(8px);
+}
+
+.cvc-editorial .ef-header {
+  border-bottom: 1px solid var(--cvc-line);
+  background: rgba(248, 245, 240, 0.92);
+  backdrop-filter: blur(20px);
+  transition: all 0.5s var(--ease-out-expo);
+  overflow: visible !important;
+}
+
+.cvc-editorial .ef-header nav {
+  overflow: visible;
+}
+
+.cvc-editorial .ef-nav {
+  overflow: visible;
+}
+
+.cvc-editorial .ef-header.scrolled {
+  background: rgba(248, 245, 240, 0.98);
+  box-shadow: 0 1px 0 var(--cream-dark);
+}
+
+.cvc-editorial .ef-brand-title {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  color: var(--sage);
+}
+
+.cvc-editorial .ef-nav a {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  position: relative;
+}
+
+.cvc-editorial .ef-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .ef-nav a:hover::after,
+.cvc-editorial .ef-nav a:focus::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.cvc-editorial .ef-nav a:hover,
+.cvc-editorial .ef-nav a:focus {
+  color: var(--forest);
+}
+
+.cvc-editorial .ef-dropdown {
+  border: 1px solid var(--cvc-line);
+  box-shadow: var(--cvc-shadow);
+  background: var(--white);
+  border-radius: 12px;
+}
+
+/* ==========================================================================
+   DROPDOWN NAVIGATION - Clean & Functional
+   ========================================================================== */
+
+/* Desktop Navigation Dropdowns Container */
+.cvc-editorial .nav-dropdown {
+  position: relative;
+  z-index: 100;
+}
+
+.cvc-editorial .nav-dropdown:hover,
+.cvc-editorial .nav-dropdown.active {
+  z-index: 1000;
+}
+
+/* Nav Trigger Button/Link - The clickable dropdown header */
+.cvc-editorial .nav-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.cvc-editorial .nav-trigger:hover,
+.cvc-editorial .nav-dropdown:hover .nav-trigger,
+.cvc-editorial .nav-dropdown.active .nav-trigger {
+  color: var(--forest);
+}
+
+/* Dropdown Arrow Icon */
+.cvc-editorial .dropdown-arrow {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.cvc-editorial .nav-dropdown:hover .dropdown-arrow,
+.cvc-editorial .nav-dropdown.active .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu Panel */
+.cvc-editorial .nav-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-top: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Right-aligned dropdown (for About menu near edge) */
+.cvc-editorial .nav-dropdown-right .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+/* Show dropdown on hover and active state */
+.cvc-editorial .nav-dropdown:hover .dropdown-menu,
+.cvc-editorial .nav-dropdown:focus-within .dropdown-menu,
+.cvc-editorial .nav-dropdown.active .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* The actual dropdown box */
+.cvc-editorial .nav-dropdown .dropdown-menu .ef-dropdown {
+  min-width: 260px;
+  padding: 0.75rem 0;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid rgba(26, 48, 40, 0.08);
+  box-shadow: 0 10px 40px rgba(26, 48, 40, 0.18),
+              0 4px 12px rgba(26, 48, 40, 0.08);
+}
+
+/* Dropdown Links - Override all parent nav styles */
+.cvc-editorial .dropdown-menu .ef-dropdown a {
+  display: block;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  text-transform: none;
+  letter-spacing: normal;
+  text-decoration: none;
+  background: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cvc-editorial .dropdown-menu .ef-dropdown a:hover,
+.cvc-editorial .dropdown-menu .ef-dropdown a:focus {
+  background-color: rgba(26, 48, 40, 0.05);
+  color: var(--forest);
+}
+
+/* Remove ALL pseudo-element underlines from dropdown links */
+.cvc-editorial .dropdown-menu .ef-dropdown a::after,
+.cvc-editorial .dropdown-menu .ef-dropdown a::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Dropdown Category Headers (like "Eye Exams", "Treatments") */
+.cvc-editorial .dropdown-menu .ef-dropdown > div:not(:empty) {
+  padding: 0.5rem 1.25rem 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* View All / CTA Links at bottom of dropdown */
+.cvc-editorial .dropdown-menu .ef-dropdown a:last-child {
+  color: var(--forest);
+  font-weight: 500;
+}
+
+/* Nested spans for location info */
+.cvc-editorial .dropdown-menu .ef-dropdown a span {
+  display: block;
+}
+
+.cvc-editorial .dropdown-menu .ef-dropdown a span.font-medium {
+  font-weight: 500;
+}
+
+.cvc-editorial .dropdown-menu .ef-dropdown a span.text-xs {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.125rem;
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION - Smooth & Functional
+   ========================================================================== */
+
+/* Mobile Menu Container - Compatible with both hidden toggle and open class approaches */
+.cvc-editorial #mobile-menu {
+  background: var(--white);
+  border-top: 1px solid var(--cvc-line);
+  overflow-y: auto;
+  max-height: calc(100vh - 80px);
+  transition: max-height 0.35s ease-out, opacity 0.25s ease-out;
+}
+
+/* When using the newer 'open' class approach with hidden as default */
+.cvc-editorial #mobile-menu.hidden {
+  display: none;
+}
+
+.cvc-editorial #mobile-menu.open {
+  display: block;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+/* Override Tailwind's hidden when open class is present */
+.cvc-editorial #mobile-menu.open.hidden {
+  display: block !important;
+}
+
+/* Mobile Menu Button Animation */
+.cvc-editorial #mobile-menu-btn {
+  position: relative;
+  z-index: 100;
+}
+
+.cvc-editorial #mobile-menu-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.cvc-editorial #mobile-menu-btn.active svg {
+  transform: rotate(90deg);
+}
+
+/* Mobile Accordion */
+.cvc-editorial .mobile-accordion {
+  border-bottom: 1px solid var(--cvc-line);
+}
+
+.cvc-editorial .accordion-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  font-weight: 500;
+  color: var(--charcoal);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.cvc-editorial .accordion-toggle:hover,
+.cvc-editorial .accordion-toggle:focus {
+  color: var(--forest);
+}
+
+.cvc-editorial .accordion-toggle .accordion-icon {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.cvc-editorial .accordion-toggle.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* Accordion Content - Compatible with both hidden toggle and open class */
+.cvc-editorial .accordion-content {
+  overflow: hidden;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* When using Tailwind's hidden class (most pages) */
+.cvc-editorial .accordion-content.hidden {
+  display: none;
+}
+
+/* When using the open class approach (index.html) */
+.cvc-editorial .accordion-content:not(.hidden):not(.open) {
+  /* Default visible state when hidden class is removed */
+}
+
+.cvc-editorial .accordion-content.open {
+  display: block;
+  padding-bottom: 1rem;
+}
+
+.cvc-editorial .accordion-content a {
+  display: block;
+  padding: 0.625rem 0;
+  font-size: 0.9rem;
+  color: #525252;
+  transition: color 0.2s ease;
+}
+
+.cvc-editorial .accordion-content a:hover,
+.cvc-editorial .accordion-content a:focus {
+  color: var(--forest);
+}
+
+/* Mobile Category Headers */
+.cvc-editorial .accordion-content .category-header {
+  display: block;
+  padding: 0.75rem 0 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Mobile CTA Link */
+.cvc-editorial .accordion-content a.mobile-cta {
+  color: var(--forest);
+  font-weight: 500;
+}
+
+/* Mobile Menu Direct Links */
+.cvc-editorial #mobile-menu .direct-link {
+  display: block;
+  padding: 1rem 0;
+  font-weight: 500;
+  color: var(--charcoal);
+  border-bottom: 1px solid var(--cvc-line);
+  transition: color 0.2s ease;
+}
+
+.cvc-editorial #mobile-menu .direct-link:hover {
+  color: var(--forest);
+}
+
+/* Mobile Contact Section */
+.cvc-editorial #mobile-menu .mobile-contact {
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+  border-top: 2px solid var(--cvc-line);
+}
+
+.cvc-editorial #mobile-menu .mobile-contact a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  color: var(--forest);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.cvc-editorial #mobile-menu .mobile-contact a:hover {
+  color: var(--gold);
+}
+
+/* Mobile CTA Button */
+.cvc-editorial #mobile-menu .mobile-cta-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: var(--forest);
+  color: var(--white);
+  text-align: center;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.cvc-editorial #mobile-menu .mobile-cta-btn:hover {
+  background: var(--forest-deep);
+}
+
+/* Logo Animation */
+.cvc-editorial .logo-icon {
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .logo-icon:hover {
+  transform: rotate(180deg);
+}
+
+.cvc-editorial .logo-icon:hover .logo-inner {
+  background: var(--gold);
+}
+
+/* ==========================================================================
+   BUTTONS - Gold Reveal Effect
+   ========================================================================== */
+
+.cvc-editorial .btn-primary,
+.cvc-editorial .ef-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.125rem 2rem;
+  background: var(--forest);
+  color: var(--white);
+  border: none;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+  z-index: 1;
+}
+
+/* Gold Reveal Overlay */
+.cvc-editorial .btn-primary::before,
+.cvc-editorial .ef-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  transform: translateY(100%);
+  transition: transform 0.4s var(--ease-out-expo);
+  z-index: -1;
+}
+
+.cvc-editorial .btn-primary:hover,
+.cvc-editorial .ef-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-elevated);
+  color: var(--forest-deep);
+}
+
+.cvc-editorial .btn-primary:hover::before,
+.cvc-editorial .ef-cta:hover::before {
+  transform: translateY(0);
+}
+
+/* Button Active State */
+.cvc-editorial .btn-primary:active,
+.cvc-editorial .ef-cta:active {
+  transform: translateY(-1px);
+}
+
+/* Small Button Variant - for navigation/header */
+.cvc-editorial .btn-primary.btn-sm,
+.cvc-editorial .ef-cta.btn-sm {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+
+/* Outline Button */
+.cvc-editorial .ef-btn-outline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.75rem;
+  background: transparent;
+  color: var(--forest);
+  border: 2px solid var(--forest);
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .ef-btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--forest);
+  transform: translateY(100%);
+  transition: transform 0.4s var(--ease-out-expo);
+  z-index: -1;
+}
+
+.cvc-editorial .ef-btn-outline:hover {
+  color: var(--white);
+  border-color: var(--forest);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.cvc-editorial .ef-btn-outline:hover::before {
+  transform: translateY(0);
+}
+
+/* Text Button */
+.cvc-editorial .btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--forest);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .btn-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .btn-text:hover {
+  color: var(--gold);
+}
+
+.cvc-editorial .btn-text:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Magnetic Button Class */
+.cvc-editorial .magnetic {
+  display: inline-flex;
+  will-change: transform;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+
+.cvc-editorial .hero-gradient {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(201, 162, 39, 0.15), transparent 55%),
+    radial-gradient(circle at 80% 35%, rgba(26, 48, 40, 0.1), transparent 55%),
+    linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.cvc-editorial .hero-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+/* Animated Background Circles */
+.cvc-editorial .hero-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(26, 48, 40, 0.1);
+  pointer-events: none;
+}
+
+.cvc-editorial .hero-circle.rotating {
+  animation: rotateCircle 60s linear infinite;
+}
+
+/* Line Reveal Animation */
+.cvc-editorial .line-reveal {
+  overflow: hidden;
+  display: block;
+}
+
+.cvc-editorial .line-reveal span {
+  display: block;
+  animation: splitTextReveal 1s var(--ease-out-expo) forwards;
+  animation-delay: inherit;
+}
+
+.cvc-editorial .line-reveal:nth-child(1) { animation-delay: 0.3s; }
+.cvc-editorial .line-reveal:nth-child(2) { animation-delay: 0.45s; }
+.cvc-editorial .line-reveal:nth-child(3) { animation-delay: 0.6s; }
+
+/* Floating Badge */
+.cvc-editorial .floating-badge {
+  animation: floatBadge 4s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   SERVICE CARDS - Dark Forest Theme
+   ========================================================================== */
+
+.cvc-editorial .service-card {
+  position: relative;
+  background: var(--forest);
+  color: var(--cream);
+  border: none;
+  border-radius: 20px;
+  padding: 2.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(26, 48, 40, 0.2);
+  transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+}
+
+/* Gradient Top Border */
+.cvc-editorial .service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.cvc-editorial .service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px rgba(26, 48, 40, 0.3);
+}
+
+.cvc-editorial .service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.cvc-editorial .service-card h3,
+.cvc-editorial .service-card h4 {
+  color: var(--cream);
+}
+
+.cvc-editorial .service-card p {
+  color: var(--sage-light);
+}
+
+/* Lists inside service cards */
+.cvc-editorial .service-card ul,
+.cvc-editorial .service-card li {
+  color: var(--sage-light);
+}
+
+.cvc-editorial .service-card li svg {
+  color: var(--gold);
+}
+
+/* Links inside service cards (not using .service-link) */
+.cvc-editorial .service-card a:not(.service-link) {
+  color: var(--gold);
+  transition: color 0.3s var(--ease-out-expo);
+}
+
+.cvc-editorial .service-card a:not(.service-link):hover {
+  color: var(--gold-light);
+}
+
+.cvc-editorial .service-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 162, 39, 0.15);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: 16px;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .service-card:hover .service-icon {
+  background: var(--gold);
+  color: var(--forest-deep);
+  transform: rotate(-10deg) scale(1.1);
+}
+
+/* Service Card Link */
+.cvc-editorial .service-card .service-link {
+  color: var(--gold);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .service-card:hover .service-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cvc-editorial .service-card .service-link:hover {
+  color: var(--gold-light);
+}
+
+/* ==========================================================================
+   3D TILT CARDS
+   ========================================================================== */
+
+.cvc-editorial .tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .tilt-card-inner {
+  transform: translateZ(20px);
+}
+
+/* ==========================================================================
+   TESTIMONIAL SECTION - Gold Background
+   ========================================================================== */
+
+.cvc-editorial .testimonial-section,
+.cvc-editorial .ef-section.is-gold {
+  background: var(--gold);
+  color: var(--forest-deep);
+  position: relative;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.cvc-editorial .testimonial-section h2,
+.cvc-editorial .ef-section.is-gold h2 {
+  color: var(--forest-deep);
+}
+
+.cvc-editorial .testimonial-section p,
+.cvc-editorial .ef-section.is-gold p {
+  color: var(--forest);
+}
+
+/* Large Quote Mark Decoration */
+.cvc-editorial .testimonial-section::before {
+  content: '"';
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-family: var(--font-display);
+  font-size: 20rem;
+  line-height: 1;
+  color: rgba(26, 48, 40, 0.08);
+  pointer-events: none;
+}
+
+.cvc-editorial .testimonial-card {
+  position: relative;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: var(--cvc-shadow-tight);
+  transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+}
+
+.cvc-editorial .testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: var(--font-display);
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: 0.6;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.cvc-editorial .testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--cvc-shadow);
+}
+
+/* ==========================================================================
+   LOCATION CARDS
+   ========================================================================== */
+
+.cvc-editorial .location-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--cvc-line);
+  border-radius: 20px;
+  padding: 3rem;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+}
+
+/* Gradient Background on Hover */
+.cvc-editorial .location-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 48, 40, 0.03), rgba(201, 162, 39, 0.05));
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out-expo);
+}
+
+.cvc-editorial .location-card:hover::before {
+  opacity: 1;
+}
+
+.cvc-editorial .location-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--forest), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.cvc-editorial .location-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--cvc-shadow);
+}
+
+.cvc-editorial .location-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* ==========================================================================
+   IMAGE REVEAL EFFECT
+   ========================================================================== */
+
+.cvc-editorial .image-reveal {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.cvc-editorial .image-reveal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--forest);
+  z-index: 2;
+  transform: scaleX(1);
+  transform-origin: right center;
+  animation: imageReveal 1s var(--ease-out-expo) forwards;
+  animation-delay: 0.2s;
+}
+
+.cvc-editorial .image-reveal img {
+  transform: scale(1.3);
+  animation: imageScale 1.2s var(--ease-out-expo) forwards;
+  animation-delay: 0.2s;
+}
+
+/* ==========================================================================
+   EYEWEAR SECTION
+   ========================================================================== */
+
+.cvc-editorial .eyewear-section {
+  background: var(--cream-dark);
+  position: relative;
+}
+
+.cvc-editorial .eyewear-section .bg-text {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 18vw;
+  font-weight: 300;
+  color: var(--forest);
+  opacity: 0.06;
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.cvc-editorial .eyewear-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.cvc-editorial .eyewear-card img {
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.cvc-editorial .eyewear-card:hover img {
+  transform: scale(1.1);
+}
+
+.cvc-editorial .eyewear-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 48, 40, 0.9), transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out-expo);
+}
+
+.cvc-editorial .eyewear-card:hover .overlay {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   STATS SECTION
+   ========================================================================== */
+
+.cvc-editorial .stat-item {
+  text-align: center;
+}
+
+.cvc-editorial .stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: var(--forest);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.cvc-editorial .stat-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sage);
+}
+
+/* ==========================================================================
+   ABOUT/DOCTOR SECTION
+   ========================================================================== */
+
+.cvc-editorial .about-section {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.cvc-editorial .about-section h2,
+.cvc-editorial .about-section h3 {
+  color: var(--cream);
+}
+
+.cvc-editorial .about-section p {
+  color: var(--sage-light);
+}
+
+.cvc-editorial .about-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--gold);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Gold Underline Accent */
+.cvc-editorial .gold-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.cvc-editorial .gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+}
+
+/* ==========================================================================
+   CARDS & CONTAINERS
+   ========================================================================== */
+
+/* Cards get border, shadow, and rounded corners */
+.cvc-editorial .ef-card,
+.cvc-editorial .glass-card,
+.cvc-editorial .testimonial-card {
+  border: 1px solid var(--cvc-line);
+  box-shadow: var(--cvc-shadow-tight);
+  border-radius: 20px;
+}
+
+.cvc-editorial .bg-cvc-cream {
+  background: rgba(248, 245, 240, 0.8);
+}
+
+.cvc-editorial .ef-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.cvc-editorial .ef-divider {
+  height: 1px;
+  background: var(--cvc-line);
+}
+
+/* Animated Divider */
+.cvc-editorial .ef-divider.animated {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1s var(--ease-out-expo);
+}
+
+.cvc-editorial .ef-divider.animated.is-visible {
+  transform: scaleX(1);
+}
+
+.cvc-editorial .ef-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--cvc-line);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: var(--white);
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.cvc-editorial .ef-pill:hover {
+  background: var(--forest);
+  color: var(--white);
+  border-color: var(--forest);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.cvc-editorial .ef-footer {
+  border-top: 1px solid var(--cvc-line);
+  background: var(--forest-deep);
+  color: var(--cream);
+}
+
+.cvc-editorial .ef-footer h4 {
+  color: var(--cream);
+  font-weight: 500;
+}
+
+.cvc-editorial .ef-footer p {
+  color: var(--sage-light);
+}
+
+.cvc-editorial .ef-footer a {
+  color: var(--sage-light);
+  transition: color 0.3s var(--ease-out-expo);
+}
+
+.cvc-editorial .ef-footer a:hover {
+  color: var(--gold);
+}
+
+/* ==========================================================================
+   FORM ELEMENTS
+   ========================================================================== */
+
+.cvc-editorial input,
+.cvc-editorial select,
+.cvc-editorial textarea {
+  border: 1px solid rgba(26, 48, 40, 0.2);
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.cvc-editorial input:focus,
+.cvc-editorial select:focus,
+.cvc-editorial textarea:focus {
+  outline: none;
+  border-color: var(--forest);
+  box-shadow: 0 0 0 3px rgba(26, 48, 40, 0.1);
+}
+
+.cvc-editorial input::placeholder,
+.cvc-editorial textarea::placeholder {
+  color: var(--sage);
+}
+
+/* ==========================================================================
+   PARALLAX ELEMENTS
+   ========================================================================== */
+
+.cvc-editorial .parallax {
+  will-change: transform;
+}
+
+.cvc-editorial [data-parallax] {
+  transition: transform 0.1s linear;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL
+   ========================================================================== */
+
+.cvc-editorial .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s var(--ease-out-expo);
+}
+
+.cvc-editorial .reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.cvc-editorial .reveal[style*="animation-delay: 0.1s"] { transition-delay: 0.1s; }
+.cvc-editorial .reveal[style*="animation-delay: 0.2s"] { transition-delay: 0.2s; }
+.cvc-editorial .reveal[style*="animation-delay: 0.3s"] { transition-delay: 0.3s; }
+.cvc-editorial .reveal[style*="animation-delay: 0.4s"] { transition-delay: 0.4s; }
+.cvc-editorial .reveal[style*="animation-delay: 0.5s"] { transition-delay: 0.5s; }
+
+/* Fade Slide Up Animation */
+.cvc-editorial .fade-slide-up {
+  animation: fadeSlideUp 0.8s var(--ease-out-expo) forwards;
+}
+
+/* ==========================================================================
+   DECORATIVE ELEMENTS
+   ========================================================================== */
+
+.cvc-editorial .decorative-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(26, 48, 40, 0.15);
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.1), transparent 65%);
+  pointer-events: none;
+}
+
+.cvc-editorial .gold-line::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  margin-top: 1rem;
+}
+
+.cvc-editorial .gold-line-center::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   SECTIONS
+   ========================================================================== */
+
+.cvc-editorial section {
+  position: relative;
+}
+
+.cvc-editorial section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid rgba(26, 48, 40, 0.06);
+  pointer-events: none;
+}
+
+.cvc-editorial .ef-section {
+  background: rgba(248, 245, 240, 0.7);
+  border: 1px solid var(--cvc-line);
+  border-left: 4px solid var(--gold);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.cvc-editorial .ef-section.is-forest {
+  background: var(--forest);
+  color: var(--cream);
+  border-left-color: var(--gold);
+}
+
+.cvc-editorial .ef-section.is-forest h2,
+.cvc-editorial .ef-section.is-forest h3 {
+  color: var(--cream);
+}
+
+.cvc-editorial .ef-section.is-forest p {
+  color: var(--sage-light);
+}
+
+/* ==========================================================================
+   UTILITY COLOR OVERRIDES
+   ========================================================================== */
+
+.cvc-editorial .text-cvc-teal-500,
+.cvc-editorial .text-cvc-teal-600 {
+  color: var(--forest) !important;
+}
+
+.cvc-editorial .bg-cvc-teal-500 {
+  background: var(--forest) !important;
+}
+
+.cvc-editorial .bg-cvc-teal-600 {
+  background: var(--forest-deep) !important;
+}
+
+.cvc-editorial .text-cvc-gold {
+  color: var(--gold) !important;
+}
+
+.cvc-editorial .text-gray-600,
+.cvc-editorial .text-gray-500 {
+  color: var(--charcoal) !important;
+}
+
+.cvc-editorial .text-gray-400 {
+  color: var(--sage) !important;
+}
+
+.cvc-editorial .bg-cvc-charcoal {
+  background: var(--forest-deep) !important;
+}
+
+.cvc-editorial .hover\:text-cvc-teal-500:hover,
+.cvc-editorial .hover\:text-cvc-teal-600:hover {
+  color: var(--forest) !important;
+}
+
+.cvc-editorial .hover\:bg-cvc-teal-50:hover {
+  background: rgba(26, 48, 40, 0.05) !important;
+}
+
+.cvc-editorial .border-cvc-teal-500 {
+  border-color: var(--forest) !important;
+}
+
+/* ==========================================================================
+   SHADOWS
+   ========================================================================== */
+
+.cvc-editorial .shadow-sm {
+  box-shadow: 0 2px 8px rgba(26, 48, 40, 0.08) !important;
+}
+
+.cvc-editorial .shadow-xl {
+  box-shadow: var(--cvc-shadow-tight) !important;
+}
+
+.cvc-editorial .shadow-2xl {
+  box-shadow: var(--cvc-shadow) !important;
+}
+
+.cvc-editorial .ef-shadow-soft {
+  box-shadow: 0 18px 50px rgba(26, 48, 40, 0.12);
+}
+
+/* ==========================================================================
+   ROUNDED CORNERS
+   ========================================================================== */
+
+.cvc-editorial .rounded {
+  border-radius: 12px !important;
+}
+
+.cvc-editorial .rounded-xl {
+  border-radius: 16px !important;
+}
+
+.cvc-editorial .rounded-2xl {
+  border-radius: 20px !important;
+}
+
+/* ==========================================================================
+   GRID UTILITIES
+   ========================================================================== */
+
+.cvc-editorial .ef-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cvc-editorial .ef-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cvc-editorial .ef-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ==========================================================================
+   ACCESSIBILITY - Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .cvc-editorial *,
+  .cvc-editorial *::before,
+  .cvc-editorial *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .cvc-editorial .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cvc-editorial .parallax,
+  .cvc-editorial [data-parallax] {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .cvc-editorial .ef-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cvc-editorial .ef-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cvc-editorial .hero-gradient {
+    padding: var(--space-lg) var(--space-md);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+  }
+
+  .cvc-editorial .ef-nav a {
+    font-size: 0.85rem;
+  }
+
+  .cvc-editorial .ef-grid-3,
+  .cvc-editorial .ef-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .cvc-editorial .hero-gradient {
+    min-height: auto;
+    padding: var(--space-lg) 1.5rem;
+  }
+
+  .cvc-editorial .service-card {
+    padding: 2rem;
+  }
+
+  .cvc-editorial .testimonial-section::before {
+    font-size: 10rem;
+  }
+
+  .cvc-editorial h1 {
+    font-size: clamp(2.25rem, 8vw, 3rem);
+  }
+
+  .cvc-editorial h2 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .cvc-editorial p,
+  .cvc-editorial li {
+    font-size: 1rem;
+  }
+
+  .cvc-editorial .btn-primary,
+  .cvc-editorial .ef-cta {
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cvc-editorial .service-card {
+    padding: 1.5rem;
+  }
+
+  .cvc-editorial .location-card {
+    padding: 2rem;
+  }
+
+  .cvc-editorial .testimonial-card {
+    padding: 1.5rem;
+  }
+
+  .cvc-editorial .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   SKIP LINK & FOCUS STYLES
+   ========================================================================== */
+
+.cvc-editorial .skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--forest);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  z-index: 10000;
+  transition: top 0.3s;
+  border-radius: 0 0 8px 0;
+}
+
+.cvc-editorial .skip-link:focus {
+  top: 0;
+}
+
+.cvc-editorial a:focus-visible,
+.cvc-editorial button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   HEADER SCROLL STATE
+   ========================================================================== */
+
+.cvc-editorial .header-scrolled {
+  background: rgba(248, 245, 240, 0.98);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(26, 48, 40, 0.08);
+}
+
+/* ==========================================================================
+   IMAGE PLACEHOLDER SYSTEM - Elegant fallbacks for missing images
+   ========================================================================== */
+
+/* Base placeholder container */
+.cvc-editorial .img-placeholder,
+.cvc-editorial img[src=""],
+.cvc-editorial img:not([src]) {
+  background: linear-gradient(135deg, var(--forest) 0%, #2d4a3e 50%, var(--forest-deep) 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Placeholder with eye icon pattern */
+.cvc-editorial .img-placeholder::before,
+.cvc-editorial img[src=""]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23c9a227' opacity='0.08'%3E%3Cpath d='M50 30C35 30 22.5 40 15 50c7.5 10 20 20 35 20s27.5-10 35-20c-7.5-10-20-20-35-20zm0 30c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10z'/%3E%3C/svg%3E");
+  background-size: 80px;
+  background-position: center;
+  opacity: 0.15;
+}
+
+/* Center logo/icon for placeholders */
+.cvc-editorial .img-placeholder::after {
+  content: '';
+  width: 80px;
+  height: 80px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c9a227'%3E%3Cpath d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Hero placeholder variant */
+.cvc-editorial .hero-placeholder {
+  background: linear-gradient(135deg,
+    var(--forest) 0%,
+    #2d5a4e 30%,
+    var(--forest-light) 60%,
+    var(--forest) 100%);
+  min-height: 400px;
+}
+
+/* Doctor/Team placeholder */
+.cvc-editorial .doctor-placeholder {
+  background: linear-gradient(180deg, var(--cream-dark) 0%, var(--sage-light) 100%);
+}
+
+.cvc-editorial .doctor-placeholder::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231a3028'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+  opacity: 0.15;
+}
+
+/* Service/Treatment placeholder */
+.cvc-editorial .service-placeholder {
+  background: linear-gradient(135deg, #3294A3 0%, #1a3028 100%);
+}
+
+/* Location placeholder */
+.cvc-editorial .location-placeholder {
+  background: linear-gradient(135deg, var(--sage) 0%, var(--forest) 100%);
+}
+
+.cvc-editorial .location-placeholder::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c9a227'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   ENHANCED VISUAL POLISH - Micro-interactions & Delights
+   ========================================================================== */
+
+/* Glowing border effect on focus */
+.cvc-editorial .glow-border {
+  position: relative;
+}
+
+.cvc-editorial .glow-border::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, var(--gold), var(--forest), var(--gold));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .glow-border:hover::after {
+  opacity: 1;
+  animation: borderRotate 3s linear infinite;
+}
+
+@keyframes borderRotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Enhanced card hover with lift */
+.cvc-editorial .card-lift {
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .card-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(26, 48, 40, 0.15);
+}
+
+/* Magnetic button effect (CSS fallback) */
+.cvc-editorial .btn-magnetic {
+  transition: transform 0.2s var(--ease-out-expo);
+}
+
+.cvc-editorial .btn-magnetic:hover {
+  transform: scale(1.05);
+}
+
+.cvc-editorial .btn-magnetic:active {
+  transform: scale(0.98);
+}
+
+/* Gradient text for headings */
+.cvc-editorial .text-gradient {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--gold) 50%, var(--forest) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGradient 4s ease infinite;
+}
+
+@keyframes textGradient {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Animated underline for links */
+.cvc-editorial .link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.cvc-editorial .link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--forest));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Floating badge animation */
+.cvc-editorial .badge-float {
+  animation: floatBadge 3s ease-in-out infinite;
+}
+
+/* Pulse effect for CTAs */
+.cvc-editorial .pulse-subtle {
+  animation: pulseSoft 2s ease-in-out infinite;
+}
+
+@keyframes pulseSoft {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.4); }
+  50% { box-shadow: 0 0 20px 5px rgba(201, 162, 39, 0); }
+}
+
+/* Reveal animations */
+.cvc-editorial .reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.cvc-editorial .reveal-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cvc-editorial .reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+
+.cvc-editorial .reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger children animation */
+.cvc-editorial .stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+
+.cvc-editorial .stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+.cvc-editorial .stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+.cvc-editorial .stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+.cvc-editorial .stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+.cvc-editorial .stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+.cvc-editorial .stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+
+/* Decorative gold line */
+.cvc-editorial .gold-accent-line {
+  position: relative;
+}
+
+.cvc-editorial .gold-accent-line::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px;
+}
+
+.cvc-editorial .gold-accent-line.center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Icon hover rotate */
+.cvc-editorial .icon-spin:hover svg {
+  transform: rotate(360deg);
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+/* Glass morphism card */
+.cvc-editorial .glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(26, 48, 40, 0.1);
+}
+
+/* Subtle grain texture */
+.cvc-editorial .grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Decorative corner flourishes */
+.cvc-editorial .corner-flourish {
+  position: relative;
+}
+
+.cvc-editorial .corner-flourish::before,
+.cvc-editorial .corner-flourish::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--gold);
+  opacity: 0.3;
+}
+
+.cvc-editorial .corner-flourish::before {
+  top: -10px;
+  left: -10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.cvc-editorial .corner-flourish::after {
+  bottom: -10px;
+  right: -10px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Rating stars with glow */
+.cvc-editorial .star-glow {
+  filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.6));
+}
+
+/* Divider with icon */
+.cvc-editorial .divider-icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cvc-editorial .divider-icon::before,
+.cvc-editorial .divider-icon::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Smooth image load */
+.cvc-editorial img {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.cvc-editorial img[data-src] {
+  opacity: 0;
+}
+
+.cvc-editorial img.loaded {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   SPACING & VISUAL RHYTHM FIXES
+   Ensures consistent vertical rhythm and proper section spacing
+   ========================================================================== */
+
+/* Section Spacing - Consistent vertical rhythm */
+.cvc-editorial section {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+.cvc-editorial section.py-16 {
+  padding-top: var(--space-lg) !important;
+  padding-bottom: var(--space-lg) !important;
+}
+
+.cvc-editorial section.py-20 {
+  padding-top: var(--space-xl) !important;
+  padding-bottom: var(--space-xl) !important;
+}
+
+/* Hero section - Override Tailwind padding for consistent design system spacing */
+.cvc-editorial .hero-gradient {
+  padding-top: clamp(4rem, 8vw, 6rem) !important;
+  padding-bottom: clamp(5rem, 10vw, 8rem) !important;
+  min-height: auto;
+}
+
+/* Hero image container - allow floating card to overflow */
+.cvc-editorial .hero-gradient .grid {
+  overflow: visible;
+}
+
+/* Hero floating card styling */
+.cvc-editorial .hero-gradient [class*="absolute"][class*="bottom"] {
+  z-index: 20;
+}
+
+/* Remove min-height: 100vh which causes excessive empty space */
+@media (min-width: 1024px) {
+  .cvc-editorial .hero-gradient {
+    min-height: 700px;
+  }
+}
+
+/* Section Headers - Consistent spacing */
+.cvc-editorial section h2 {
+  margin-bottom: 1rem;
+}
+
+.cvc-editorial section h2 + p {
+  margin-bottom: 3rem;
+}
+
+/* Grid gaps standardization */
+.cvc-editorial .grid.gap-8 {
+  gap: 2rem !important;
+}
+
+.cvc-editorial .grid.gap-12 {
+  gap: 3rem !important;
+}
+
+/* Card content padding consistency */
+.cvc-editorial .service-card,
+.cvc-editorial .testimonial-card,
+.cvc-editorial .location-card {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Fix gap issues in flex containers */
+.cvc-editorial .flex.gap-4 {
+  gap: 1rem;
+}
+
+.cvc-editorial .flex.gap-6 {
+  gap: 1.5rem;
+}
+
+/* Mobile menu scrollbar styling */
+.cvc-editorial #mobile-menu {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sage) transparent;
+}
+
+.cvc-editorial #mobile-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cvc-editorial #mobile-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cvc-editorial #mobile-menu::-webkit-scrollbar-thumb {
+  background: var(--sage);
+  border-radius: 3px;
+}
+
+/* Fix corner flourish clipping */
+.cvc-editorial .corner-flourish {
+  overflow: visible !important;
+  z-index: 1;
+}
+
+/* Better contrast for links on dark backgrounds */
+.cvc-editorial .bg-cvc-charcoal a,
+.cvc-editorial .ef-footer a {
+  color: var(--sage-light);
+}
+
+.cvc-editorial .bg-cvc-charcoal a:hover,
+.cvc-editorial .ef-footer a:hover {
+  color: var(--gold);
+}
+
+/* Text gradient fix - ensure it works consistently */
+.cvc-editorial .text-gradient {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Stats section spacing */
+.cvc-editorial .stat-item {
+  padding: 1.5rem 1rem;
+}
+
+/* Ensure proper max-width containers */
+.cvc-editorial .max-w-7xl {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive section padding adjustments */
+@media (max-width: 768px) {
+  .cvc-editorial section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .cvc-editorial .hero-gradient {
+    padding-top: 2rem !important;
+    padding-bottom: 3rem !important;
+    min-height: auto;
+  }
+
+  .cvc-editorial section h2 + p {
+    margin-bottom: 2rem;
+  }
+
+  .cvc-editorial .grid.gap-8,
+  .cvc-editorial .grid.gap-12 {
+    gap: 1.5rem !important;
+  }
+}
+
+/* Ensure body doesn't have horizontal overflow */
+body.cvc-editorial {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Fix potential layout shift from fonts */
+.cvc-editorial h1,
+.cvc-editorial h2,
+.cvc-editorial h3 {
+  font-display: swap;
+}
+
+/* Prevent layout shift on images */
+.cvc-editorial img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Navigation link consistency */
+.cvc-editorial .nav-link {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+}

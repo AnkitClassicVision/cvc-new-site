@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetic Eye Exams | Diabetic Retinopathy Screening | Classic Vision Care</title>
+  <meta name="description" content="Diabetic eye exams in Kennesaw & Marietta, GA. Advanced screening for diabetic retinopathy & macular edema. Protect your vision with annual diabetic eye care. Book today!">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'cvc-teal': { 50: '#E6F4F6', 100: '#CCE9ED', 500: '#3294A3', 600: '#2A7A87' },
+            'cvc-gold': { light: '#D4C08A', DEFAULT: '#C9A962' },
+            'cvc-cream': '#f8f5f0',
+            'cvc-charcoal': '#0f1f18'
+          },
+          fontFamily: { 'display': ['Fraunces', 'Georgia', 'serif'], 'body': ['"Instrument Sans"', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    .font-display { font-family: 'Fraunces', Georgia, serif; font-weight: 300; letter-spacing: -0.02em; }
+    .gold-line::after { content: ''; display: block; width: 60px; height: 2px; background: linear-gradient(90deg, #C9A962, #D4C08A); margin-top: 1rem; }
+  </style>
+  <link rel="stylesheet" href="../../../styles/editorial-forest.css">
+</head>
+<body class="cvc-editorial font-body text-cvc-charcoal bg-white">
+  <!-- Top Phone Bar -->
+  <div class="ef-topbar bg-cvc-charcoal text-white py-2 text-sm hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <p class="text-gray-300">Serving Kennesaw & East Cobb/Marietta for 25+ Years</p>
+      <div class="flex items-center gap-6">
+        <a href="tel:+17704992020" class="flex items-center gap-2 hover:text-cvc-gold-light transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <span>Kennesaw: (770) 499-2020</span>
+        </a>
+        <span class="text-gray-600">|</span>
+        <a href="tel:+16785608065" class="flex items-center gap-2 hover:text-cvc-gold-light transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <span>East Cobb: (678) 560-8065</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="header" class="ef-header sticky top-0 z-50 bg-white shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6">
+      <nav class="flex items-center justify-between h-20 lg:h-24">
+        <!-- Logo -->
+        <a href="../../../index.html" class="flex items-center gap-3">
+          <div class="w-12 h-12 lg:w-14 lg:h-14 bg-cvc-teal-500 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 lg:w-10 lg:h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-display text-xl lg:text-2xl font-semibold text-cvc-charcoal">Classic Vision Care</span>
+            <span class="hidden sm:block text-xs text-gray-500 tracking-wider uppercase ef-brand-title">Eye Care Excellence</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation with Dropdowns -->
+        <div class="ef-nav hidden lg:flex items-center gap-5">
+          <!-- Services Dropdown -->
+          <div class="nav-dropdown relative group">
+            <a href="../../../pages/services/index.html" class="nav-link flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-cvc-teal-500 transition-colors py-2">
+              Services
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <div class="dropdown-menu absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="ef-dropdown bg-white rounded-xl shadow-xl border border-gray-100 py-3 min-w-[260px]">
+                <div class="px-5 py-2 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Eye Exams</div>
+                <a href="../../../pages/services/exams/comprehensive.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Comprehensive Eye Exams</a>
+                <a href="../../../pages/services/exams/contact-lens.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Contact Lens Exams</a>
+                <a href="../../../pages/services/exams/diabetic.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Diabetic Eye Exams</a>
+                <div class="border-t border-gray-100 my-2"></div>
+                <div class="px-5 py-2 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Children's Vision</div>
+                <a href="../../../pages/services/pediatric/eye-care.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Pediatric Eye Care</a>
+                <a href="../../../pages/services/pediatric/eye-exams.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Pediatric Eye Exams</a>
+                <a href="../../../pages/services/pediatric/childrens-exam.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Children's Eye Exams</a>
+                <a href="../../../pages/services/pediatric/school-screening.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">School Vision Screening</a>
+                <div class="border-t border-gray-100 my-2"></div>
+                <div class="px-5 py-2 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Conditions We Treat</div>
+                <a href="../../../pages/services/conditions/glaucoma.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Glaucoma</a>
+                <a href="../../../pages/services/conditions/macular-degeneration.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Macular Degeneration</a>
+                <a href="../../../pages/services/conditions/allergies.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Eye Allergies</a>
+                <a href="../../../pages/services/conditions/astigmatism.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Astigmatism</a>
+                <div class="border-t border-gray-100 my-2"></div>
+                <a href="../../../pages/services/index.html" class="block px-5 py-2.5 text-sm font-medium text-cvc-teal-600 hover:bg-cvc-teal-50 transition-colors">View All Services →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dry Eye Spa Dropdown -->
+          <div class="nav-dropdown relative group">
+            <a href="../../../pages/dry-eye/index.html" class="nav-link flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-cvc-teal-500 transition-colors py-2">
+              Dry Eye Spa
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <div class="dropdown-menu absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="ef-dropdown bg-white rounded-xl shadow-xl border border-gray-100 py-3 min-w-[240px]">
+                <a href="../../../pages/dry-eye/index.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Dry Eye Spa Overview</a>
+                <a href="../../../pages/dry-eye/treatments.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">All Treatments</a>
+                <div class="border-t border-gray-100 my-2"></div>
+                <div class="px-5 py-2 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Treatments</div>
+                <a href="../../../pages/dry-eye/treatments/ipl.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">IPL Therapy</a>
+                <a href="../../../pages/dry-eye/treatments/miboflo.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">MiBoFlo</a>
+                <a href="../../../pages/dry-eye/treatments/blephex.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">BlephEx</a>
+                <a href="../../../pages/dry-eye/treatments/punctal-plugs.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Punctal Plugs</a>
+                <a href="../../../pages/dry-eye/treatments/scleral-lenses.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Scleral Lenses for Dry Eye</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Myopia Control Dropdown -->
+          <div class="nav-dropdown relative group">
+            <a href="../../../pages/myopia/index.html" class="nav-link flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-cvc-teal-500 transition-colors py-2">
+              Myopia Control
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <div class="dropdown-menu absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="ef-dropdown bg-white rounded-xl shadow-xl border border-gray-100 py-3 min-w-[220px]">
+                <a href="../../../pages/myopia/index.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">What is Myopia?</a>
+                <a href="../../../pages/myopia/children.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Myopia in Children</a>
+                <div class="border-t border-gray-100 my-2"></div>
+                <div class="px-5 py-2 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Treatments</div>
+                <a href="../../../pages/myopia/treatments/misight.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">MiSight® Lenses</a>
+                <a href="../../../pages/myopia/treatments/ortho-k.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Ortho-K Lenses</a>
+                <a href="../../../pages/myopia/treatments/atropine.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Atropine Eye Drops</a>
+                <a href="../../../pages/myopia/treatments/multifocal.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Multifocal Lenses</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Eyewear Dropdown -->
+          <div class="nav-dropdown relative group">
+            <a href="../../../pages/eyewear/index.html" class="nav-link flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-cvc-teal-500 transition-colors py-2">
+              Eyewear
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <div class="dropdown-menu absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="ef-dropdown bg-white rounded-xl shadow-xl border border-gray-100 py-3 min-w-[220px]">
+                <a href="../../../pages/eyewear/eyeglasses.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Eyeglasses</a>
+                <a href="../../../pages/eyewear/sunglasses.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Sunglasses</a>
+                <a href="../../../pages/eyewear/contact-lenses.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Contact Lenses</a>
+                <div class="border-t border-gray-100 my-2"></div>
+                <div class="px-5 py-2 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Specialty Contacts</div>
+                <a href="../../../pages/eyewear/specialty/index.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">All Specialty Lenses</a>
+                <a href="../../../pages/eyewear/specialty/scleral.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Scleral Lenses</a>
+                <a href="../../../pages/eyewear/specialty/keratoconus.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Keratoconus Contacts</a>
+                <a href="../../../pages/eyewear/specialty/post-lasik.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Post-LASIK Contacts</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Locations Dropdown -->
+          <div class="nav-dropdown relative group">
+            <a href="../../../pages/locations/index.html" class="nav-link flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-cvc-teal-500 transition-colors py-2">
+              Locations
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <div class="dropdown-menu absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="ef-dropdown bg-white rounded-xl shadow-xl border border-gray-100 py-3 min-w-[200px]">
+                <a href="../../../pages/locations/kennesaw.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">
+                  <span class="font-medium">Kennesaw</span>
+                  <span class="block text-xs text-gray-500">(770) 499-2020</span>
+                </a>
+                <a href="../../../pages/locations/east-cobb.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">
+                  <span class="font-medium">East Cobb / Marietta</span>
+                  <span class="block text-xs text-gray-500">(678) 560-8065</span>
+                </a>
+                <div class="border-t border-gray-100 my-2"></div>
+                <a href="../../../pages/locations/index.html" class="block px-5 py-2.5 text-sm font-medium text-cvc-teal-600 hover:bg-cvc-teal-50 transition-colors">All Locations →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- About Dropdown -->
+          <div class="nav-dropdown relative group">
+            <a href="../../../pages/about/index.html" class="nav-link flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-cvc-teal-500 transition-colors py-2">
+              About
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <div class="dropdown-menu absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="ef-dropdown bg-white rounded-xl shadow-xl border border-gray-100 py-3 min-w-[200px]">
+                <a href="../../../pages/about/index.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Our Story</a>
+                <a href="../../../pages/about/why-choose-us.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Why Choose Us</a>
+                <a href="../../../pages/about/testimonials.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Testimonials</a>
+                <a href="../../../pages/about/community.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Community</a>
+                <div class="border-t border-gray-100 my-2"></div>
+                <div class="px-5 py-2 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Our Doctors</div>
+                <a href="../../../pages/about/doctors/index.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Meet the Team</a>
+                <a href="../../../pages/about/doctors/mital-patel.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors pl-7">Dr. Mital Patel, OD</a>
+                <a href="../../../pages/about/doctors/bhumi-patel.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors pl-7">Dr. Bhumi Patel, OD</a>
+                <div class="border-t border-gray-100 my-2"></div>
+                <a href="../../../pages/about/careers.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Careers</a>
+                <a href="../../../pages/about/blog.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Blog</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Patients Dropdown (NEW) -->
+          <div class="nav-dropdown relative group">
+            <a href="../../../pages/patients/new.html" class="nav-link flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-cvc-teal-500 transition-colors py-2">
+              Patients
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </a>
+            <div class="dropdown-menu absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="ef-dropdown bg-white rounded-xl shadow-xl border border-gray-100 py-3 min-w-[200px]">
+                <a href="../../../pages/patients/new.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">New Patients</a>
+                <a href="../../../pages/patients/insurance.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Insurance</a>
+                <a href="../../../pages/patients/contact.html" class="block px-5 py-2.5 text-sm text-gray-700 hover:bg-cvc-teal-50 hover:text-cvc-teal-600 transition-colors">Contact Us</a>
+                <div class="border-t border-gray-100 my-2"></div>
+                <a href="../../../pages/patients/book.html" class="block px-5 py-2.5 text-sm font-medium text-cvc-teal-600 hover:bg-cvc-teal-50 transition-colors">Book Appointment →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="flex items-center gap-4">
+          <a href="../../../pages/patients/book.html" class="btn-primary btn-sm hidden sm:inline-flex">
+            Book Now
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="lg:hidden p-3 min-w-[44px] min-h-[44px] text-gray-700" aria-label="Open navigation menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t max-h-[80vh] overflow-y-auto">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <!-- Services Accordion -->
+        <div class="mobile-accordion border-b border-gray-100">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-services">
+            Services
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="mobile-services" class="accordion-content hidden pb-3 pl-4 space-y-2">
+            <span class="block pt-2 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Eye Exams</span>
+            <a href="../../../pages/services/exams/comprehensive.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Comprehensive Eye Exams</a>
+            <a href="../../../pages/services/exams/contact-lens.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Contact Lens Exams</a>
+            <a href="../../../pages/services/exams/diabetic.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Diabetic Eye Exams</a>
+            <span class="block pt-3 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Children's Vision</span>
+            <a href="../../../pages/services/pediatric/eye-care.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Pediatric Eye Care</a>
+            <a href="../../../pages/services/pediatric/eye-exams.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Pediatric Eye Exams</a>
+            <a href="../../../pages/services/pediatric/childrens-exam.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Children's Eye Exams</a>
+            <a href="../../../pages/services/pediatric/school-screening.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">School Vision Screening</a>
+            <span class="block pt-3 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Conditions We Treat</span>
+            <a href="../../../pages/services/conditions/glaucoma.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Glaucoma</a>
+            <a href="../../../pages/services/conditions/macular-degeneration.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Macular Degeneration</a>
+            <a href="../../../pages/services/conditions/allergies.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Eye Allergies</a>
+            <a href="../../../pages/services/conditions/astigmatism.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Astigmatism</a>
+            <a href="../../../pages/services/index.html" class="block py-2 text-sm text-cvc-teal-600 font-medium">View All Services →</a>
+          </div>
+        </div>
+
+        <!-- Dry Eye Accordion -->
+        <div class="mobile-accordion border-b border-gray-100">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-dryeye">
+            Dry Eye Spa
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="mobile-dryeye" class="accordion-content hidden pb-3 pl-4 space-y-2">
+            <a href="../../../pages/dry-eye/index.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Dry Eye Spa Overview</a>
+            <a href="../../../pages/dry-eye/treatments.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">All Treatments</a>
+            <span class="block pt-3 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Treatments</span>
+            <a href="../../../pages/dry-eye/treatments/ipl.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">IPL Therapy</a>
+            <a href="../../../pages/dry-eye/treatments/miboflo.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">MiBoFlo</a>
+            <a href="../../../pages/dry-eye/treatments/blephex.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">BlephEx</a>
+            <a href="../../../pages/dry-eye/treatments/punctal-plugs.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Punctal Plugs</a>
+            <a href="../../../pages/dry-eye/treatments/scleral-lenses.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Scleral Lenses for Dry Eye</a>
+          </div>
+        </div>
+
+        <!-- Myopia Accordion -->
+        <div class="mobile-accordion border-b border-gray-100">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-myopia">
+            Myopia Control
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="mobile-myopia" class="accordion-content hidden pb-3 pl-4 space-y-2">
+            <a href="../../../pages/myopia/index.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">What is Myopia?</a>
+            <a href="../../../pages/myopia/children.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Myopia in Children</a>
+            <span class="block pt-3 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Treatments</span>
+            <a href="../../../pages/myopia/treatments/misight.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">MiSight® Lenses</a>
+            <a href="../../../pages/myopia/treatments/ortho-k.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Ortho-K Lenses</a>
+            <a href="../../../pages/myopia/treatments/atropine.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Atropine Eye Drops</a>
+            <a href="../../../pages/myopia/treatments/multifocal.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Multifocal Lenses</a>
+          </div>
+        </div>
+
+        <!-- Eyewear Accordion -->
+        <div class="mobile-accordion border-b border-gray-100">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-eyewear">
+            Eyewear
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="mobile-eyewear" class="accordion-content hidden pb-3 pl-4 space-y-2">
+            <a href="../../../pages/eyewear/eyeglasses.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Eyeglasses</a>
+            <a href="../../../pages/eyewear/sunglasses.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Sunglasses</a>
+            <a href="../../../pages/eyewear/contact-lenses.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Contact Lenses</a>
+            <span class="block pt-3 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Specialty Contacts</span>
+            <a href="../../../pages/eyewear/specialty/index.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">All Specialty Lenses</a>
+            <a href="../../../pages/eyewear/specialty/scleral.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Scleral Lenses</a>
+            <a href="../../../pages/eyewear/specialty/keratoconus.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Keratoconus Contacts</a>
+            <a href="../../../pages/eyewear/specialty/post-lasik.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Post-LASIK Contacts</a>
+          </div>
+        </div>
+
+        <!-- Locations Accordion -->
+        <div class="mobile-accordion border-b border-gray-100">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-locations">
+            Locations
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="mobile-locations" class="accordion-content hidden pb-3 pl-4 space-y-2">
+            <a href="../../../pages/locations/kennesaw.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Kennesaw</a>
+            <a href="../../../pages/locations/east-cobb.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">East Cobb / Marietta</a>
+            <a href="../../../pages/locations/index.html" class="block py-2 text-sm text-cvc-teal-600 font-medium">All Locations →</a>
+          </div>
+        </div>
+
+        <!-- About Accordion -->
+        <div class="mobile-accordion border-b border-gray-100">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-about">
+            About
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="mobile-about" class="accordion-content hidden pb-3 pl-4 space-y-2">
+            <a href="../../../pages/about/index.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Our Story</a>
+            <a href="../../../pages/about/why-choose-us.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Why Choose Us</a>
+            <a href="../../../pages/about/testimonials.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Testimonials</a>
+            <a href="../../../pages/about/community.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Community</a>
+            <span class="block pt-3 text-xs font-semibold text-cvc-gold uppercase tracking-wider">Our Doctors</span>
+            <a href="../../../pages/about/doctors/index.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Meet the Team</a>
+            <a href="../../../pages/about/doctors/mital-patel.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500 pl-3">Dr. Mital Patel, OD</a>
+            <a href="../../../pages/about/doctors/bhumi-patel.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500 pl-3">Dr. Bhumi Patel, OD</a>
+            <a href="../../../pages/about/careers.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Careers</a>
+            <a href="../../../pages/about/blog.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Blog</a>
+          </div>
+        </div>
+
+        <!-- Patients Accordion (NEW) -->
+        <div class="mobile-accordion border-b border-gray-100">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-patients">
+            Patients
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="mobile-patients" class="accordion-content hidden pb-3 pl-4 space-y-2">
+            <a href="../../../pages/patients/new.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">New Patients</a>
+            <a href="../../../pages/patients/insurance.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Insurance</a>
+            <a href="../../../pages/patients/contact.html" class="block py-2 text-sm text-gray-600 hover:text-cvc-teal-500">Contact Us</a>
+            <a href="../../../pages/patients/book.html" class="block py-2 text-sm text-cvc-teal-600 font-medium">Book Appointment →</a>
+          </div>
+        </div>
+
+        <!-- Phone Numbers -->
+        <div class="pt-4 mt-2 border-t border-gray-200 space-y-3">
+          <a href="tel:+17704992020" class="flex items-center gap-3 py-2 text-cvc-teal-600 font-medium">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            Kennesaw: (770) 499-2020
+          </a>
+          <a href="tel:+16785608065" class="flex items-center gap-3 py-2 text-cvc-teal-600 font-medium">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            East Cobb: (678) 560-8065
+          </a>
+          <a href="../../../pages/patients/book.html" class="block w-full text-center btn-primary py-3 mt-3">
+            Book Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <!-- Hero -->
+    <section class="py-20 lg:py-28 bg-gradient-to-br from-cvc-teal-50 to-cvc-cream">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-cvc-gold font-medium tracking-widest uppercase text-sm mb-4">Specialized Care</p>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-cvc-charcoal leading-tight mb-6">
+              Diabetic<br><span class="text-cvc-teal-500">Eye Exams</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              Diabetic eye exams at Classic Vision Care in Kennesaw and Marietta protect your vision from diabetes-related complications. Our family-owned practice has provided specialized diabetic retinopathy screening to metro Atlanta families for over 25 years. With 756+ reviews and a 4.7-star rating, you can trust our doctors to detect diabetic eye disease in its earliest stages when treatment works best. The American Diabetes Association recommends annual dilated eye exams because up to 95% of severe vision loss from diabetic retinopathy can be prevented with timely detection and care.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="../../../pages/patients/book.html" class="inline-flex items-center justify-center bg-cvc-teal-500 text-white px-8 py-4 rounded font-medium hover:bg-cvc-teal-600 transition-colors">Schedule Diabetic Eye Exam</a>
+              <a href="tel:+17704992020" class="ef-btn-outline">(770) 499-2020</a>
+            </div>
+          </div>
+          <div>
+            <img src="../../../images/services/what-is-diabetic-retinopathy.jpg" alt="Diabetic eye examination" class="rounded-2xl shadow-2xl w-full">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why It Matters -->
+    <section class="py-20 lg:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-cvc-gold font-medium tracking-widest uppercase text-sm mb-3">Protect Your Vision</p>
+          <h2 class="font-display text-3xl md:text-4xl text-cvc-charcoal mb-4">Why Diabetic Eye Exams Matter</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Diabetic retinopathy affects nearly 8 million Americans and is the leading cause of blindness in working-age adults. Research shows that consistent monitoring and early treatment can prevent up to 95% of diabetes-related vision loss. At our Kennesaw and East Cobb locations, we use OCT imaging and digital retinal photography to catch the earliest signs of blood vessel damage, often before you notice any symptoms.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-cvc-cream rounded-xl p-8 text-center">
+            <div class="w-16 h-16 bg-cvc-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-cvc-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </div>
+            <h3 class="font-display text-xl text-cvc-charcoal mb-3">Silent Progression</h3>
+            <p class="text-gray-600 text-sm">About 50% of people with diabetes skip their annual eye exam, and many have significant retinal changes without any symptoms. By the time blurred vision or floaters appear, blood vessel damage may already be advanced. Your best defense is proactive screening.</p>
+          </div>
+
+          <div class="bg-cvc-cream rounded-xl p-8 text-center">
+            <div class="w-16 h-16 bg-cvc-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-cvc-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="font-display text-xl text-cvc-charcoal mb-3">Early Detection Saves Sight</h3>
+            <p class="text-gray-600 text-sm">Studies confirm that patients who maintain annual diabetic eye exams reduce their risk of blindness by over 90%. Our doctors track your retinal health year over year, catching subtle changes that signal when intervention is needed. The earlier we act, the more vision we can preserve.</p>
+          </div>
+
+          <div class="bg-cvc-cream rounded-xl p-8 text-center">
+            <div class="w-16 h-16 bg-cvc-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-cvc-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h3 class="font-display text-xl text-cvc-charcoal mb-3">Coordinated Care</h3>
+            <p class="text-gray-600 text-sm">We send detailed reports to your primary care physician and endocrinologist after every exam. This team approach helps your healthcare providers adjust your diabetes management based on how your eyes respond, giving you the best possible outcomes for your overall health.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Check -->
+    <section class="py-20 lg:py-28 bg-cvc-cream">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-cvc-gold font-medium tracking-widest uppercase text-sm mb-3">Comprehensive Screening</p>
+            <h2 class="font-display text-3xl md:text-4xl text-cvc-charcoal mb-6 gold-line">What We Evaluate</h2>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-cvc-teal-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-cvc-charcoal mb-1">Retinal Blood Vessels</h3>
+                  <p class="text-gray-600 text-sm">Checking for leaking blood vessels, microaneurysms, and abnormal blood vessel growth.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-cvc-teal-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-cvc-charcoal mb-1">Macular Health</h3>
+                  <p class="text-gray-600 text-sm">OCT imaging to detect diabetic macular edema (swelling) that can affect central vision.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-cvc-teal-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-cvc-charcoal mb-1">Intraocular Pressure</h3>
+                  <p class="text-gray-600 text-sm">Diabetics have increased risk of glaucoma. We screen for elevated eye pressure.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-cvc-teal-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-cvc-charcoal mb-1">Lens Clarity</h3>
+                  <p class="text-gray-600 text-sm">Diabetics develop cataracts earlier. We monitor lens health and clarity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <h3 class="font-display text-2xl text-cvc-charcoal mb-6">Exam Frequency Guidelines</h3>
+            <div class="space-y-4">
+              <div class="py-3 border-b border-gray-100">
+                <span class="font-semibold text-cvc-charcoal">Type 1 Diabetes:</span>
+                <p class="text-gray-600 text-sm mt-1">Annual exam starting 5 years after diagnosis</p>
+              </div>
+              <div class="py-3 border-b border-gray-100">
+                <span class="font-semibold text-cvc-charcoal">Type 2 Diabetes:</span>
+                <p class="text-gray-600 text-sm mt-1">Annual exam starting at diagnosis</p>
+              </div>
+              <div class="py-3 border-b border-gray-100">
+                <span class="font-semibold text-cvc-charcoal">Gestational Diabetes:</span>
+                <p class="text-gray-600 text-sm mt-1">Exam in first trimester, then as recommended</p>
+              </div>
+              <div class="py-3">
+                <span class="font-semibold text-cvc-charcoal">Existing Retinopathy:</span>
+                <p class="text-gray-600 text-sm mt-1">Every 3-6 months as directed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 lg:py-28 bg-cvc-teal-500 text-white">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="font-display text-3xl md:text-4xl mb-6">Protect Your Vision from Diabetes</h2>
+        <p class="text-xl text-white/90 mb-8">Schedule your diabetic eye exam today. Early detection is your best protection.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="../../../pages/patients/book.html" class="inline-flex items-center justify-center bg-white text-cvc-teal-600 px-8 py-4 rounded font-semibold hover:bg-cvc-cream transition-colors">Book Appointment</a>
+          <a href="tel:+17704992020" class="inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded font-semibold hover:bg-white/10 transition-colors">Call (770) 499-2020</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="ef-footer bg-cvc-charcoal text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <!-- Brand Column -->
+        <div>
+          <a href="../../../index.html" class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-cvc-teal-500 rounded-full flex items-center justify-center">
+              <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+              </svg>
+            </div>
+            <span class="font-display text-xl font-semibold">Classic Vision Care</span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Providing comprehensive eye care with a personal touch for over 25 years.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://facebook.com/classicvisioncare" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-cvc-teal-500 transition-colors" aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com/classicvisioncare" target="_blank" rel="noopener" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-cvc-teal-500 transition-colors" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h3 class="font-semibold text-lg mb-5">Services</h3>
+          <ul class="space-y-3">
+            <li><a href="../../../pages/services/index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Eye Care Services</a></li>
+            <li><a href="../../../pages/dry-eye/index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Dry Eye Spa</a></li>
+            <li><a href="../../../pages/myopia/index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Myopia Control</a></li>
+            <li><a href="../../../pages/services/pediatric/eye-care.html" class="text-gray-400 hover:text-white transition-colors text-sm">Pediatric Eye Care</a></li>
+            <li><a href="../../../pages/eyewear/specialty/index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Specialty Contacts</a></li>
+            <li><a href="../../../pages/eyewear/index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Eyewear</a></li>
+          </ul>
+        </div>
+
+        <!-- Conditions & About -->
+        <div>
+          <h3 class="font-semibold text-lg mb-5">Conditions & About</h3>
+          <ul class="space-y-3">
+            <li><a href="../../../pages/services/conditions/glaucoma.html" class="text-gray-400 hover:text-white transition-colors text-sm">Glaucoma</a></li>
+            <li><a href="../../../pages/services/conditions/macular-degeneration.html" class="text-gray-400 hover:text-white transition-colors text-sm">Macular Degeneration</a></li>
+            <li><a href="../../../pages/services/conditions/astigmatism.html" class="text-gray-400 hover:text-white transition-colors text-sm">Astigmatism</a></li>
+            <li><a href="../../../pages/services/conditions/allergies.html" class="text-gray-400 hover:text-white transition-colors text-sm">Eye Allergies</a></li>
+            <li><a href="../../../pages/about/doctors/index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Our Doctors</a></li>
+            <li><a href="../../../pages/about/why-choose-us.html" class="text-gray-400 hover:text-white transition-colors text-sm">Why Choose Us</a></li>
+            <li><a href="../../../pages/about/testimonials.html" class="text-gray-400 hover:text-white transition-colors text-sm">Testimonials</a></li>
+            <li><a href="../../../pages/about/careers.html" class="text-gray-400 hover:text-white transition-colors text-sm">Careers</a></li>
+            <li><a href="../../../pages/about/blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+            <li><a href="../../../pages/patients/insurance.html" class="text-gray-400 hover:text-white transition-colors text-sm">Insurance</a></li>
+            <li><a href="../../../pages/patients/new.html" class="text-gray-400 hover:text-white transition-colors text-sm">New Patients</a></li>
+            <li><a href="../../../pages/patients/book.html" class="text-gray-400 hover:text-white transition-colors text-sm">Book Appointment</a></li>
+          </ul>
+        </div>
+
+        <!-- Kennesaw Location -->
+        <div>
+          <h3 class="font-semibold text-lg mb-5">Kennesaw</h3>
+          <address class="not-italic text-gray-400 text-sm space-y-2">
+            <p>1615 Ridenour Blvd<br>Suite 201<br>Kennesaw, GA 30152</p>
+            <p><a href="tel:+17704992020" class="hover:text-white transition-colors">(770) 499-2020</a></p>
+            <p class="text-xs">Tue: 9am - 6pm<br>Wed: 8am - 5pm<br>Thu: 9am - 6pm<br>Fri: 8am - 5pm<br>Sat: 10am - 2pm</p>
+          </address>
+          <a href="../../../pages/locations/kennesaw.html" class="inline-block mt-3 text-cvc-teal-500 hover:text-cvc-teal-400 text-sm font-medium">View Location →</a>
+        </div>
+
+        <!-- East Cobb Location -->
+        <div>
+          <h3 class="font-semibold text-lg mb-5">East Cobb</h3>
+          <address class="not-italic text-gray-400 text-sm space-y-2">
+            <p>3535 Roswell Rd<br>Suite 8<br>Marietta, GA 30062</p>
+            <p><a href="tel:+16785608065" class="hover:text-white transition-colors">(678) 560-8065</a></p>
+            <p class="text-xs">Tue: 9am - 6pm<br>Wed: 8am - 5pm<br>Thu: 9am - 6pm<br>Fri: 8am - 5pm</p>
+          </address>
+          <a href="../../../pages/locations/east-cobb.html" class="inline-block mt-3 text-cvc-teal-500 hover:text-cvc-teal-400 text-sm font-medium">View Location →</a>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-400 text-sm">&copy; 2026 Classic Vision Care. All rights reserved.</p>
+        <div class="flex gap-6 text-sm">
+          <a href="../../../pages/about/blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a>
+          <a href="../../../pages/about/careers.html" class="text-gray-400 hover:text-white transition-colors">Careers</a>
+          <a href="../../../pages/legal/privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+          <a href="../../../pages/legal/accessibility.html" class="text-gray-400 hover:text-white transition-colors">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 md:hidden z-40">
+    <div class="flex gap-3">
+      <a href="tel:+17704992020" class="flex-1 flex items-center justify-center gap-2 bg-cvc-teal-500 text-white py-3 rounded font-medium text-sm">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        Call Now
+      </a>
+      <a href="../../../pages/patients/book.html" class="flex-1 flex items-center justify-center gap-2 bg-cvc-gold text-cvc-charcoal py-3 rounded font-medium text-sm">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        Book
+      </a>
+    </div>
+  </div>
+
+  <!-- Forest Editorial Interactive Effects -->
+  <script src="../../../scripts/editorial-forest.js"></script>
+</body>
+</html>
