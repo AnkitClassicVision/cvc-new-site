@@ -1,0 +1,272 @@
+{
+  "index.html": {
+    "old_path": "index.html",
+    "type": "Homepage",
+    "primary_keyword": "eye doctor kennesaw ga"
+  },
+  "pages/services/exams/comprehensive.html": {
+    "old_path": "comprehensive-eye-exams.html",
+    "type": "Service",
+    "primary_keyword": "comprehensive eye exam kennesaw"
+  },
+  "pages/dry-eye/index.html": {
+    "old_path": "dry-eye-spa.html",
+    "type": "Service",
+    "primary_keyword": "dry eye spa atlanta"
+  },
+  "pages/myopia/index.html": {
+    "old_path": "myopia-control.html",
+    "type": "Service",
+    "primary_keyword": "myopia control kennesaw"
+  },
+  "pages/services/index.html": {
+    "old_path": "eye-care-services.html",
+    "type": "Hub",
+    "primary_keyword": "eye care services kennesaw"
+  },
+  "pages/locations/kennesaw.html": {
+    "old_path": "eye-doctor-kennesaw-ga.html",
+    "type": "Location",
+    "primary_keyword": "eye doctor kennesaw ga"
+  },
+  "pages/locations/east-cobb.html": {
+    "old_path": "east-cobb-eye-doctors.html",
+    "type": "Location",
+    "primary_keyword": "eye doctor east cobb marietta"
+  },
+  "pages/locations/index.html": {
+    "old_path": "our-locations.html",
+    "type": "Hub",
+    "primary_keyword": "classic vision care locations"
+  },
+  "pages/dry-eye/treatments.html": {
+    "old_path": "dry-eye-treatment.html",
+    "type": "Service Hub",
+    "primary_keyword": "dry eye treatment kennesaw"
+  },
+  "pages/dry-eye/treatments/miboflo.html": {
+    "old_path": "dry-eye-treatment-miboflo.html",
+    "type": "Treatment",
+    "primary_keyword": "miboflo dry eye treatment"
+  },
+  "pages/dry-eye/treatments/ipl.html": {
+    "old_path": "dry-eye-treatment-intense-pulsed-light.html",
+    "type": "Treatment",
+    "primary_keyword": "ipl dry eye treatment atlanta"
+  },
+  "pages/dry-eye/treatments/blephex.html": {
+    "old_path": "dry-eye-treatment-blephex.html",
+    "type": "Treatment",
+    "primary_keyword": "blephex treatment"
+  },
+  "pages/dry-eye/treatments/punctal-plugs.html": {
+    "old_path": "dry-eye-treatment-punctal-plugs.html",
+    "type": "Treatment",
+    "primary_keyword": "punctal plugs dry eye"
+  },
+  "pages/dry-eye/treatments/scleral-lenses.html": {
+    "old_path": "scleral-lenses-for-dry-eyes.html",
+    "type": "Treatment",
+    "primary_keyword": "scleral lenses dry eye"
+  },
+  "pages/dry-eye/treatments/eye-drops.html": {
+    "old_path": "dry-eye-treatment-eye-drops.html",
+    "type": "Treatment",
+    "primary_keyword": "dry eye prescription drops"
+  },
+  "pages/dry-eye/treatments/supplements.html": {
+    "old_path": "dry-eye-treatment-eye-supplements.html",
+    "type": "Treatment",
+    "primary_keyword": "dry eye supplements omega 3"
+  },
+  "pages/myopia/treatments/misight.html": {
+    "old_path": "misight-lenses-for-myopia-control.html",
+    "type": "Treatment",
+    "primary_keyword": "misight lenses atlanta"
+  },
+  "pages/myopia/treatments/ortho-k.html": {
+    "old_path": "ortho-k-lenses-for-myopia-control.html",
+    "type": "Treatment",
+    "primary_keyword": "ortho-k lenses kennesaw"
+  },
+  "pages/myopia/treatments/atropine.html": {
+    "old_path": "myopia-control-atropine-eye-drops.html",
+    "type": "Treatment",
+    "primary_keyword": "atropine eye drops myopia"
+  },
+  "pages/myopia/treatments/multifocal.html": {
+    "old_path": "myopia-control-multifocal-lenses.html",
+    "type": "Treatment",
+    "primary_keyword": "multifocal lenses myopia control"
+  },
+  "pages/myopia/children.html": {
+    "old_path": "myopia-in-children.html",
+    "type": "Educational",
+    "primary_keyword": "myopia in children"
+  },
+  "pages/services/pediatric/eye-care.html": {
+    "old_path": "pediatric-eye-care.html",
+    "type": "Service",
+    "primary_keyword": "pediatric eye care kennesaw"
+  },
+  "pages/services/pediatric/eye-exams.html": {
+    "old_path": "pediatric-eye-exams.html",
+    "type": "Service",
+    "primary_keyword": "pediatric eye exam marietta"
+  },
+  "pages/services/pediatric/childrens-exam.html": {
+    "old_path": "childrens-eye-exam.html",
+    "type": "Service",
+    "primary_keyword": "children's eye exam kennesaw"
+  },
+  "pages/services/pediatric/school-screening.html": {
+    "old_path": "school-vision-screening.html",
+    "type": "Service",
+    "primary_keyword": "school vision screening georgia"
+  },
+  "pages/services/conditions/glaucoma.html": {
+    "old_path": "glaucoma-treatment.html",
+    "type": "Condition",
+    "primary_keyword": "glaucoma treatment kennesaw"
+  },
+  "pages/services/conditions/macular-degeneration.html": {
+    "old_path": "macular-degeneration.html",
+    "type": "Condition",
+    "primary_keyword": "macular degeneration eye doctor"
+  },
+  "pages/services/conditions/allergies.html": {
+    "old_path": "eye-allergies.html",
+    "type": "Condition",
+    "primary_keyword": "eye allergies treatment"
+  },
+  "pages/services/conditions/astigmatism.html": {
+    "old_path": "astigmatism-correction.html",
+    "type": "Condition",
+    "primary_keyword": "astigmatism correction"
+  },
+  "pages/services/exams/diabetic.html": {
+    "old_path": "diabetic-eye-exam.html",
+    "type": "Service",
+    "primary_keyword": "diabetic eye exam kennesaw"
+  },
+  "pages/eyewear/index.html": {
+    "old_path": "eyewear.html",
+    "type": "Hub",
+    "primary_keyword": "eyeglasses kennesaw"
+  },
+  "pages/eyewear/eyeglasses.html": {
+    "old_path": "eyeglasses.html",
+    "type": "Product",
+    "primary_keyword": "prescription eyeglasses kennesaw"
+  },
+  "pages/eyewear/sunglasses.html": {
+    "old_path": "sunglasses.html",
+    "type": "Product",
+    "primary_keyword": "prescription sunglasses marietta"
+  },
+  "pages/eyewear/contact-lenses.html": {
+    "old_path": "contact-lenses.html",
+    "type": "Product",
+    "primary_keyword": "contact lenses kennesaw"
+  },
+  "pages/services/exams/contact-lens.html": {
+    "old_path": "contact-lens-exams.html",
+    "type": "Service",
+    "primary_keyword": "contact lens exam kennesaw"
+  },
+  "pages/eyewear/specialty/index.html": {
+    "old_path": "specialty-contact-lenses.html",
+    "type": "Hub",
+    "primary_keyword": "specialty contact lenses atlanta"
+  },
+  "pages/eyewear/specialty/scleral.html": {
+    "old_path": "scleral-lenses-atlanta.html",
+    "type": "Specialty",
+    "primary_keyword": "scleral lenses atlanta"
+  },
+  "pages/eyewear/specialty/keratoconus.html": {
+    "old_path": "keratoconus-contacts.html",
+    "type": "Specialty",
+    "primary_keyword": "keratoconus contact lenses"
+  },
+  "pages/eyewear/specialty/post-lasik.html": {
+    "old_path": "post-lasik-contacts.html",
+    "type": "Specialty",
+    "primary_keyword": "contacts after lasik"
+  },
+  "pages/about/index.html": {
+    "old_path": "about-us.html",
+    "type": "About",
+    "primary_keyword": "about classic vision care"
+  },
+  "pages/about/doctors/index.html": {
+    "old_path": "our-doctors.html",
+    "type": "Team",
+    "primary_keyword": "eye doctors kennesaw"
+  },
+  "pages/about/doctors/mital-patel.html": {
+    "old_path": "dr-mital-patel-od.html",
+    "type": "Bio",
+    "primary_keyword": "dr mital patel optometrist"
+  },
+  "pages/about/doctors/bhumi-patel.html": {
+    "old_path": "dr-bhumi-patel-od.html",
+    "type": "Bio",
+    "primary_keyword": "dr bhumi patel optometrist"
+  },
+  "pages/about/why-choose-us.html": {
+    "old_path": "why-choose-us.html",
+    "type": "Trust",
+    "primary_keyword": "why choose classic vision care"
+  },
+  "pages/about/testimonials.html": {
+    "old_path": "testimonials.html",
+    "type": "Social Proof",
+    "primary_keyword": "classic vision care reviews"
+  },
+  "pages/about/community.html": {
+    "old_path": "community-involvement.html",
+    "type": "Trust",
+    "primary_keyword": "community eye care kennesaw"
+  },
+  "pages/patients/new.html": {
+    "old_path": "new-patients.html",
+    "type": "Resource",
+    "primary_keyword": "new patient eye exam"
+  },
+  "pages/patients/insurance.html": {
+    "old_path": "insurance.html",
+    "type": "Resource",
+    "primary_keyword": "eye care insurance kennesaw"
+  },
+  "pages/patients/contact.html": {
+    "old_path": "contact.html",
+    "type": "Utility",
+    "primary_keyword": "contact classic vision care"
+  },
+  "pages/patients/book.html": {
+    "old_path": "book-now.html",
+    "type": "Conversion",
+    "primary_keyword": "book eye exam kennesaw"
+  },
+  "pages/about/careers.html": {
+    "old_path": "careers.html",
+    "type": "Careers",
+    "primary_keyword": "eye care careers kennesaw"
+  },
+  "pages/about/blog.html": {
+    "old_path": "blog.html",
+    "type": "Blog Hub",
+    "primary_keyword": "eye care blog"
+  },
+  "pages/legal/accessibility.html": {
+    "old_path": "accessibility.html",
+    "type": "Legal",
+    "primary_keyword": "-"
+  },
+  "pages/legal/privacy.html": {
+    "old_path": "privacy-policy-2.html",
+    "type": "Legal",
+    "primary_keyword": "-"
+  }
+}
