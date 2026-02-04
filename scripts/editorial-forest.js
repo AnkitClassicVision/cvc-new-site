@@ -26,10 +26,16 @@
    * Initialize all effects when DOM is ready
    */
   document.addEventListener('DOMContentLoaded', () => {
+    initAutoEnhancements();
+    initHeroMediaEnhancements();
     initScrollProgress();
     initScrollReveal();
     initStickyHeader();
     initLineReveal();
+    initActiveNav();
+    initPageTransitions();
+    initImageFadeIn();
+    initPressFeedback();
 
     // Only init motion effects if user hasn't requested reduced motion
     if (!prefersReducedMotion) {
@@ -40,6 +46,127 @@
       initParallax();
     }
   });
+
+  /**
+   * AUTO ENHANCEMENTS
+   * Applies lightweight classes/attributes so pages don’t need per-file edits.
+   */
+  function initAutoEnhancements() {
+    // Mark primary buttons as pressable (works via CSS + touch JS)
+    document.querySelectorAll('.btn-primary, .ef-cta, .ef-btn-outline, .mobile-cta-btn').forEach(el => {
+      el.classList.add('ef-pressable');
+    });
+  }
+
+  /**
+   * HERO MEDIA ENHANCEMENTS
+   * Adds subtle image reveal + continuous Ken Burns motion (without changing layout).
+   */
+  function initHeroMediaEnhancements() {
+    if (prefersReducedMotion) return;
+    if (document.documentElement.hasAttribute('data-ef-no-hero-auto')) return;
+
+    const hero = findHeroSection();
+    if (!hero) return;
+
+    const heroImage = findHeroImage(hero);
+    if (heroImage) {
+      // Continuous, subtle motion on the hero image.
+      heroImage.classList.add('ef-hero-kenburns');
+
+      // Add reveal mask to the image wrapper (if it exists and is safe to decorate).
+      const wrapper =
+        heroImage.closest('.image-reveal') ||
+        heroImage.closest('.overflow-hidden') ||
+        heroImage.parentElement;
+
+      if (wrapper && wrapper !== hero && hero.contains(wrapper)) {
+        wrapper.classList.add('image-reveal');
+
+        // Match wrapper radius to the image so the reveal mask looks “native”.
+        try {
+          const radius = window.getComputedStyle(heroImage).borderRadius;
+          if (radius && radius !== '0px') wrapper.style.borderRadius = radius;
+        } catch {
+          // ignore
+        }
+
+        // Gentle scroll parallax for the hero media container.
+        if (!isTouch) {
+          wrapper.setAttribute('data-parallax', '');
+          wrapper.dataset.parallaxSpeed = wrapper.dataset.parallaxSpeed || '0.06';
+        }
+      }
+    }
+
+    enhanceHeroCopy(hero);
+  }
+
+  function findHeroSection() {
+    const explicit = document.querySelector('.hero-gradient');
+    if (explicit) return explicit;
+
+    const main = document.querySelector('main');
+    if (!main) return null;
+
+    const sections = Array.from(main.querySelectorAll(':scope > section'));
+    for (const section of sections) {
+      if (section.querySelector('h1')) return section;
+    }
+
+    return null;
+  }
+
+  function findHeroImage(hero) {
+    const images = Array.from(hero.querySelectorAll('img'));
+    for (const img of images) {
+      const src = (img.getAttribute('src') || '').toLowerCase();
+      if (!src) continue;
+      if (src.includes('/logos/') || src.includes('logo')) continue;
+      return img;
+    }
+    return null;
+  }
+
+  function enhanceHeroCopy(hero) {
+    if (prefersReducedMotion) return;
+    if (document.documentElement.hasAttribute('data-ef-no-hero-text')) return;
+
+    const h1 = hero.querySelector('h1');
+    if (!h1) return;
+
+    // Find the “copy column” container around the H1.
+    let copyRoot = h1.parentElement;
+    while (copyRoot && copyRoot !== hero) {
+      if (copyRoot.tagName === 'DIV') {
+        const kids = Array.from(copyRoot.children).filter(el => el.tagName !== 'SCRIPT');
+        // Heuristic: the column should have multiple blocks (eyebrow, h1, paragraph, CTA).
+        if (kids.length >= 3) break;
+      }
+      copyRoot = copyRoot.parentElement;
+    }
+    if (!copyRoot || copyRoot === hero) copyRoot = h1.parentElement;
+
+    const children = Array.from(copyRoot.children).filter(el => el.tagName !== 'SCRIPT');
+    if (!children.length) return;
+
+    let delay = 0.08;
+    children.forEach((child) => {
+      // Skip if element already opts into reveal/stagger.
+      if (child.classList.contains('reveal') ||
+          child.classList.contains('reveal-up') ||
+          child.classList.contains('reveal-scale') ||
+          child.classList.contains('stagger-children')) {
+        if (!child.style.animationDelay) child.style.animationDelay = `${delay.toFixed(2)}s`;
+        delay += 0.1;
+        return;
+      }
+
+      child.classList.add('reveal');
+      child.style.animationDelay = `${delay.toFixed(2)}s`;
+      delay += 0.1;
+    });
+  }
 
   /**
    * SCROLL PROGRESS BAR
@@ -82,7 +209,7 @@
    * Fade in elements as they enter viewport
    */
   function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.reveal');
+    const revealElements = document.querySelectorAll('.reveal, .reveal-up, .reveal-scale, .stagger-children');
 
     if (!revealElements.length) return;
 
@@ -95,9 +222,10 @@
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
           entry.target.classList.add('active');
-          // Optionally unobserve after reveal
-          // revealObserver.unobserve(entry.target);
+          // Unobserve after reveal for performance
+          revealObserver.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -197,6 +325,179 @@
       element.addEventListener('mouseleave', () => {
         element.style.transform = 'translate(0, 0)';
       });
+    });
+  }
+
+  /**
+   * ACTIVE NAV STATE
+   * Adds aria-current + active styles based on current URL
+   */
+  function initActiveNav() {
+    const header = document.getElementById('header');
+    if (!header) return;
+
+    const currentPath = normalizePath(window.location.pathname);
+
+    const navLinks = header.querySelectorAll('a[href]');
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href') || '';
+      if (!href || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:')) return;
+
+      let linkPath = '';
+      try {
+        const url = new URL(href, window.location.href);
+        if (url.origin !== window.location.origin) return;
+        linkPath = normalizePath(url.pathname);
+      } catch {
+        return;
+      }
+
+      const exactMatch = linkPath === currentPath;
+      const isTopLevelTrigger = link.classList.contains('nav-link') && !link.closest('.dropdown-menu');
+      const indexPrefixMatch = isTopLevelTrigger && linkPath.endsWith('/index.html') && currentPath.startsWith(linkPath.replace(/index\.html$/, ''));
+
+      if (exactMatch || indexPrefixMatch) {
+        link.setAttribute('aria-current', 'page');
+        link.classList.add('is-active');
+      }
+    });
+
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu) {
+      mobileMenu.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href') || '';
+        if (!href || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:')) return;
+
+        let linkPath = '';
+        try {
+          const url = new URL(href, window.location.href);
+          if (url.origin !== window.location.origin) return;
+          linkPath = normalizePath(url.pathname);
+        } catch {
+          return;
+        }
+
+        const exactMatch = linkPath === currentPath;
+
+        if (exactMatch) {
+          link.setAttribute('aria-current', 'page');
+          link.classList.add('is-active');
+        }
+      });
+    }
+  }
+
+  function normalizePath(pathname) {
+    if (!pathname) return '/index.html';
+
+    let normalized = pathname;
+    if (!normalized.startsWith('/')) normalized = `/${normalized}`;
+
+    if (normalized === '/') normalized = '/index.html';
+    if (normalized.endsWith('/')) normalized = `${normalized}index.html`;
+
+    return normalized;
+  }
+
+  /**
+   * PAGE TRANSITIONS (subtle)
+   * Adds a short fade/slide on internal navigation for a “premium” feel.
+   */
+  function initPageTransitions() {
+    if (prefersReducedMotion) return;
+
+    // Ensure we reset state on bfcache restores.
+    window.addEventListener('pageshow', () => {
+      document.documentElement.classList.remove('ef-page-leave');
+    });
+
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest && e.target.closest('a[href]');
+      if (!link) return;
+
+      // Respect default browser behaviors
+      if (e.defaultPrevented) return;
+      if (e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (link.target && link.target !== '_self') return;
+      if (link.hasAttribute('download')) return;
+      if (link.hasAttribute('data-no-transition')) return;
+
+      const href = link.getAttribute('href') || '';
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+      let url;
+      try {
+        url = new URL(link.href);
+      } catch {
+        return;
+      }
+
+      if (url.origin !== window.location.origin) return;
+
+      // If only hash is changing on the same page, skip transition.
+      const currentNoHash = window.location.href.split('#')[0];
+      const targetNoHash = url.href.split('#')[0];
+      if (currentNoHash === targetNoHash && url.hash) return;
+
+      e.preventDefault();
+      document.documentElement.classList.add('ef-page-leave');
+
+      // Slight delay so the transition can be perceived.
+      window.setTimeout(() => {
+        window.location.href = url.href;
+      }, 170);
+    }, { capture: true });
+  }
+
+  /**
+   * IMAGE FADE-IN
+   * Smoothly fades in images that haven’t finished loading yet.
+   */
+  function initImageFadeIn() {
+    const images = document.querySelectorAll('img');
+
+    images.forEach(img => {
+      // If already loaded, don’t force opacity flicker.
+      if (img.complete && img.naturalHeight > 0) {
+        img.classList.add('ef-img-loaded');
+        return;
+      }
+
+      img.classList.add('ef-img-fade');
+
+      img.addEventListener('load', () => {
+        img.classList.add('ef-img-loaded');
+      }, { once: true });
+
+      img.addEventListener('error', () => {
+        img.classList.remove('ef-img-fade');
+      }, { once: true });
+    });
+  }
+
+  /**
+   * PRESS FEEDBACK
+   * Adds tactile “press” feedback on touch devices.
+   */
+  function initPressFeedback() {
+    if (!isTouch) return;
+
+    const pressables = document.querySelectorAll('.ef-pressable');
+    if (!pressables.length) return;
+
+    pressables.forEach(el => {
+      el.addEventListener('touchstart', () => {
+        el.classList.add('is-pressed');
+      }, { passive: true });
+
+      el.addEventListener('touchend', () => {
+        el.classList.remove('is-pressed');
+      }, { passive: true });
+
+      el.addEventListener('touchcancel', () => {
+        el.classList.remove('is-pressed');
+      }, { passive: true });
     });
   }
 
@@ -360,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Mobile accordion for dropdowns
-  const accordionToggles = document.querySelectorAll('[data-accordion-toggle]');
+  const accordionToggles = document.querySelectorAll('[data-accordion-toggle], .accordion-toggle');
 
   accordionToggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
@@ -381,6 +682,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (otherContent && !otherContent.classList.contains('hidden')) {
               otherContent.classList.add('hidden');
               if (otherIcon) otherIcon.classList.remove('rotate-180');
+              otherToggle.setAttribute('aria-expanded', 'false');
             }
           }
         });
@@ -389,9 +691,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isOpen) {
           content.classList.add('hidden');
           if (icon) icon.classList.remove('rotate-180');
+          toggle.setAttribute('aria-expanded', 'false');
         } else {
           content.classList.remove('hidden');
           if (icon) icon.classList.add('rotate-180');
+          toggle.setAttribute('aria-expanded', 'true');
         }
       }
     });

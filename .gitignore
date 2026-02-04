@@ -4,6 +4,9 @@ node_modules/
 # Development files
 dev/
 
+# SuperDesign mockups (keep out of deploy)
+.superdesign/
+
 # OS files
 .DS_Store
 Thumbs.db

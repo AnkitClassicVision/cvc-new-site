@@ -22,6 +22,8 @@ Use this as a reference for the new URL paths.
 | dry-eye-spa.html | pages/dry-eye/index.html |
 | dry-eye-treatment-blephex.html | pages/dry-eye/treatments/blephex.html |
 | dry-eye-treatment-intense-pulsed-light.html | pages/dry-eye/treatments/ipl.html |
+| dry-eye-treatment-eye-drops.html | pages/dry-eye/treatments/eye-drops.html |
+| dry-eye-treatment-eye-supplements.html | pages/dry-eye/treatments/supplements.html |
 | dry-eye-treatment-miboflo.html | pages/dry-eye/treatments/miboflo.html |
 | dry-eye-treatment-punctal-plugs.html | pages/dry-eye/treatments/punctal-plugs.html |
 | dry-eye-treatment.html | pages/dry-eye/treatments.html |

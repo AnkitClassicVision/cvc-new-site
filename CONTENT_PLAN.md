@@ -45,6 +45,8 @@ This document outlines the systematic content rewrite plan for all 52 pages of t
 | dry-eye-treatment-blephex.html | Treatment | 1000-1200 | blephex treatment |
 | dry-eye-treatment-punctal-plugs.html | Treatment | 800-1000 | punctal plugs dry eye |
 | scleral-lenses-for-dry-eyes.html | Treatment | 1000-1200 | scleral lenses dry eye |
+| dry-eye-treatment-eye-drops.html | Treatment | 800-1000 | dry eye prescription drops |
+| dry-eye-treatment-eye-supplements.html | Treatment | 800-1000 | dry eye supplements omega 3 |
 
 ### Tier 4: Myopia Control
 | Page | Type | Target Word Count | Primary Keyword |
@@ -174,7 +176,7 @@ This document outlines the systematic content rewrite plan for all 52 pages of t
 - "Let's dive in..."
 - "Leverage," "streamline," "robust," "seamless"
 - "Furthermore," "Moreover," "Additionally" at paragraph starts
-- Em dashes (—)
+- Em dashes (--)
 
 ---
 

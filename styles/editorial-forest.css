@@ -778,7 +778,11 @@ body.cvc-editorial ::-moz-selection {
 /* Button Active State */
 .cvc-editorial .btn-primary:active,
 .cvc-editorial .ef-cta:active {
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(0.99);
+}
+
+.cvc-editorial .ef-btn-outline:active {
+  transform: translateY(-1px) scale(0.99);
 }
 
 /* Small Button Variant - for navigation/header */
@@ -1170,7 +1174,6 @@ body.cvc-editorial ::-moz-selection {
 .cvc-editorial .image-reveal {
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
 }
 
 .cvc-editorial .image-reveal::before {
@@ -1178,17 +1181,23 @@ body.cvc-editorial ::-moz-selection {
   position: absolute;
   inset: 0;
   background: var(--forest);
-  z-index: 2;
+  z-index: 20;
+  pointer-events: none;
   transform: scaleX(1);
   transform-origin: right center;
   animation: imageReveal 1s var(--ease-out-expo) forwards;
   animation-delay: 0.2s;
 }
 
-.cvc-editorial .image-reveal img {
+.cvc-editorial .image-reveal img:not(.ef-hero-kenburns) {
   transform: scale(1.3);
   animation: imageScale 1.2s var(--ease-out-expo) forwards;
   animation-delay: 0.2s;
+}
+
+/* If a hero image uses continuous Ken Burns motion, avoid competing transform animations */
+.cvc-editorial .image-reveal img.ef-hero-kenburns {
+  transform: scale(1.03);
 }
 
 /* ==========================================================================
@@ -2225,10 +2234,19 @@ body.cvc-editorial ::-moz-selection {
 
 /* Text gradient fix - ensure it works consistently */
 .cvc-editorial .text-gradient {
-  background: linear-gradient(135deg, var(--forest) 0%, var(--gold) 100%);
+  background: linear-gradient(135deg, var(--forest) 0%, var(--gold) 38%, var(--gold-light) 50%, var(--forest) 100%);
+  background-size: 220% 220%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: textGradient 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cvc-editorial .text-gradient {
+    animation: none;
+    background-position: 0% center;
+  }
 }
 
 /* Stats section spacing */
@@ -2291,4 +2309,329 @@ body.cvc-editorial {
   text-transform: uppercase;
   font-size: 0.75rem;
   font-weight: 500;
+}
+
+/* ==========================================================================
+   WORLD-CLASS POLISH (2026)
+   Premium touches to elevate the experience
+   ========================================================================== */
+
+/* Premium entry animations: override inline @keyframes used across pages */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    filter: blur(10px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0);
+    filter: blur(12px);
+  }
+  55% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cvc-editorial .animate-fade-in,
+  .cvc-editorial .animate-fade-in-up {
+    animation: none !important;
+  }
+}
+
+@keyframes auroraDrift {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(2%, 1%, 0) scale(1.03);
+  }
+}
+
+@keyframes shineSweep {
+  0% {
+    transform: translateX(-160%) skewX(-12deg);
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(160%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+/* Hero atmosphere: animated aurora mesh (respects reduced-motion) */
+.cvc-editorial .hero-gradient {
+  isolation: isolate;
+}
+
+.cvc-editorial .hero-gradient::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(circle at 20% 22%, rgba(201, 162, 39, 0.18), transparent 58%),
+    radial-gradient(circle at 78% 18%, rgba(122, 155, 138, 0.16), transparent 62%),
+    radial-gradient(circle at 66% 82%, rgba(26, 48, 40, 0.12), transparent 60%),
+    radial-gradient(circle at 10% 78%, rgba(201, 162, 39, 0.12), transparent 55%);
+  filter: blur(34px) saturate(115%);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+  animation: auroraDrift 16s var(--ease-out-expo) infinite alternate;
+}
+
+.cvc-editorial .hero-gradient .max-w-7xl {
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cvc-editorial .hero-gradient::before {
+    animation: none;
+  }
+}
+
+/* Header: subtle gold hairline when scrolled */
+.cvc-editorial .ef-header {
+  position: relative;
+}
+
+.cvc-editorial .ef-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.65), transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s var(--ease-out-expo);
+}
+
+.cvc-editorial .ef-header.scrolled::after {
+  opacity: 1;
+}
+
+/* Active nav styles (set via JS) */
+.cvc-editorial .nav-link.is-active,
+.cvc-editorial .ef-nav a[aria-current="page"] {
+  color: var(--forest) !important;
+}
+
+.cvc-editorial .nav-link.is-active::after,
+.cvc-editorial .ef-nav a[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.cvc-editorial #mobile-menu a[aria-current="page"] {
+  color: var(--forest) !important;
+}
+
+.cvc-editorial .dropdown-menu .ef-dropdown a[aria-current="page"] {
+  background: linear-gradient(90deg, rgba(201, 162, 39, 0.16), rgba(201, 162, 39, 0));
+  color: var(--forest);
+  font-weight: 600;
+}
+
+/* Buttons: foil shine sweep + consistent stacking */
+.cvc-editorial .btn-primary > *,
+.cvc-editorial .ef-cta > *,
+.cvc-editorial .ef-btn-outline > * {
+  position: relative;
+  z-index: 2;
+}
+
+.cvc-editorial .btn-primary::after,
+.cvc-editorial .ef-cta::after,
+.cvc-editorial .ef-btn-outline::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.55) 45%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transform: translateX(-160%) skewX(-12deg);
+}
+
+.cvc-editorial .btn-primary:hover::after,
+.cvc-editorial .ef-cta:hover::after,
+.cvc-editorial .ef-btn-outline:hover::after {
+  animation: shineSweep 1.2s var(--ease-out-expo) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cvc-editorial .btn-primary:hover::after,
+  .cvc-editorial .ef-cta:hover::after,
+  .cvc-editorial .ef-btn-outline:hover::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Trust bar component */
+.cvc-editorial .ef-trustbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+}
+
+.cvc-editorial .ef-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: rgba(42, 42, 42, 0.9);
+}
+
+.cvc-editorial a.ef-trust-item {
+  text-decoration: none;
+  transition: transform 0.35s var(--ease-out-expo), color 0.35s var(--ease-out-expo);
+}
+
+.cvc-editorial a.ef-trust-item:hover {
+  transform: translateY(-2px);
+  color: var(--forest);
+}
+
+.cvc-editorial .ef-trust-item strong {
+  color: var(--forest-deep);
+  font-weight: 700;
+}
+
+.cvc-editorial .ef-trust-divider {
+  width: 1px;
+  height: 1.1rem;
+  background: rgba(26, 48, 40, 0.18);
+}
+
+.cvc-editorial .ef-stars {
+  display: inline-flex;
+  gap: 0.15rem;
+  color: #facc15;
+  filter: drop-shadow(0 0 6px rgba(250, 204, 21, 0.4));
+}
+
+@media (max-width: 520px) {
+  .cvc-editorial .ef-trustbar {
+    border-radius: 18px;
+    padding: 0.85rem 1rem;
+  }
+
+  .cvc-editorial .ef-trust-divider {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   MICRO-INTERACTIONS (Keep the look, elevate the feel)
+   ========================================================================== */
+
+/* Subtle page leave transition (disabled for reduced motion) */
+body.cvc-editorial {
+  transition: opacity 220ms var(--ease-out-expo), transform 220ms var(--ease-out-expo);
+}
+
+html.ef-page-leave body.cvc-editorial {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.cvc-editorial {
+    transition: none;
+  }
+
+  html.ef-page-leave body.cvc-editorial {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Touch press feedback (JS toggles .is-pressed on touch devices) */
+.cvc-editorial .ef-pressable {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.cvc-editorial .ef-pressable.is-pressed {
+  transform: translateY(-1px) scale(0.99) !important;
+}
+
+/* Smooth late-image load */
+.cvc-editorial img.ef-img-fade {
+  opacity: 0;
+  will-change: opacity;
+}
+
+.cvc-editorial img.ef-img-fade.ef-img-loaded,
+.cvc-editorial img.ef-img-loaded {
+  opacity: 1;
+}
+
+/* Hero media motion: slow, premium Ken Burns (subtle) */
+@keyframes heroKenBurns {
+  0% {
+    transform: scale(1.03) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate3d(-16px, -10px, 0);
+  }
+}
+
+.cvc-editorial .ef-hero-kenburns {
+  will-change: transform;
+  transform-origin: center;
+  animation: heroKenBurns 18s var(--ease-out-expo) infinite alternate;
+}
+
+/* Hero decorative circles: gentle drift (only where safe; hero uses absolute positioned circles without transform utilities) */
+@keyframes heroCircleDrift {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(0, -18px, 0); }
+}
+
+.cvc-editorial .hero-gradient .decorative-circle {
+  animation: heroCircleDrift 10s var(--ease-out-expo) infinite alternate;
+}
+
+.cvc-editorial .hero-gradient .decorative-circle:nth-child(2) {
+  animation-duration: 12s;
+  animation-delay: -2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cvc-editorial .ef-hero-kenburns,
+  .cvc-editorial .hero-gradient .decorative-circle {
+    animation: none !important;
+    transform: none !important;
+  }
 }

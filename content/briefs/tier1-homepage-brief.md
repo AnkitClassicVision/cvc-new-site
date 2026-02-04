@@ -118,7 +118,7 @@ Based on research of top Kennesaw eye care providers:
 **DO NOT USE**:
 - "In today's world..."
 - "It's important to note..."
-- Em dashes (—)
+- Em dashes (--)
 - "Leverage," "streamline," "robust," "seamless"
 
 ### Key Messages to Weave In
