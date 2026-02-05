@@ -1,5 +1,11 @@
 {
   "dependencies": {
     "playwright": "^1.58.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "scripts": {
+    "build:tailwind": "tailwindcss -c tailwind.config.js -i styles/tailwind-input.css -o styles/tailwind.css --minify"
   }
 }
