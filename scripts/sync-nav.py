@@ -1,12 +1,30 @@
 #!/usr/bin/env python3
 """
-Standardize navigation across all HTML pages.
-Extracts nav from index.html and applies to all other pages.
+Standardize navigation across all public HTML pages.
+
+Extracts the header block from index.html and applies it across the static site.
+This repo uses root-relative paths (e.g., /book-now/), so we do NOT attempt to
+rewrite links based on directory depth.
 """
 
 import os
 import re
 from pathlib import Path
+
+EXCLUDE_DIRS = {
+    ".git",
+    ".superdesign",
+    "api",
+    "content",
+    "dev",
+    "images",
+    "node_modules",
+    "pages",  # source-only files; not part of clean-route output
+    "partials",
+    "scripts",  # avoid modifying generators
+    "styles",
+    "wp-content",
+}
 
 def extract_nav_from_index(index_path):
     """Extract the topbar + header section from index.html"""
@@ -60,20 +78,23 @@ def main():
 
     print(f"Extracted nav section ({len(nav_content)} chars)")
 
-    # Find all HTML files except index.html
-    html_files = list(base_dir.glob('*.html'))
+    # Find all HTML files recursively except index.html
+    html_files = list(base_dir.rglob('*.html'))
 
     updated = 0
     skipped = 0
     for html_file in html_files:
-        if html_file.name == 'index.html':
+        rel = html_file.relative_to(base_dir)
+        if rel.parts and rel.parts[0] in EXCLUDE_DIRS:
+            continue
+        if html_file == index_path:
             continue
 
         if replace_nav_in_file(html_file, nav_content):
-            print(f"  Updated: {html_file.name}")
+            print(f"  Updated: {rel.as_posix()}")
             updated += 1
         else:
-            print(f"  Skipped (no nav found): {html_file.name}")
+            print(f"  Skipped (no nav found): {rel.as_posix()}")
             skipped += 1
 
     print(f"\nDone! Updated {updated} files, skipped {skipped} files.")
