@@ -1,0 +1,172 @@
+{
+  "trailingSlash": true,
+  "rewrites": [{ "source": "/robots.txt", "destination": "/api/robots" }],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/styles/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/scripts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*).woff2",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/blog/page/2/", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/page/4/", "destination": "/blog/", "permanent": true },
+
+    { "source": "/contact", "destination": "/contact-us/", "permanent": true },
+    { "source": "/contact/", "destination": "/contact-us/", "permanent": true },
+
+    { "source": "/pages/about/blog.html", "destination": "/blog/", "permanent": true },
+    { "source": "/pages/about/careers.html", "destination": "/careers/", "permanent": true },
+    { "source": "/pages/about/community.html", "destination": "/community-involvement/", "permanent": true },
+    { "source": "/pages/about/doctors/bhumi-patel.html", "destination": "/dr-bhumi-patel-od/", "permanent": true },
+    { "source": "/pages/about/doctors/index.html", "destination": "/our-doctors/", "permanent": true },
+    { "source": "/pages/about/doctors/mital-patel.html", "destination": "/dr-mital-patel-od/", "permanent": true },
+    { "source": "/pages/about/index.html", "destination": "/about-us/", "permanent": true },
+    { "source": "/pages/about/testimonials.html", "destination": "/testimonials/", "permanent": true },
+    { "source": "/pages/about/why-choose-us.html", "destination": "/why-choose-us/", "permanent": true },
+    { "source": "/pages/dry-eye/index.html", "destination": "/dry-eye-treatment/", "permanent": true },
+    { "source": "/pages/dry-eye/treatments.html", "destination": "/dry-eye-treatment/", "permanent": true },
+    { "source": "/pages/dry-eye/treatments/blephex.html", "destination": "/dry-eye-treatment-blephex/", "permanent": true },
+    { "source": "/pages/dry-eye/treatments/eye-drops.html", "destination": "/dry-eye-treatment-eye-drops/", "permanent": true },
+    { "source": "/pages/dry-eye/treatments/ipl.html", "destination": "/dry-eye-treatment-intense-pulsed-light/", "permanent": true },
+    { "source": "/pages/dry-eye/treatments/miboflo.html", "destination": "/dry-eye-treatment-miboflo/", "permanent": true },
+    { "source": "/pages/dry-eye/treatments/punctal-plugs.html", "destination": "/dry-eye-treatment-punctal-plugs/", "permanent": true },
+    { "source": "/pages/dry-eye/treatments/scleral-lenses.html", "destination": "/scleral-lenses-for-dry-eyes/", "permanent": true },
+    { "source": "/pages/dry-eye/treatments/supplements.html", "destination": "/dry-eye-treatment-eye-supplements/", "permanent": true },
+    { "source": "/pages/eyewear/contact-lenses.html", "destination": "/contact-lenses/", "permanent": true },
+    { "source": "/pages/eyewear/eyeglasses.html", "destination": "/eyeglasses/", "permanent": true },
+    { "source": "/pages/eyewear/index.html", "destination": "/eyewear/", "permanent": true },
+    { "source": "/pages/eyewear/specialty/index.html", "destination": "/specialty-contact-lenses/", "permanent": true },
+    { "source": "/pages/eyewear/specialty/keratoconus.html", "destination": "/keratoconus-contacts/", "permanent": true },
+    { "source": "/pages/eyewear/specialty/post-lasik.html", "destination": "/post-lasik-contacts/", "permanent": true },
+    { "source": "/pages/eyewear/specialty/scleral.html", "destination": "/scleral-lenses-atlanta/", "permanent": true },
+    { "source": "/pages/eyewear/sunglasses.html", "destination": "/sunglasses/", "permanent": true },
+    { "source": "/pages/legal/accessibility.html", "destination": "/accessibility/", "permanent": true },
+    { "source": "/pages/legal/privacy.html", "destination": "/privacy-policy-2/", "permanent": true },
+    { "source": "/pages/locations/east-cobb.html", "destination": "/eye-doctor-marietta/", "permanent": true },
+    { "source": "/pages/locations/index.html", "destination": "/our-locations/", "permanent": true },
+    { "source": "/pages/locations/kennesaw.html", "destination": "/eye-doctor-kennesaw-ga/", "permanent": true },
+    { "source": "/pages/myopia/children.html", "destination": "/myopia-in-children/", "permanent": true },
+    { "source": "/pages/myopia/index.html", "destination": "/myopia-control/", "permanent": true },
+    { "source": "/pages/myopia/treatments/atropine.html", "destination": "/myopia-control-atropine-eye-drops/", "permanent": true },
+    { "source": "/pages/myopia/treatments/misight.html", "destination": "/misight-lenses-for-myopia-control/", "permanent": true },
+    { "source": "/pages/myopia/treatments/multifocal.html", "destination": "/myopia-control-multifocal-lenses/", "permanent": true },
+    { "source": "/pages/myopia/treatments/ortho-k.html", "destination": "/ortho-k-lenses-for-myopia-control/", "permanent": true },
+    { "source": "/pages/patients/book.html", "destination": "/book-now/", "permanent": true },
+    { "source": "/pages/patients/contact.html", "destination": "/contact-us/", "permanent": true },
+    { "source": "/pages/patients/insurance.html", "destination": "/insurance/", "permanent": true },
+    { "source": "/pages/patients/new.html", "destination": "/new-patients/", "permanent": true },
+    { "source": "/pages/services/conditions/allergies.html", "destination": "/allergies/", "permanent": true },
+    { "source": "/pages/services/conditions/astigmatism.html", "destination": "/astigmatism/", "permanent": true },
+    { "source": "/pages/services/conditions/glaucoma.html", "destination": "/glaucoma/", "permanent": true },
+    { "source": "/pages/services/conditions/macular-degeneration.html", "destination": "/macular-degeneration/", "permanent": true },
+    { "source": "/pages/services/exams/comprehensive.html", "destination": "/comprehensive-eye-exams/", "permanent": true },
+    { "source": "/pages/services/exams/contact-lens.html", "destination": "/contact-lens-exams/", "permanent": true },
+    { "source": "/pages/services/exams/diabetic.html", "destination": "/diabetic-eye-exam/", "permanent": true },
+    { "source": "/pages/services/index.html", "destination": "/eye-care-services/", "permanent": true },
+    { "source": "/pages/services/pediatric/childrens-exam.html", "destination": "/childrens-eye-exam/", "permanent": true },
+    { "source": "/pages/services/pediatric/eye-care.html", "destination": "/pediatric-eye-care/", "permanent": true },
+    { "source": "/pages/services/pediatric/eye-exams.html", "destination": "/pediatric-eye-exams/", "permanent": true },
+    { "source": "/pages/services/pediatric/school-screening.html", "destination": "/school-vision-screening/", "permanent": true },
+
+    { "source": "/dry-eyes/blephex/", "destination": "/dry-eye-treatment-blephex/", "permanent": true },
+    { "source": "/dry-eyes/what-causes-dry-eye/", "destination": "/dry-eyes/dry-eyes-symptoms-causes-and-treatment/", "permanent": true },
+    { "source": "/dry-eyes/what-is-dry-eye/", "destination": "/dry-eye-treatment/", "permanent": true },
+    {
+      "source": "/dry-eyes/what-is-intense-pulsed-light-treatment-ipl-for-dry-eye-disease/",
+      "destination": "/dry-eyes/what-is-intense-pulsed-light-treatment/",
+      "permanent": true
+    },
+
+    { "source": "/eye-care/how-to-treat/", "destination": "/eye-care-services/", "permanent": true },
+    { "source": "/eye-care/inflammation/", "destination": "/allergies/", "permanent": true },
+
+    { "source": "/eye-doctor-kennesaw/", "destination": "/eye-doctor-kennesaw-ga/", "permanent": true },
+    { "source": "/eye-doctor-near-me/", "destination": "/our-locations/", "permanent": true },
+
+    { "source": "/eye-treatment/ipl/", "destination": "/dry-eyes/what-is-intense-pulsed-light-treatment/", "permanent": true },
+    { "source": "/eye-treatment/miboflo/", "destination": "/dry-eyes/what-is-mibo-thermoflo/", "permanent": true },
+    { "source": "/eye-treatment/supplements/", "destination": "/dry-eye-treatment-eye-supplements/", "permanent": true },
+
+    { "source": "/location/ga/kennesaw/", "destination": "/eye-doctor-kennesaw-ga/", "permanent": true },
+    { "source": "/scleral-lenses/", "destination": "/scleral-lenses-for-dry-eyes/", "permanent": true },
+
+    { "source": "/services/", "destination": "/eye-care-services/", "permanent": true },
+
+    { "source": "/dryeye-landing/", "destination": "/dry-eye-treatment/", "permanent": true },
+    { "source": "/east-cobb-eye-doctors/", "destination": "/eye-doctor-marietta/", "permanent": true },
+    { "source": "/location/ga/marietta/", "destination": "/eye-doctor-marietta/", "permanent": true },
+    { "source": "/newhomepage/", "destination": "/", "permanent": true },
+
+    { "source": "/things-to-do-and-see-in-kennesaw/", "destination": "/blog/top-things-to-do-and-see-in-kennesaw-ga/", "permanent": true },
+    { "source": "/author/ankitclassicvisioncare-com/", "destination": "/blog/", "permanent": true },
+
+    { "source": "/privacy-policy/", "destination": "/privacy-policy-2/", "permanent": true },
+
+    { "source": "/blog/5-common-signs-of-dry-eyes/", "destination": "/dry-eyes/5-common-signs-of-dry-eyes/", "permanent": true },
+    { "source": "/blog/5-steps-to-prevent-diabetic-eye-disease/", "destination": "/eye-treatment/5-steps-to-prevent-diabetic-eye-disease/", "permanent": true },
+    { "source": "/blog/7-tips-for-avoiding-eye-infections/", "destination": "/eye-care/7-tips-for-avoiding-eye-infections/", "permanent": true },
+    { "source": "/blog/8-troubling-signs-of-glaucoma/", "destination": "/glaucoma/8-troubling-signs-of-glaucoma/", "permanent": true },
+    { "source": "/blog/am-i-a-candidate-for-contact-lenses/", "destination": "/contact-lenses/am-i-a-candidate-for-contact-lenses/", "permanent": true },
+    { "source": "/blog/are-glasses-better-than-contacts/", "destination": "/glasses/are-glasses-better-than-contacts/", "permanent": true },
+    { "source": "/blog/blog-4-causes-of-red-itchy-eyes/", "destination": "/eye-treatment/blog-4-causes-of-red-itchy-eyes/", "permanent": true },
+    { "source": "/blog/blog-simple-home-remedies-for-dry-eyes/", "destination": "/dry-eyes/blog-simple-home-remedies-for-dry-eyes/", "permanent": true },
+    { "source": "/blog/care-and-maintenance-tips-for-your-eyeglasses/", "destination": "/glasses/care-and-maintenance-tips-for-your-eyeglasses/", "permanent": true },
+    { "source": "/blog/choosing-the-most-comfortable-glasses-for-you/", "destination": "/glasses/choosing-the-most-comfortable-glasses-for-you/", "permanent": true },
+    { "source": "/blog/common-causes-of-eye-infections/", "destination": "/eye-treatment/common-causes-of-eye-infections/", "permanent": true },
+    { "source": "/blog/contacts-vs-glasses-the-pros-and-cons/", "destination": "/contact-lenses/contacts-vs-glasses-the-pros-and-cons/", "permanent": true },
+    { "source": "/blog/did-you-know-that-watery-eyes-are-actually-caused-by-dry-eyes/", "destination": "/dry-eyes/did-you-know-that-watery-eyes-are-actually-caused-by-dry-eyes/", "permanent": true },
+    { "source": "/blog/dry-eyes-symptoms-causes-and-treatment/", "destination": "/dry-eyes/dry-eyes-symptoms-causes-and-treatment/", "permanent": true },
+    { "source": "/blog/dry-painful-eyes-we-can-remedy-that/", "destination": "/dry-eyes/dry-painful-eyes-we-can-remedy-that/", "permanent": true },
+    { "source": "/blog/first-steps-in-dealing-with-an-eye-infection/", "destination": "/eye-care/first-steps-in-dealing-with-an-eye-infection/", "permanent": true },
+    { "source": "/blog/how-astigmatism-affects-your-vision/", "destination": "/eye-treatment/how-astigmatism-affects-your-vision/", "permanent": true },
+    { "source": "/blog/how-fall-allergies-can-affect-your-eyes/", "destination": "/eye-care/how-fall-allergies-can-affect-your-eyes/", "permanent": true },
+    { "source": "/blog/how-often-should-you-have-an-eye-exam/", "destination": "/eye-care/how-often-should-you-have-an-eye-exam/", "permanent": true },
+    { "source": "/blog/how-staring-at-screens-can-impact-your-vision/", "destination": "/eye-treatment/how-staring-at-screens-can-impact-your-vision/", "permanent": true },
+    { "source": "/blog/how-to-choose-glasses-that-flatter-your-face-shape/", "destination": "/glasses/how-to-choose-glasses-that-flatter-your-face-shape/", "permanent": true },
+    { "source": "/blog/how-to-choose-the-right-sports-eyewear/", "destination": "/glasses/how-to-choose-the-right-sports-eyewear/", "permanent": true },
+    { "source": "/blog/how-to-prevent-cataracts-and-other-eye-health-conditions/", "destination": "/eye-treatment/how-to-prevent-cataracts-and-other-eye-health-conditions/", "permanent": true },
+    { "source": "/blog/how-to-protect-your-kids-from-eye-infections/", "destination": "/eye-care/how-to-protect-your-kids-from-eye-infections/", "permanent": true },
+    { "source": "/blog/how-to-safely-remove-a-foreign-object-from-your-eye/", "destination": "/eye-care/how-to-safely-remove-a-foreign-object-from-your-eye/", "permanent": true },
+    { "source": "/blog/how-to-safely-wear-colored-contact-lenses/", "destination": "/contact-lenses/how-to-safely-wear-colored-contact-lenses/", "permanent": true },
+    { "source": "/blog/is-squinting-bad-for-your-eyes/", "destination": "/eye-care/is-squinting-bad-for-your-eyes/", "permanent": true },
+    { "source": "/blog/minimizing-eye-strain-and-computer-vision-syndrome/", "destination": "/eye-care/minimizing-eye-strain-and-computer-vision-syndrome/", "permanent": true },
+    { "source": "/blog/recognizing-the-signs-of-macular-degeneration/", "destination": "/eye-treatment/recognizing-the-signs-of-macular-degeneration/", "permanent": true },
+    { "source": "/blog/reinvent-your-look-in-the-new-year-with-new-designer-eyewear/", "destination": "/glasses/reinvent-your-look-in-the-new-year-with-new-designer-eyewear/", "permanent": true },
+    { "source": "/blog/steps-to-take-after-an-eye-injury-to-reduce-eye-pain-strain/", "destination": "/eye-care/steps-to-take-after-an-eye-injury-to-reduce-eye-pain-strain/", "permanent": true },
+    { "source": "/blog/the-latest-eyewear-trends-in-2019/", "destination": "/glasses/the-latest-eyewear-trends-in-2019/", "permanent": true },
+    { "source": "/blog/the-link-between-diabetes-and-your-eye-health/", "destination": "/eye-treatment/the-link-between-diabetes-and-your-eye-health/", "permanent": true },
+    { "source": "/blog/the-symptoms-of-eye-infections-caused-by-contacts/", "destination": "/contact-lenses/the-symptoms-of-eye-infections-caused-by-contacts/", "permanent": true },
+    { "source": "/blog/what-is-intense-pulsed-light-treatment-ipl-for-dry-eye-disease/", "destination": "/dry-eyes/what-is-intense-pulsed-light-treatment/", "permanent": true },
+    { "source": "/blog/what-to-expect-from-a-comprehensive-eye-exam/", "destination": "/eye-care/what-to-expect-from-a-comprehensive-eye-exam/", "permanent": true },
+    { "source": "/blog/who-is-at-risk-for-glaucoma/", "destination": "/glaucoma/who-is-at-risk-for-glaucoma/", "permanent": true },
+    { "source": "/blog/why-sunglasses-are-important-all-year-long/", "destination": "/glasses/why-sunglasses-are-important-all-year-long/", "permanent": true }
+  ]
+}

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classic Vision Care - Hybrid Mockup (Teal + Current Fonts)</title>
+
+  <!-- Fonts from current site: Fraunces (headings) + Instrument Sans (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       BRAND GUIDE COLOR PALETTE
+       ============================================ */
+    :root {
+      /* Primary Brand Colors */
+      --teal-light: #52C7E1;
+      --teal-primary: #3294A3;
+      --teal-dark: #15737A;
+      --teal-deep: #114755;
+
+      /* Neutrals */
+      --white: #ffffff;
+      --gray-50: #f8fafb;
+      --gray-100: #f1f5f7;
+      --gray-200: #e2e8ec;
+      --gray-400: #94a3b8;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+      --black: #0f172a;
+
+      /* Accent */
+      --accent-green: #7cb89c;
+
+      /* Typography - From current site */
+      --font-heading: 'Fraunces', Georgia, serif;
+      --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(17, 71, 85, 0.05);
+      --shadow-md: 0 4px 12px rgba(17, 71, 85, 0.1);
+      --shadow-lg: 0 12px 40px rgba(17, 71, 85, 0.15);
+      --shadow-xl: 0 24px 60px rgba(17, 71, 85, 0.2);
+    }
+
+    /* ============================================
+       BASE STYLES
+       ============================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--gray-800);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Headings use Fraunces with light weight (matches current site) */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    /* ============================================
+       HEADER / NAVIGATION
+       ============================================ */
+    .topbar {
+      background: var(--teal-deep);
+      color: var(--white);
+      font-size: 0.75rem;
+      padding: 0.5rem 0;
+    }
+
+    .topbar-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topbar a {
+      color: var(--teal-light);
+      text-decoration: none;
+    }
+
+    .header {
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--teal-deep);
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    .logo-text {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav a {
+      color: var(--gray-600);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--teal-primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(50, 148, 163, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(50, 148, 163, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--teal-primary);
+      border: 2px solid var(--teal-primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--teal-primary);
+      color: var(--white);
+    }
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+    .hero {
+      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(82, 199, 225, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(50, 148, 163, 0.1);
+      color: var(--teal-primary);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--teal-deep);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--teal-light), var(--teal-primary));
+      border-radius: 24px;
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    /* Floating card */
+    .floating-card {
+      position: absolute;
+      bottom: -20px;
+      left: -30px;
+      background: var(--white);
+      padding: 1.25rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .floating-card-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+
+    .floating-card-text strong {
+      display: block;
+      color: var(--teal-deep);
+      font-weight: 600;
+    }
+
+    .floating-card-text span {
+      font-size: 0.8rem;
+      color: var(--gray-400);
+    }
+
+    /* Trust bar */
+    .trust-bar {
+      display: flex;
+      gap: 2rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .trust-item strong {
+      font-size: 1.5rem;
+      color: var(--teal-primary);
+      font-weight: 700;
+    }
+
+    .trust-item span {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+    }
+
+    /* ============================================
+       SERVICES SECTION
+       ============================================ */
+    .services {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .services-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: rgba(50, 148, 163, 0.1);
+      color: var(--teal-primary);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--teal-deep);
+      letter-spacing: -0.02em;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--gray-50);
+      padding: 2rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .service-card:hover {
+      background: var(--white);
+      border-color: var(--teal-light);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .service-card h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--teal-deep);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .service-link {
+      color: var(--teal-primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .service-link:hover {
+      gap: 0.5rem;
+    }
+
+    /* ============================================
+       LOCATIONS SECTION
+       ============================================ */
+    .locations {
+      padding: 6rem 0;
+      background: linear-gradient(180deg, var(--teal-deep) 0%, var(--teal-dark) 100%);
+      color: var(--white);
+    }
+
+    .locations-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .locations .section-badge {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--teal-light);
+    }
+
+    .locations h2 {
+      color: var(--white);
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .location-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .location-card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .location-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .location-card address {
+      font-style: normal;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 1rem;
+    }
+
+    .location-card a {
+      color: var(--teal-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* ============================================
+       CTA SECTION
+       ============================================ */
+    .cta {
+      padding: 6rem 0;
+      background: var(--gray-50);
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--teal-deep);
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      margin-bottom: 2rem;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: var(--teal-deep);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand p {
+      opacity: 0.7;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      max-width: 300px;
+    }
+
+    .footer h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--teal-light);
+    }
+
+    .footer ul {
+      list-style: none;
+    }
+
+    .footer li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-ctas {
+        justify-content: center;
+      }
+
+      .hero-image {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .services-grid,
+      .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .services-grid,
+      .locations-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-bar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================
+       MOCKUP LABEL
+       ============================================ */
+    .mockup-label {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #ff6b6b;
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 9999;
+    }
+  </style>
+  <meta property="og:image" content="https://classicvisioncare.com/images/logos/cropped-EOP1600_Classic_Logo_FN.png">
+  <meta property="og:site_name" content="Classic Vision Care">
+  <meta property="og:locale" content="en_US">
+</head>
+<body>
+
+  <div class="mockup-label">MOCKUP - Hybrid Design: Brand Teal Colors + Current Site Fonts (Fraunces + Instrument Sans)</div>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="topbar-content">
+      <div>
+        <span>Kennesaw: (770) 499-2020</span> &nbsp;|&nbsp;
+        <span>East Cobb: (678) 560-8065</span> &nbsp;|&nbsp;
+        <span>Sandy Plains: (770) 977-1222</span>
+      </div>
+      <div>
+        <a href="#">Patient Portal</a> &nbsp;|&nbsp;
+        <a href="#">Order Contacts</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4C14 4 8 14 8 24C8 34 14 44 24 44C24 44 24 34 24 24C24 14 24 4 24 4Z" fill="#52C7E1"/>
+          <path d="M24 4C34 4 40 14 40 24C40 34 34 44 24 44C24 44 24 34 24 24C24 14 24 4 24 4Z" fill="#3294A3"/>
+          <path d="M24 14C18 14 14 19 14 24C14 29 18 34 24 34C24 34 24 29 24 24C24 19 24 14 24 14Z" fill="#7cb89c"/>
+        </svg>
+        <span class="logo-text">CLASSIC VISION CARE</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#">Services</a>
+        <a href="#">Eye Conditions</a>
+        <a href="#">Eyewear</a>
+        <a href="#">Our Doctors</a>
+        <a href="#">Locations</a>
+        <a href="#">About</a>
+      </nav>
+
+      <a href="#" class="btn btn-primary">Book Appointment</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
+          Trusted Eye Care Since 1999
+        </div>
+
+        <h1>Your Vision,<br><span>Our Priority</span></h1>
+
+        <p>Experience compassionate, comprehensive eye care at Classic Vision Care. Our expert optometrists provide personalized treatment for your entire family across four convenient Georgia locations.</p>
+
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-primary">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Book Appointment
+          </a>
+          <a href="#" class="btn btn-outline">Our Services</a>
+        </div>
+
+        <div class="trust-bar">
+          <div class="trust-item">
+            <strong>4.7</strong>
+            <span>Google Rating</span>
+          </div>
+          <div class="trust-item">
+            <strong>756+</strong>
+            <span>Patient Reviews</span>
+          </div>
+          <div class="trust-item">
+            <strong>25+</strong>
+            <span>Years Experience</span>
+          </div>
+          <div class="trust-item">
+            <strong>4</strong>
+            <span>Locations</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="/images/heroes/about-us-hero.jpg" alt="Eye examination at Classic Vision Care">
+
+        <div class="floating-card">
+          <div class="floating-card-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div class="floating-card-text">
+            <strong>Dr. Mital Patel, OD</strong>
+            <span>25+ Years Experience</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="services-content">
+      <div class="section-header">
+        <span class="section-badge">Our Services</span>
+        <h2>Comprehensive Eye Care</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+          </div>
+          <h3>Comprehensive Eye Exams</h3>
+          <p>Thorough examinations to detect vision problems and eye diseases early.</p>
+          <a href="#" class="service-link">Learn more →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3>Dry Eye Treatment</h3>
+          <p>Advanced therapies including IPL, BlephEx, and MiBoFlo for lasting relief.</p>
+          <a href="#" class="service-link">Learn more →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3>Pediatric Eye Care</h3>
+          <p>Specialized care for children's vision development and myopia management.</p>
+          <a href="#" class="service-link">Learn more →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3>Contact Lenses</h3>
+          <p>Specialty lenses for keratoconus, post-LASIK, and hard-to-fit eyes.</p>
+          <a href="#" class="service-link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section class="locations">
+    <div class="locations-content">
+      <div class="section-header">
+        <span class="section-badge">Our Locations</span>
+        <h2>4 Convenient Locations</h2>
+      </div>
+
+      <div class="locations-grid">
+        <div class="location-card">
+          <h3>Kennesaw</h3>
+          <address>
+            1615 Ridenour Blvd, Suite 201<br>
+            Kennesaw, GA 30152
+          </address>
+          <a href="tel:7704992020">(770) 499-2020</a>
+        </div>
+
+        <div class="location-card">
+          <h3>East Cobb</h3>
+          <address>
+            3535 Roswell Rd, Suite 8<br>
+            Marietta, GA 30062
+          </address>
+          <a href="tel:6785608065">(678) 560-8065</a>
+        </div>
+
+        <div class="location-card">
+          <h3>Sandy Plains</h3>
+          <address>
+            2790 Sandy Plains Rd, Suite 100<br>
+            Marietta, GA 30066
+          </address>
+          <a href="tel:7709771222">(770) 977-1222</a>
+        </div>
+
+        <div class="location-card">
+          <h3>Upper West Side</h3>
+          <address>
+            1700 Northside Dr NW, Suite C3<br>
+            Atlanta, GA 30318
+          </address>
+          <a href="tel:6789742900">(678) 974-2900</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="cta-content">
+      <h2>Ready to See Clearly?</h2>
+      <p>Schedule your comprehensive eye exam today and experience the Classic Vision Care difference.</p>
+      <a href="#" class="btn btn-primary">Book Your Appointment</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo" style="color: white;">
+            <svg class="logo-icon" width="40" height="40" viewBox="0 0 48 48" fill="none">
+              <path d="M24 4C14 4 8 14 8 24C8 34 14 44 24 44C24 44 24 34 24 24C24 14 24 4 24 4Z" fill="#52C7E1"/>
+              <path d="M24 4C34 4 40 14 40 24C40 34 34 44 24 44C24 44 24 34 24 24C24 14 24 4 24 4Z" fill="#3294A3"/>
+              <path d="M24 14C18 14 14 19 14 24C14 29 18 34 24 34C24 34 24 29 24 24C24 19 24 14 24 14Z" fill="#7cb89c"/>
+            </svg>
+            <span class="logo-text">CLASSIC VISION CARE</span>
+          </a>
+          <p>Compassionate, comprehensive eye care for your entire family since 1999.</p>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Eye Exams</a></li>
+            <li><a href="#">Dry Eye Treatment</a></li>
+            <li><a href="#">Contact Lenses</a></li>
+            <li><a href="#">Myopia Control</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">Our Doctors</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">Insurance</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">Book Online</a></li>
+            <li><a href="#">Patient Portal</a></li>
+            <li><a href="#">Order Contacts</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Classic Vision Care. All rights reserved.</span>
+        <span>Privacy Policy | Accessibility</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

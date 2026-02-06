@@ -1,0 +1,7 @@
+# robots.txt for cvc-new.vercel.app (staging site)
+# Block all crawlers — this is a staging environment
+
+User-agent: *
+Disallow: /
+
+Sitemap: https://cvc-new.vercel.app/sitemap.xml

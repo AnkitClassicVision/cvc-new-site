@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Development files
+dev/
+
+# SuperDesign mockups (keep out of deploy)
+.superdesign/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.vercel
