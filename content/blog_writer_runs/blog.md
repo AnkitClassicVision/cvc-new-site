@@ -87,3 +87,14 @@ Generated: 2026-02-03
 - Title/meta description: PASS
 - H1 present: PASS
 - Notes: Automated checks passed for banned phrases, local images, and structure.
+
+## QA Results (2026-02-07)
+- Status: FAIL
+- Hero value points: PASS
+- CTA present: PASS
+- Title/meta description: PASS
+- H1 present: PASS
+- Issues:
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/about_blog_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png

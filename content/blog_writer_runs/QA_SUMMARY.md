@@ -1,8 +1,265 @@
 # Blog Writer QA Summary
 
-Date: 2026-02-03
+Date: 2026-02-07
 Pages checked: 54
-Pass: 54
-Fail: 0
+Pass: 0
+Fail: 54
 
-All pages passed automated checks.
+## Failures
+- index.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/heroes/about-us-hero.jpg
+  - Missing image: /images/heroes/our-doctors-hero.jpg
+  - Missing image: /images/heroes/main-hero.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/about/blog.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/about_blog_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/about/careers.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/about_careers_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/about/community.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/heroes/community.jpg
+  - Missing image: /images/heroes/community.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/about/doctors/bhumi-patel.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/dr-bhumi-patel-portrait.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/about/doctors/index.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/dr-mital-patel.jpg
+  - Missing image: /images/dr-bhumi-patel.jpg
+  - Missing image: /images/heroes/about-us-hero.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/about/doctors/mital-patel.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/dr-mital-patel-portrait.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/about/index.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/building.jpg
+  - Missing image: /images/doctors/img-dr-mital-headshot.jpg
+  - Missing image: /images/heroes/about-us-hero.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/about/testimonials.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/about_testimonials_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/about/why-choose-us.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/heroes/why-choose-us.jpg
+  - Missing image: /images/heroes/about-us-hero.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/dry-eye/index.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/heroes/dry-eye-hero.jpg
+  - Missing image: /images/services/dry-eye-treatment.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/dry-eye/treatments.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/dry-eye-treatment.jpg
+  - Missing image: /images/services/what-is-dry-eye.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/dry-eye/treatments/blephex.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/blephex-treatment.jpg
+  - Missing image: /images/services/blephex-treatment.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/dry-eye/treatments/eye-drops.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/dry-eye-treatment.jpg
+  - Missing image: /images/services/dry-eye-treatment.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/dry-eye/treatments/ipl.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/ipl-dry-eye-treatment.jpg
+  - Missing image: /images/services/ipl-dry-eye-treatment.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/dry-eye/treatments/miboflo.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/miboflo-treatment.jpg
+  - Missing image: /images/services/miboflo-treatment.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/dry-eye/treatments/punctal-plugs.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/punctal-plugs.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/dry-eye/treatments/scleral-lenses.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/scleral-lenses-dry-eye.jpg
+  - Missing image: /images/services/scleral-lenses-dry-eye.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/dry-eye/treatments/supplements.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/what-is-dry-eye.jpg
+  - Missing image: /images/services/dry-eye-treatment.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/eyewear/contact-lenses.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/eyewear_contact_lenses_hero.webp
+  - Missing image: /images/generated/eyewear_contact_lenses_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/eyewear/eyeglasses.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/eyewear_eyeglasses_hero.webp
+  - Missing image: /images/generated/eyewear_eyeglasses_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/eyewear/index.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/eyewear_index_hero.webp
+  - Missing image: /images/generated/eyewear_index_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/eyewear/specialty/index.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/eyewear_specialty_contacts_hero.webp
+  - Missing image: /images/generated/eyewear_specialty_contacts_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/eyewear/specialty/keratoconus.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/eyewear_keratoconus_hero.webp
+  - Missing image: /images/generated/eyewear_keratoconus_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/eyewear/specialty/post-lasik.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/eyewear_post_lasik_hero.webp
+  - Missing image: /images/generated/eyewear_post_lasik_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/eyewear/specialty/scleral.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/eyewear_scleral_hero.webp
+  - Missing image: /images/generated/eyewear_scleral_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/eyewear/sunglasses.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/eyewear_sunglasses_hero.webp
+  - Missing image: /images/generated/eyewear_sunglasses_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/legal/accessibility.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/legal_accessibility_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/legal/privacy.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/legal_privacy_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/locations/east-cobb.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/locations/east-cobb-office.jpg
+  - Missing image: /images/dr-mital-patel-portrait.jpg
+  - Missing image: /images/dr-bhumi-patel-portrait.jpg
+  - Missing image: /images/locations/east-cobb-office.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/locations/index.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/locations_index_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/locations/kennesaw.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/locations/kennesaw-office.jpg
+  - Missing image: /images/dr-mital-patel-portrait.jpg
+  - Missing image: /images/dr-bhumi-patel-portrait.jpg
+  - Missing image: /images/locations/kennesaw-office.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/myopia/children.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/myopia_children_hero.webp
+  - Missing image: /images/generated/myopia_management_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/myopia/index.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/heroes/pediatric-hero.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/myopia/treatments/atropine.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/myopia_atropine_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/myopia/treatments/misight.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/myopia_misight_hero.webp
+  - Missing image: /images/generated/myopia_misight_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/myopia/treatments/multifocal.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/myopia_multifocal_hero.webp
+  - Missing image: /images/generated/myopia_multifocal_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/myopia/treatments/ortho-k.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/myopia_ortho_k_hero.webp
+  - Missing image: /images/generated/myopia_ortho_k_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/patients/book.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/patients_book_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/patients/contact.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/locations/kennesaw-office.jpg
+  - Missing image: /images/locations/east-cobb-office.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/patients/insurance.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/patients_insurance_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/patients/new.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/patients_new_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/conditions/allergies.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/condition_allergies_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/conditions/astigmatism.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/condition_astigmatism_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/conditions/glaucoma.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/condition_glaucoma_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/conditions/macular-degeneration.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/condition_macular_degeneration_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/exams/comprehensive.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/eye-exam-header.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/exams/contact-lens.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/eyewear_contact_lenses_hero.webp
+  - Missing image: /images/services/eye-exam-header.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/exams/diabetic.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/what-is-diabetic-retinopathy.jpg
+  - Missing image: /images/services/eye-exam-header.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/index.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/generated/services_index_hero.webp
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/pediatric/childrens-exam.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/heroes/child-eye-exam.jpg
+  - Missing image: /images/services/pediatric-exam.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/pediatric/eye-care.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/heroes/pediatric-hero.jpg
+  - Missing image: /images/services/pediatric-exam.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/pediatric/eye-exams.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/services/pediatric-exam.jpg
+  - Missing image: /images/services/pediatric-exam.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
+- pages/services/pediatric/school-screening.html
+  - Missing image: /images/logos/cropped-EOP1600_Classic_Logo_FN.png
+  - Missing image: /images/heroes/school-screening.jpg
+  - Missing image: /images/services/pediatric-exam.jpg
+  - Missing image: /images/logos/Classic-Vision-Care-white-logo.png
