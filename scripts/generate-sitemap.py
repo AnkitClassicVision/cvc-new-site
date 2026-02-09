@@ -29,6 +29,12 @@ EXCLUDE_DIRS = {
     "styles",
 }
 
+EXCLUDE_URL_PATHS = {
+    # Legacy URLs that now permanently redirect (keep out of sitemap).
+    "/dry-eye-treatment-miboflo/",
+    "/dry-eyes/what-is-mibo-thermoflo/",
+}
+
 
 def to_iso_date(ts: float) -> str:
     return dt.datetime.fromtimestamp(ts, tz=dt.timezone.utc).date().isoformat()
@@ -69,6 +75,8 @@ def main() -> int:
     url_entries = []
     for file_path in sorted(set(candidates)):
         url_path = path_to_url_path(file_path)
+        if url_path in EXCLUDE_URL_PATHS:
+            continue
         lastmod = to_iso_date(file_path.stat().st_mtime)
         url_entries.append((url_path, lastmod))
 
