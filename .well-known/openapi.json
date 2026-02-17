@@ -1,0 +1,150 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Classic Vision Care Agent API",
+    "version": "1.0.0",
+    "description": "API for AI agents to interact with Classic Vision Care. Currently supports contact form submissions for non-emergency messages."
+  },
+  "servers": [
+    {
+      "url": "https://classicvisioncare.com"
+    }
+  ],
+  "paths": {
+    "/api/contact": {
+      "post": {
+        "operationId": "submitContactRequest",
+        "summary": "Submit a contact or booking request",
+        "description": "Sends a message to the clinic team. Use for non-emergency messages only. For emergencies, call 911 or visit the nearest emergency room.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactRequest"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Request accepted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "boolean",
+                      "const": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error (missing name/email or invalid email format)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited. Retry after the time specified in the Retry-After header.",
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Seconds to wait before retrying"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed. Only POST is accepted."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ContactRequest": {
+        "type": "object",
+        "required": ["name", "email"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Full name of the person making the request"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Email address for reply"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Phone number (optional)"
+          },
+          "location": {
+            "type": "string",
+            "enum": ["kennesaw", "eastcobb", "either", ""],
+            "description": "Preferred clinic location"
+          },
+          "formType": {
+            "type": "string",
+            "enum": ["contact", "booking"],
+            "default": "contact",
+            "description": "Type of request: general contact or appointment booking"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Reason for the visit or inquiry"
+          },
+          "service": {
+            "type": "string",
+            "description": "Specific service of interest (e.g., 'dry eye treatment', 'eye exam')"
+          },
+          "preferredDate": {
+            "type": "string",
+            "description": "Preferred appointment date/time (for booking requests)"
+          },
+          "message": {
+            "type": "string",
+            "description": "Free-form message"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": false
+          },
+          "error": {
+            "type": "string",
+            "description": "Human-readable error message"
+          }
+        }
+      }
+    }
+  }
+}

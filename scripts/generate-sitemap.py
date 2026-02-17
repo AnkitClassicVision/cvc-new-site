@@ -10,6 +10,7 @@ Scope:
 from __future__ import annotations
 
 import datetime as dt
+import subprocess
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,8 +37,30 @@ EXCLUDE_URL_PATHS = {
 }
 
 
-def to_iso_date(ts: float) -> str:
-    return dt.datetime.fromtimestamp(ts, tz=dt.timezone.utc).date().isoformat()
+def git_last_committed_date(file_path: Path) -> str | None:
+    """Return the ISO date of the last git commit that touched *file_path*."""
+    try:
+        result = subprocess.run(
+            ["git", "log", "-1", "--format=%aI", "--", str(file_path)],
+            capture_output=True,
+            text=True,
+            cwd=BASE_DIR,
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            return result.stdout.strip()[:10]  # YYYY-MM-DD
+    except FileNotFoundError:
+        pass
+    return None
+
+
+def to_iso_date(file_path: Path) -> str:
+    """Git commit date if available, else file mtime."""
+    git_date = git_last_committed_date(file_path)
+    if git_date:
+        return git_date
+    return dt.datetime.fromtimestamp(
+        file_path.stat().st_mtime, tz=dt.timezone.utc
+    ).date().isoformat()
 
 
 def path_to_url_path(file_path: Path) -> str:
@@ -77,7 +100,7 @@ def main() -> int:
         url_path = path_to_url_path(file_path)
         if url_path in EXCLUDE_URL_PATHS:
             continue
-        lastmod = to_iso_date(file_path.stat().st_mtime)
+        lastmod = to_iso_date(file_path)
         url_entries.append((url_path, lastmod))
 
     lines = [

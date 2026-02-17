@@ -1,0 +1,54 @@
+{
+  "name": "Classic Vision Care",
+  "canonical_origin": "https://classicvisioncare.com",
+  "supported_locales": ["en-US"],
+  "description": "Optometry clinic with two locations in Kennesaw and East Cobb/Marietta, Georgia. Comprehensive eye exams, dry eye treatment, myopia control, and eyewear.",
+  "primary_tasks": [
+    {
+      "task": "book_appointment",
+      "method": "GET",
+      "entry_point": "https://classicvisioncare.com/book-now/",
+      "notes": "Booking form. Use query param location=kennesaw or location=eastcobb when the patient's preferred location is known."
+    },
+    {
+      "task": "contact_request",
+      "method": "POST",
+      "entry_point": "https://classicvisioncare.com/api/contact",
+      "openapi": "https://classicvisioncare.com/.well-known/openapi.json",
+      "notes": "Submit a non-emergency contact request. Requires name and valid email. Accepts JSON or form-urlencoded."
+    },
+    {
+      "task": "get_locations",
+      "method": "GET",
+      "entry_point": "https://classicvisioncare.com/our-locations/",
+      "notes": "Lists both clinic locations with addresses, phone numbers, and hours."
+    },
+    {
+      "task": "get_kennesaw_location",
+      "method": "GET",
+      "entry_point": "https://classicvisioncare.com/eye-doctor-kennesaw-ga/",
+      "notes": "Kennesaw office details: 1615 Ridenour Blvd Suite 201, Kennesaw, GA 30152. Phone: (770) 499-2020."
+    },
+    {
+      "task": "get_eastcobb_location",
+      "method": "GET",
+      "entry_point": "https://classicvisioncare.com/eye-doctor-marietta/",
+      "notes": "East Cobb/Marietta office details: 3535 Roswell Rd Suite 8, Marietta, GA 30062. Phone: (678) 560-8065."
+    },
+    {
+      "task": "get_services",
+      "method": "GET",
+      "entry_point": "https://classicvisioncare.com/eye-care-services/",
+      "notes": "Overview of all eye care services offered."
+    },
+    {
+      "task": "get_insurance",
+      "method": "GET",
+      "entry_point": "https://classicvisioncare.com/insurance/",
+      "notes": "List of accepted insurance carriers and verification info."
+    }
+  ],
+  "rate_limit_policy": {
+    "contact_request": "10 requests per minute per IP; 429 returned when exceeded"
+  }
+}
