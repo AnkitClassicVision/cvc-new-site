@@ -1000,7 +1000,7 @@ body.cvc-editorial ::-moz-selection {
   position: relative;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 12% 20%, rgba(201, 162, 39, 0.15), transparent 55%),
+    radial-gradient(circle at 12% 20%, rgba(82, 199, 225, 0.15), transparent 55%),
     radial-gradient(circle at 80% 35%, rgba(26, 48, 40, 0.1), transparent 55%),
     linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
   padding: var(--space-xl) var(--space-lg);
@@ -1129,8 +1129,8 @@ body.cvc-editorial ::-moz-selection {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(201, 162, 39, 0.15);
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  background: rgba(82, 199, 225, 0.15);
+  border: 1px solid rgba(82, 199, 225, 0.3);
   border-radius: 16px;
   color: var(--gold);
   margin-bottom: 1.5rem;
@@ -1260,7 +1260,7 @@ body.cvc-editorial ::-moz-selection {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(26, 48, 40, 0.03), rgba(201, 162, 39, 0.05));
+  background: linear-gradient(135deg, rgba(26, 48, 40, 0.03), rgba(82, 199, 225, 0.05));
   opacity: 0;
   transition: opacity 0.5s var(--ease-out-expo);
 }
@@ -1631,7 +1631,7 @@ body.cvc-editorial ::-moz-selection {
   position: absolute;
   border-radius: 50%;
   border: 1px solid rgba(26, 48, 40, 0.15);
-  background: radial-gradient(circle, rgba(201, 162, 39, 0.1), transparent 65%);
+  background: radial-gradient(circle, rgba(82, 199, 225, 0.1), transparent 65%);
   pointer-events: none;
 }
 
@@ -2111,8 +2111,8 @@ body.cvc-editorial ::-moz-selection {
 }
 
 @keyframes pulseSoft {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.4); }
-  50% { box-shadow: 0 0 20px 5px rgba(201, 162, 39, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(82, 199, 225, 0.4); }
+  50% { box-shadow: 0 0 20px 5px rgba(82, 199, 225, 0); }
 }
 
 @media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
@@ -2576,10 +2576,10 @@ body.cvc-editorial {
   position: absolute;
   inset: -30%;
   background:
-    radial-gradient(circle at 20% 22%, rgba(201, 162, 39, 0.18), transparent 58%),
+    radial-gradient(circle at 20% 22%, rgba(82, 199, 225, 0.18), transparent 58%),
     radial-gradient(circle at 78% 18%, rgba(122, 155, 138, 0.16), transparent 62%),
     radial-gradient(circle at 66% 82%, rgba(26, 48, 40, 0.12), transparent 60%),
-    radial-gradient(circle at 10% 78%, rgba(201, 162, 39, 0.12), transparent 55%);
+    radial-gradient(circle at 10% 78%, rgba(82, 199, 225, 0.12), transparent 55%);
   filter: blur(18px);
   opacity: 0.85;
   pointer-events: none;
@@ -2597,7 +2597,7 @@ body.cvc-editorial {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 22%, rgba(201, 162, 39, 0.12), transparent 50%),
+    radial-gradient(circle at 20% 22%, rgba(82, 199, 225, 0.12), transparent 50%),
     radial-gradient(circle at 78% 18%, rgba(122, 155, 138, 0.10), transparent 55%),
     radial-gradient(circle at 66% 82%, rgba(26, 48, 40, 0.08), transparent 50%);
   opacity: 1;
@@ -2628,7 +2628,7 @@ body.cvc-editorial {
   right: 0;
   bottom: -1px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.65), transparent);
+  background: linear-gradient(90deg, transparent, rgba(82, 199, 225, 0.65), transparent);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.45s var(--ease-out-expo);
@@ -2655,7 +2655,7 @@ body.cvc-editorial {
 }
 
 .cvc-editorial .dropdown-menu .ef-dropdown a[aria-current="page"] {
-  background: linear-gradient(90deg, rgba(201, 162, 39, 0.16), rgba(201, 162, 39, 0));
+  background: linear-gradient(90deg, rgba(82, 199, 225, 0.16), rgba(82, 199, 225, 0));
   color: var(--forest);
   font-weight: 600;
 }
