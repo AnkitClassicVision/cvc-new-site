@@ -634,7 +634,7 @@ def render_post_page(
   {f'<meta name="description" content="{safe_description_attr}">' if description else ''}
   <link rel="canonical" href="{canonical_url}">
   <link rel="stylesheet" href="/styles/tailwind.css">
-  <link rel="stylesheet" href="/styles/editorial-forest.css?v=3">
+  <link rel="stylesheet" href="/styles/editorial-forest.css?v=4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/fonts/TT_Norms_Pro_Regular.woff2" as="font" type="font/woff2" crossorigin>

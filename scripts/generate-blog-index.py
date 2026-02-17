@@ -271,7 +271,7 @@ def main() -> int:
   <title>{html.escape(title)}</title>
   <meta name="description" content="{html.escape(description, quote=True)}">
   <link rel="stylesheet" href="/styles/tailwind.css">
-  <link rel="stylesheet" href="/styles/editorial-forest.css?v=3">
+  <link rel="stylesheet" href="/styles/editorial-forest.css?v=4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/fonts/TT_Norms_Pro_Regular.woff2" as="font" type="font/woff2" crossorigin>
