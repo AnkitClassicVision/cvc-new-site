@@ -14,6 +14,43 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 MANIFEST_PATH = BASE_DIR / "content" / "wp_blog_posts.json"
+AUTHORS_PATH = BASE_DIR / "content" / "authors.json"
+ORIGIN = "https://classicvisioncare.com"
+
+
+def load_authors() -> dict:
+    if not AUTHORS_PATH.exists():
+        return {}
+    try:
+        data = json.loads(AUTHORS_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return {k: v for k, v in data.items() if not k.startswith("_")}
+
+
+def build_collection_schema() -> str:
+    schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "CollectionPage",
+                "@id": f"{ORIGIN}/blog/",
+                "url": f"{ORIGIN}/blog/",
+                "name": "Resources & Blog | Classic Vision Care",
+                "description": "Practical eye care answers and local guides from Classic Vision Care in Kennesaw and East Cobb/Marietta, GA.",
+                "isPartOf": {"@id": f"{ORIGIN}/#website"},
+                "inLanguage": "en-US",
+            },
+            {
+                "@type": "WebSite",
+                "@id": f"{ORIGIN}/#website",
+                "url": ORIGIN,
+                "name": "Classic Vision Care",
+                "publisher": {"@id": f"{ORIGIN}/#organization"},
+            },
+        ],
+    }
+    return json.dumps(schema, ensure_ascii=False)
 
 
 def read_layout_blocks() -> tuple[str, str]:
@@ -98,6 +135,8 @@ def post_row(post: dict) -> str:
 
 def main() -> int:
     header, footer = read_layout_blocks()
+
+    collection_schema = build_collection_schema()
 
     title = "Resources & Blog | Classic Vision Care"
     description = "Practical eye care answers and local guides from Classic Vision Care in Kennesaw and East Cobb/Marietta, GA."
@@ -238,6 +277,7 @@ def main() -> int:
   <link rel="preload" href="/fonts/TT_Norms_Pro_Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/TT_Norms_Pro_Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script type="application/ld+json">{collection_schema}</script>
 </head>
 <body class="cvc-editorial font-body text-cvc-charcoal bg-white">
 {header}

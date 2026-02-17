@@ -21,3 +21,12 @@ Thumbs.db
 __pycache__/
 *.pyc
 .vercel
+
+# Playwright MCP logs
+.playwright-mcp/
+
+# Screenshots (dev/debug artifacts)
+*.png
+
+# Font source files (licensed fonts live in /fonts/)
+fonts_for_site/
