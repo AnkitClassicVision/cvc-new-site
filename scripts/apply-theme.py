@@ -9,11 +9,11 @@ import re
 BASE_DIR = Path(__file__).parent.parent
 HTML_FILES = [f for f in BASE_DIR.glob("*.html") if "node_modules" not in str(f)]
 
-STYLESHEET_TAG = '<link rel="stylesheet" href="styles/editorial-forest.css">'
+STYLESHEET_TAG = '<link rel="stylesheet" href="styles/editorial-forest.css?v=2">'
 
 
 def ensure_stylesheet(html: str) -> str:
-    if "styles/editorial-forest.css" in html:
+    if "styles/editorial-forest.css?v=2" in html:
         return html
     return html.replace("</head>", f"  {STYLESHEET_TAG}\n</head>")
 
