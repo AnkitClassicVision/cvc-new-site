@@ -7,8 +7,10 @@
     "description": "Winter weather can worsen dry eye symptoms. Learn what causes winter dry eye and how Classic Vision Care helps you restore comfort.",
     "date_published": "2025-11-24T17:58:19+00:00",
     "date_modified": "2025-11-24T17:58:23+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2025/11/Screenshot-2025-11-24-at-12.56.08-PM.png"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2025/11/Screenshot-2025-11-24-at-12.56.08-PM.png",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 4085,
@@ -18,8 +20,10 @@
     "description": "Dry eye isn’t just one condition. Learn the three main types and how Classic Vision Care can diagnose the exact cause of your discomfort.",
     "date_published": "2025-11-24T17:30:58+00:00",
     "date_modified": "2025-11-24T18:00:52+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2451691.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2451691.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 4078,
@@ -29,8 +33,10 @@
     "description": "Learn why myopia progresses, the science behind eye growth, and how to protect your child's future vision health in Marietta & Kennesaw",
     "date_published": "2025-10-29T20:33:51+00:00",
     "date_modified": "2025-10-29T20:35:17+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2022/12/child-is-happy-with-her-eyeglasses.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2022/12/child-is-happy-with-her-eyeglasses.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 4067,
@@ -41,7 +47,9 @@
     "date_published": "2025-09-29T15:06:19+00:00",
     "date_modified": "2025-09-29T15:06:23+00:00",
     "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2024/06/our-shop-cta.jpg"
+    "featured_image": "/wp-content/uploads/2024/06/our-shop-cta.jpg",
+    "author_slug": "ankit-patel",
+    "content_type": "community"
   },
   {
     "id": 4060,
@@ -51,8 +59,10 @@
     "description": "Struggling with itchy, watery eyes from fall allergies in Georgia? Learn common causes, symptoms, and relief tips from Classic Vision Care.",
     "date_published": "2025-09-29T14:51:57+00:00",
     "date_modified": "2025-09-29T14:52:02+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2022/12/woman-have-allergies.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2022/12/woman-have-allergies.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 4047,
@@ -62,8 +72,10 @@
     "description": "Learn how to prevent digital eye strain with expert tips. Protect your vision from prolonged screen use with these eye care solutions.",
     "date_published": "2025-08-28T14:30:58+00:00",
     "date_modified": "2025-08-28T14:31:02+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2022/12/img-what-is-computer-vision-syndrome.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2022/12/img-what-is-computer-vision-syndrome.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 4041,
@@ -73,8 +85,10 @@
     "description": "Learn why eye exams are important at every age. Discover how we protect vision, detect issues early, and support lifelong eye health.",
     "date_published": "2025-08-28T14:14:00+00:00",
     "date_modified": "2025-08-28T14:21:41+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/10/2097611.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/10/2097611.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 4019,
@@ -84,8 +98,10 @@
     "description": "Explore the benefits of combining supplements with in-office treatments for improved eye health at Classic Vision Care.",
     "date_published": "2025-07-29T14:34:21+00:00",
     "date_modified": "2025-07-29T14:40:13+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2022/12/supplements.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2022/12/supplements.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 4007,
@@ -95,8 +111,10 @@
     "description": "Don't let vision problems affect your child's academic success. Learn why back-to-school eye exams are crucial for early detection.",
     "date_published": "2025-07-29T14:05:31+00:00",
     "date_modified": "2025-07-29T14:17:25+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/01/myopia-management.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/01/myopia-management.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 3956,
@@ -107,7 +125,9 @@
     "date_published": "2025-06-18T15:02:00+00:00",
     "date_modified": "2025-06-18T15:07:40+00:00",
     "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2025/06/the-atlanta-georgia-skyline-at-piedmont-2025-02-10-14-33-50-utc-scaled.jpg"
+    "featured_image": "/wp-content/uploads/2025/06/the-atlanta-georgia-skyline-at-piedmont-2025-02-10-14-33-50-utc-scaled.jpg",
+    "author_slug": "ankit-patel",
+    "content_type": "community"
   },
   {
     "id": 3948,
@@ -118,7 +138,9 @@
     "date_published": "2025-06-18T14:50:07+00:00",
     "date_modified": "2025-06-18T14:50:10+00:00",
     "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2025/06/aerial-view-of-the-atlanta-suburb-of-marietta-geo-2025-02-09-00-52-20-utc-scaled.jpeg"
+    "featured_image": "/wp-content/uploads/2025/06/aerial-view-of-the-atlanta-suburb-of-marietta-geo-2025-02-09-00-52-20-utc-scaled.jpeg",
+    "author_slug": "ankit-patel",
+    "content_type": "community"
   },
   {
     "id": 3941,
@@ -128,8 +150,10 @@
     "description": "Combat seasonal triggers with advanced relief options at Classic Vision Care. Schedule your consultation today.",
     "date_published": "2025-06-17T21:08:54+00:00",
     "date_modified": "2025-07-24T19:30:13+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097492-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097492-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 3930,
@@ -140,7 +164,9 @@
     "date_published": "2025-06-17T20:50:06+00:00",
     "date_modified": "2025-06-17T20:50:27+00:00",
     "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/01/why-choose-classic-vision-care-myopia-control.jpg"
+    "featured_image": "/wp-content/uploads/2023/01/why-choose-classic-vision-care-myopia-control.jpg",
+    "author_slug": "ankit-patel",
+    "content_type": "community"
   },
   {
     "id": 3519,
@@ -150,8 +176,10 @@
     "description": "Early myopia control can make every difference to your child’s vision. Learn the signs & explore the myopia management options available.",
     "date_published": "2024-10-10T08:00:17+00:00",
     "date_modified": "2025-06-17T20:30:07+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2024/10/glasses-eye-chart-white-background-scaled.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2024/10/glasses-eye-chart-white-background-scaled.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 3506,
@@ -161,8 +189,10 @@
     "description": "Uncover how punctal plugs can help manage dry eyes. Learn about the procedure, benefits, potential complications, and answers to common questions.",
     "date_published": "2024-09-10T15:25:52+00:00",
     "date_modified": "2024-09-28T13:18:32+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2024/09/young-woman-covering-eyes-with-hands-gold-gilded-sweater-black-pants-looking-serious-front-view-scaled.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2024/09/young-woman-covering-eyes-with-hands-gold-gilded-sweater-black-pants-looking-serious-front-view-scaled.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 3409,
@@ -172,8 +202,10 @@
     "description": "Learn about diabetic retinopathy, including its symptoms, causes, and treatment options. Prevent this eye condition for healthy vision.",
     "date_published": "2024-07-18T23:56:07+00:00",
     "date_modified": "2025-07-24T19:30:55+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/01/what-is-diabetic-retinopathy.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/01/what-is-diabetic-retinopathy.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2487,
@@ -183,8 +215,10 @@
     "description": "Learn about MiBoFlo for dry eyes: the procedure, potential risks, and what to expect. See how this treatment can provide relief for dry eye symptoms.",
     "date_published": "2024-06-03T02:37:08+00:00",
     "date_modified": "2024-09-28T13:18:46+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2022/12/img-miboflow-tab.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2022/12/img-miboflow-tab.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2453,
@@ -194,8 +228,10 @@
     "description": "Learn about Intense Pulse Light (IPL) treatment for dry eyes and whether it effectively relieves symptoms. Explore its potential benefits now!",
     "date_published": "2024-05-09T06:18:25+00:00",
     "date_modified": "2025-04-28T19:05:38+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2022/12/img-intense-pulsed-light-tab.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2022/12/img-intense-pulsed-light-tab.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2427,
@@ -205,8 +241,10 @@
     "description": "What causes Ocular Rosacea flare-ups? Read about symptoms & efficient remedies for this common eye condition from Classic Vision Care's expert doctors.",
     "date_published": "2024-04-08T07:10:42+00:00",
     "date_modified": "2024-09-28T13:19:03+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097644.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097644.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2421,
@@ -216,8 +254,10 @@
     "description": "Explore dry eye symptoms, causes, and treatments with Classic Vision Care, your partner in achieving clear and comfortable vision.",
     "date_published": "2024-02-27T06:26:14+00:00",
     "date_modified": "2024-09-28T13:19:10+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2022/12/elderly-suffering-from-diabetic-eye-disease.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2022/12/elderly-suffering-from-diabetic-eye-disease.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2418,
@@ -227,8 +267,10 @@
     "description": "Are Glasses Better than Contacts? Our knowledgeable optometrists at Classic Vision Care, help you see more clearly whether you should choose glasses or contacts.",
     "date_published": "2024-02-05T12:36:41+00:00",
     "date_modified": "2024-09-28T13:19:17+00:00",
-    "author": "pam navvaro",
-    "featured_image": "/wp-content/uploads/2023/09/2439584.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2439584.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2416,
@@ -238,8 +280,10 @@
     "description": "Suffering from Dry Eyes? Don't wait! Classic Vision Care reveals 5 telltale signs. Schedule an eye exam & find relief now!",
     "date_published": "2024-01-30T12:36:31+00:00",
     "date_modified": "2024-09-28T13:19:26+00:00",
-    "author": "pam navvaro",
-    "featured_image": "/wp-content/uploads/2023/09/2451691.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2451691.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2411,
@@ -249,8 +293,10 @@
     "description": "If you have a family member with glaucoma, or if it has been a long time since you’ve had your eyes checked, contact us to book an appointment.",
     "date_published": "2024-01-25T03:53:10+00:00",
     "date_modified": "2024-09-28T13:19:31+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2351602.jpeg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2351602.jpeg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2173,
@@ -260,8 +306,10 @@
     "description": "Are you at risk for Glaucoma? Classic Vision Care details key factors like age, race & family history. Learn more!",
     "date_published": "2023-11-17T06:00:15+00:00",
     "date_modified": "2024-09-28T13:19:36+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2404676.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2404676.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2175,
@@ -271,8 +319,10 @@
     "description": "Wondering if it's time for glasses? Classic Vision Care offers expert tips to assess your vision & recommends the next steps.",
     "date_published": "2023-11-15T06:00:53+00:00",
     "date_modified": "2024-09-28T13:19:42+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2263188.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2263188.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2275,
@@ -282,8 +332,10 @@
     "description": "Summer sun harming your eyes? Classic Vision Care shares tips to protect your eyes & enjoy the season safely!",
     "date_published": "2023-11-10T06:00:27+00:00",
     "date_modified": "2024-09-28T13:19:48+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097616.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097616.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2272,
@@ -293,8 +345,10 @@
     "description": "At Classic Vision Care, we offer contact lens prescriptions and fittings to enhance your visual acuity.",
     "date_published": "2023-11-08T06:00:25+00:00",
     "date_modified": "2024-09-28T13:19:53+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097613.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097613.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2269,
@@ -304,8 +358,10 @@
     "description": "Do you know how to safely wear colored contact lenses? If you are considering wearing colored novelty contact lenses this year, we can help.",
     "date_published": "2023-11-06T06:00:48+00:00",
     "date_modified": "2025-04-28T19:12:50+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097637.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097637.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2262,
@@ -315,8 +371,10 @@
     "description": "Stop eye infections before they start! Classic Vision Care shares 7 easy tips to keep your eyes healthy and infection-free.",
     "date_published": "2023-11-02T06:00:05+00:00",
     "date_modified": "2024-09-28T13:20:04+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2106096.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2106096.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2260,
@@ -326,8 +384,10 @@
     "description": "Concerned about astigmatism? Classic Vision Care clarifies how it impacts vision & provides expert guidance for clear, comfortable sight.",
     "date_published": "2023-10-31T06:00:11+00:00",
     "date_modified": "2024-09-28T13:20:11+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2416923.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2416923.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2253,
@@ -337,8 +397,10 @@
     "description": "Keep your kids' eyes healthy & infection-free! Classic Vision Care shares tips to prevent eye infections. Read more today!",
     "date_published": "2023-10-29T06:00:22+00:00",
     "date_modified": "2025-04-28T19:12:11+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097623.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097623.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2250,
@@ -348,8 +410,10 @@
     "description": "Worried about macular degeneration? Classic Vision Care helps you identify symptoms & take control of your eye health. Get screened today!",
     "date_published": "2023-10-27T06:00:59+00:00",
     "date_modified": "2025-04-28T19:15:03+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2339888.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2339888.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2244,
@@ -359,8 +423,10 @@
     "description": "Protect your vision! Learn key steps to reduce pain & strain after an eye injury. Classic Vision Care guides you through recovery.",
     "date_published": "2023-10-25T06:00:54+00:00",
     "date_modified": "2024-09-28T13:20:28+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097644.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097644.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2265,
@@ -370,8 +436,10 @@
     "description": "Do you need assistance with vision correction? Our experts at Classic Vision Care look forward to helping you see the world more clearly via glasses or contact lenses.",
     "date_published": "2023-10-23T06:00:39+00:00",
     "date_modified": "2024-09-28T13:20:37+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2386098.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2386098.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2241,
@@ -382,7 +450,9 @@
     "date_published": "2023-10-23T06:00:13+00:00",
     "date_modified": "2024-09-28T13:20:47+00:00",
     "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097471.jpg"
+    "featured_image": "/wp-content/uploads/2023/09/2097471.jpg",
+    "author_slug": "ankit-patel",
+    "content_type": "community"
   },
   {
     "id": 2279,
@@ -392,8 +462,10 @@
     "description": "Living with diabetes? Classic Vision Care's experts offer 5 proven methods to prevent diabetic eye disease. Take control of your eye health!",
     "date_published": "2023-10-23T06:00:01+00:00",
     "date_modified": "2025-04-28T19:11:13+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2022/12/elderly-suffering-from-diabetic-eye-disease.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2022/12/elderly-suffering-from-diabetic-eye-disease.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2236,
@@ -403,8 +475,10 @@
     "description": "Minimizing Eye Strain and Computer Vision Syndrome with Classic Vision Care. We are always here to help. Contact us to learn more!",
     "date_published": "2023-10-21T06:00:29+00:00",
     "date_modified": "2025-04-28T19:14:12+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097599.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097599.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2233,
@@ -414,8 +488,10 @@
     "description": "If staring at your screens has impacted your vision, let us help you find solutions! Here we are all about using them efficiently & wisely.",
     "date_published": "2023-10-19T06:00:09+00:00",
     "date_modified": "2025-04-28T19:08:58+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097630.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097630.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2230,
@@ -425,8 +501,10 @@
     "description": "Redness, irritation, blurry vision? Contact lens wearers beware! Classic Vision Care helps identify eye infection symptoms.",
     "date_published": "2023-10-17T06:00:25+00:00",
     "date_modified": "2025-04-28T19:20:17+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097622.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097622.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2227,
@@ -436,8 +514,10 @@
     "description": "Did you know that watery eyes are caused by dry eyes? Shocking truth! Classic Vision Care - Get dry eye solutions & relief!",
     "date_published": "2023-10-15T06:00:40+00:00",
     "date_modified": "2024-09-28T13:21:14+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097587.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097587.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2224,
@@ -447,8 +527,10 @@
     "description": "Are you worried about COVID-19 & your eyes? Classic Vision Care offers safe optometry care. Schedule an appointment today!",
     "date_published": "2023-10-13T06:00:46+00:00",
     "date_modified": "2025-04-28T19:17:38+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/10/2244799.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/10/2244799.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2216,
@@ -458,8 +540,10 @@
     "description": "The diabetes are more susceptible to eye-related diseases. Classic Vision Care explains how diabetes impacts eye health.",
     "date_published": "2023-10-11T06:00:56+00:00",
     "date_modified": "2025-04-28T19:10:21+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/10/2318228.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/10/2318228.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2210,
@@ -469,8 +553,10 @@
     "description": "Everyone loves getting a new pair of glasses! This year we would love to share the latest eyewear trends with you!",
     "date_published": "2023-10-09T06:00:27+00:00",
     "date_modified": "2024-09-28T13:21:27+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/10/2097628.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/10/2097628.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2204,
@@ -480,8 +566,10 @@
     "description": "Are fall allergies bothering your eyes? Get relief & prevent symptoms. Expert tips from Classic Vision Care.",
     "date_published": "2023-10-07T06:00:33+00:00",
     "date_modified": "2025-04-28T19:19:38+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/10/2097633.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/10/2097633.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2195,
@@ -491,8 +579,10 @@
     "description": "Keep your eyeglasses crystal clear and comfy! Expert tips on cleaning, storing, and adjusting your glasses for optimal vision and lifespan.",
     "date_published": "2023-10-05T06:00:13+00:00",
     "date_modified": "2025-04-28T19:16:15+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/10/2097504.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/10/2097504.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2192,
@@ -502,8 +592,10 @@
     "description": "Get rid of your eye infection fast! Classic Vision Care treats common causes. Call today.",
     "date_published": "2023-10-03T06:00:04+00:00",
     "date_modified": "2024-09-28T13:21:43+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/10/2097611.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/10/2097611.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2185,
@@ -513,8 +605,10 @@
     "description": "Stuck something in your eye? Don't panic! Classic Vision Care's guide to safe foreign object removal from your eye.",
     "date_published": "2023-10-01T06:00:17+00:00",
     "date_modified": "2025-04-28T19:20:55+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/10/2097641.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/10/2097641.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2182,
@@ -524,8 +618,10 @@
     "description": "Unsure of contacts vs. glasses? Classic Vision Care breaks down the pros & cons to find your perfect fit. Learn about which is right for you!",
     "date_published": "2023-09-29T06:00:05+00:00",
     "date_modified": "2025-04-28T19:23:09+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097626-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097626-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2162,
@@ -535,8 +631,10 @@
     "description": "Stop the irritation! Classic Vision Care offers effective treatments for dry, painful eyes. Schedule an appointment today.",
     "date_published": "2023-09-25T06:00:17+00:00",
     "date_modified": "2024-09-28T13:21:57+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097492-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097492-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2158,
@@ -546,8 +644,10 @@
     "description": "See how to prevent cataracts & other eye problems! Expert tips from Classic Vision Care. Schedule your eye exam now.",
     "date_published": "2023-09-23T06:00:25+00:00",
     "date_modified": "2024-09-28T13:22:02+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097643-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097643-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2156,
@@ -557,8 +657,10 @@
     "description": "Your eyes work ceaselessly all year, helping you view the world around you. And that's why Sunglasses are Important All Year Long.",
     "date_published": "2023-09-21T06:00:31+00:00",
     "date_modified": "2025-04-28T19:16:59+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2426075.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2426075.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2151,
@@ -568,8 +670,10 @@
     "description": "Here at Classic Vision Care, we can help you to choose the right sports eyewear and we can ensure that you have the best fit possible, too.",
     "date_published": "2023-09-19T06:00:32+00:00",
     "date_modified": "2024-09-28T13:22:13+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097632-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097632-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2147,
@@ -579,8 +683,10 @@
     "description": "Astigmatism occurs due to a curvature of your eye’s lens or cornea. Here at Classic Vision Care Learn about astigmatism.",
     "date_published": "2023-09-17T06:00:54+00:00",
     "date_modified": "2024-09-28T13:22:19+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2279534-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2279534-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2037,
@@ -590,8 +696,10 @@
     "description": "Red, itchy eyes got you down? Classic Vision Care explores 4 common causes & solutions. Find relief & get back to seeing clearly!",
     "date_published": "2023-09-15T06:00:17+00:00",
     "date_modified": "2024-09-28T13:22:24+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2351602.jpeg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2351602.jpeg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2025,
@@ -601,8 +709,10 @@
     "description": "Find relief for dry eyes at home! Classic Vision Care shares natural remedies to soothe and refresh your eyes.",
     "date_published": "2023-09-13T06:00:48+00:00",
     "date_modified": "2024-09-28T13:22:35+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097624-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097624-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2081,
@@ -612,8 +722,10 @@
     "description": "Eye infection got you down? Classic Vision Care offers expert advice on first steps, including at-home care & seeking professional help.",
     "date_published": "2023-09-11T03:51:44+00:00",
     "date_modified": "2025-04-28T19:26:13+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097490-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097490-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2091,
@@ -623,8 +735,10 @@
     "description": "Classic Vision Care clarifies: Is squinting bad for your eyes? Learn the truth & discover solutions for healthy vision",
     "date_published": "2023-09-11T03:51:39+00:00",
     "date_modified": "2024-09-28T13:22:45+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2463401.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2463401.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2096,
@@ -634,8 +748,10 @@
     "description": "Prevent Vision Loss: 8 Signs of Glaucoma You Shouldn't Ignore. The sooner we catch glaucoma the better our chances of preventing it from progressing.",
     "date_published": "2023-09-11T03:51:35+00:00",
     "date_modified": "2024-09-28T13:22:52+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2247393-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2247393-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2101,
@@ -645,8 +761,10 @@
     "description": "Are you tired of uncomfortable glasses? Classic Vision Care's guide helps you pick the perfect pair for all-day comfort. Shop our frames too!",
     "date_published": "2023-09-11T03:51:31+00:00",
     "date_modified": "2025-04-28T19:21:55+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097602.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097602.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2109,
@@ -656,8 +774,10 @@
     "description": "Classic Vision Care going to share a few tips to help you prevent dry eyes when you wear contact lenses. Check out the Expert Tips!!",
     "date_published": "2023-09-11T03:51:26+00:00",
     "date_modified": "2025-04-28T19:19:00+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097627-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097627-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2113,
@@ -667,8 +787,10 @@
     "description": "Protect your precious eyesight! Discover how often you should get an eye exam based on your age & health.",
     "date_published": "2023-09-11T03:51:22+00:00",
     "date_modified": "2024-09-28T13:23:12+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097587.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097587.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2119,
@@ -678,8 +800,10 @@
     "description": "Demystify your eye exam! Learn what happens during a comprehensive check-up, from vision tests to eye health checks.",
     "date_published": "2023-09-11T03:51:11+00:00",
     "date_modified": "2025-04-28T19:27:06+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2123283-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2123283-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2122,
@@ -689,8 +813,10 @@
     "description": "Find your perfect specs! Classic Vision Care helps you choose glasses that flatter YOUR face shape & match your style. Discover top tips!",
     "date_published": "2023-09-11T03:50:57+00:00",
     "date_modified": "2025-04-28T19:18:21+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097453-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097453-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2127,
@@ -700,8 +826,10 @@
     "description": "Are you dealing with Allergies and Dry Eyes? Checkout our ways to get relief from allergic reactions you may be experiencing in your eyes.",
     "date_published": "2023-09-11T03:33:02+00:00",
     "date_modified": "2024-09-28T13:23:31+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097605-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097605-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2055,
@@ -711,8 +839,10 @@
     "description": "Are you experiencing dull pain in the back of your eyeballs? Find out more about the symptoms and causes from our expert eye specialists.",
     "date_published": "2023-09-11T03:12:49+00:00",
     "date_modified": "2024-09-28T13:23:37+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/08/2097621.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/08/2097621.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2060,
@@ -722,8 +852,10 @@
     "description": "Discover how excessive screen time can impact your eye health and learn simple tips to protect your vision every day.",
     "date_published": "2023-09-11T03:12:43+00:00",
     "date_modified": "2025-04-28T19:25:36+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097450.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097450.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2066,
@@ -733,8 +865,10 @@
     "description": null,
     "date_published": "2023-09-11T03:12:38+00:00",
     "date_modified": "2024-09-28T13:23:49+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2097639-1.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2097639-1.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   },
   {
     "id": 2116,
@@ -744,7 +878,9 @@
     "description": "Learn about the various tests performed during an eye exam and how they help assess your vision and eye health.",
     "date_published": "2023-09-11T03:12:01+00:00",
     "date_modified": "2025-07-24T19:33:43+00:00",
-    "author": "Ankit Patel",
-    "featured_image": "/wp-content/uploads/2023/09/2463401.jpg"
+    "author": "Dr. Mital Patel, OD",
+    "featured_image": "/wp-content/uploads/2023/09/2463401.jpg",
+    "author_slug": "dr-mital-patel",
+    "content_type": "medical"
   }
 ]

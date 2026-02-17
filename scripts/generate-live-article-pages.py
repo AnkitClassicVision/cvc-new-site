@@ -11,17 +11,154 @@ Why scrape (instead of WP REST content):
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import html
+import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable
+from typing import Any, Iterable
 
 import requests
 from bs4 import BeautifulSoup
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 ORIGIN = "https://classicvisioncare.com"
+
+
+# ---------------------------------------------------------------------------
+# Authorship helpers
+# ---------------------------------------------------------------------------
+
+def _load_authors() -> tuple[dict[str, Any], set[str]]:
+    path = BASE_DIR / "content" / "authors.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    community_slugs = set(data.pop("_community_slugs", []))
+    return data, community_slugs
+
+
+def _assign_author(path: str, community_slugs: set[str]) -> str:
+    slug = path.strip("/").split("/")[-1] if "/" in path else path.strip("/")
+    return "ankit-patel" if slug in community_slugs else "dr-mital-patel"
+
+
+def _clean_headline(raw: str) -> str:
+    for sep in (" | ", " - Classic Vision Care"):
+        if sep in raw:
+            raw = raw.split(sep)[0]
+    return raw.strip()
+
+
+def _fmt_date(date_str: str | None) -> str:
+    if not date_str:
+        return ""
+    try:
+        parsed = dt.datetime.fromisoformat(str(date_str).replace("Z", "+00:00"))
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=dt.timezone.utc)
+        parsed = parsed.astimezone(dt.timezone.utc)
+        return f"{parsed.strftime('%B')} {parsed.day}, {parsed.year}"
+    except Exception:
+        return ""
+
+
+def _build_article_schema(
+    canonical_url: str,
+    title: str,
+    description: str,
+    date_published: str | None,
+    date_modified: str | None,
+    author_slug: str,
+    authors: dict[str, Any],
+) -> str:
+    author = authors[author_slug]
+    is_medical = author_slug == "dr-mital-patel"
+    headline = _clean_headline(title)
+
+    graph: list[dict[str, Any]] = []
+    article: dict[str, Any] = {
+        "@type": "MedicalWebPage" if is_medical else ["Article", "BlogPosting"],
+        "@id": f"{canonical_url}#article",
+        "headline": headline,
+        "author": {"@id": author["schema_id"]},
+        "publisher": {"@id": f"{ORIGIN}/#organization"},
+        "mainEntityOfPage": {"@id": canonical_url},
+        "inLanguage": "en-US",
+    }
+    if date_published:
+        article["datePublished"] = date_published
+    if date_modified:
+        article["dateModified"] = date_modified
+    if description:
+        article["description"] = description
+    graph.append(article)
+
+    graph.append({
+        "@type": "WebPage", "@id": canonical_url, "url": canonical_url,
+        "name": title, "isPartOf": {"@id": f"{ORIGIN}/#website"},
+        "author": {"@id": author["schema_id"]},
+        "breadcrumb": {"@id": f"{canonical_url}#breadcrumb"}, "inLanguage": "en-US",
+    })
+    graph.append({
+        "@type": author["schema_type"], "@id": author["schema_id"],
+        "name": author["name"], "url": f"{ORIGIN}{author['author_page']}",
+        "image": f"{ORIGIN}{author['image']}", "jobTitle": author["title"],
+        "sameAs": author.get("sameAs", []),
+        "worksFor": {"@id": f"{ORIGIN}/#organization"},
+    })
+    graph.append({
+        "@type": "BreadcrumbList", "@id": f"{canonical_url}#breadcrumb",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{ORIGIN}/"},
+            {"@type": "ListItem", "position": 2, "name": "Resources", "item": f"{ORIGIN}/blog/"},
+            {"@type": "ListItem", "position": 3, "name": headline},
+        ],
+    })
+    graph.append({
+        "@type": "Organization", "@id": f"{ORIGIN}/#organization",
+        "name": "Classic Vision Care", "url": f"{ORIGIN}/",
+        "logo": f"{ORIGIN}/images/logos/EOP1600_Classic_Logo_FN.png",
+    })
+    return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
+
+
+def _build_rich_byline(
+    date_published: str | None, author_slug: str, authors: dict[str, Any],
+) -> str:
+    author = authors[author_slug]
+    date_text = _fmt_date(date_published)
+    safe_name = html.escape(author["name"])
+    safe_img = html.escape(author["image"], quote=True)
+    safe_alt = html.escape(author["image_alt"], quote=True)
+    safe_page = html.escape(author["author_page"], quote=True)
+    date_line = f'<p class="text-xs text-gray-500">{html.escape(date_text)}</p>' if date_text else ""
+    return (
+        f'<div class="mt-4 flex items-center gap-3">\n'
+        f'        <img src="{safe_img}" alt="{safe_alt}" '
+        f'class="w-10 h-10 rounded-full object-cover" width="40" height="40" loading="lazy">\n'
+        f'        <div>\n'
+        f'          <p class="text-sm font-medium text-cvc-charcoal">'
+        f'<a href="{safe_page}" class="hover:underline">{safe_name}</a></p>\n'
+        f'          {date_line}\n'
+        f'        </div>\n'
+        f'      </div>'
+    )
+
+
+def _build_medical_review_footer(authors: dict[str, Any]) -> str:
+    a = authors["dr-mital-patel"]
+    return (
+        f'<div class="mt-8 flex items-center gap-3 border-t border-gray-100 pt-6">\n'
+        f'        <img src="{a["image"]}" alt="{html.escape(a["image_alt"], quote=True)}" '
+        f'class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy">\n'
+        f'        <div>\n'
+        f'          <p class="text-sm text-gray-500">Medically reviewed by</p>\n'
+        f'          <p class="text-sm font-medium text-cvc-charcoal">'
+        f'<a href="{a["author_page"]}" class="hover:underline">{html.escape(a["name"])}</a>'
+        f' &middot; Optometrist</p>\n'
+        f'        </div>\n'
+        f'      </div>'
+    )
 
 
 @dataclass(frozen=True)
@@ -150,14 +287,28 @@ def build_faq_jsonld(faq_items: list[tuple[str, str]], canonical_url: str) -> st
     return json.dumps(payload, ensure_ascii=False)
 
 
-def render_page(path: str, scraped: ScrapedArticle, header: str, footer: str) -> str:
+def render_page(
+    path: str,
+    scraped: ScrapedArticle,
+    header: str,
+    footer: str,
+    author_slug: str,
+    authors: dict[str, Any],
+) -> str:
     canonical_path = normalize_path(path)
     canonical_url = f"{ORIGIN}{canonical_path}"
+    is_medical = author_slug == "dr-mital-patel"
 
     title = scraped.title
     description = scraped.meta_description or ""
 
-    extra_schema_blocks: list[str] = []
+    extra_schema_blocks: list[str] = [
+        _build_article_schema(
+            canonical_url, title, description,
+            scraped.date_published, scraped.date_modified,
+            author_slug, authors,
+        )
+    ]
     extra_body_blocks: list[str] = []
 
     # P0 requirement: add punctal plug "fell out" FAQ + schema.
@@ -224,6 +375,8 @@ def render_page(path: str, scraped: ScrapedArticle, header: str, footer: str) ->
         f'  <script type="application/ld+json">{block.replace("</", "<\\/")}</script>' for block in extra_schema_blocks
     )
 
+    byline_html = _build_rich_byline(scraped.date_published, author_slug, authors)
+
     hero = f"""
     <section class=\"py-16 lg:py-20 bg-gradient-to-br from-cvc-teal-50 to-cvc-cream\">
       <div class=\"max-w-4xl mx-auto px-6\">
@@ -236,6 +389,7 @@ def render_page(path: str, scraped: ScrapedArticle, header: str, footer: str) ->
         </nav>
         <h1 class=\"font-display text-3xl md:text-5xl text-cvc-charcoal leading-tight mb-4\">{html.escape(title)}</h1>
         {f'<p class=\"text-lg text-gray-600 max-w-2xl\">{html.escape(description)}</p>' if description else ''}
+        {byline_html}
         <div class=\"mt-6 flex flex-col sm:flex-row gap-3\">
           <a href=\"/book-now/\" class=\"btn-primary\">Book an appointment</a>
           <a href=\"/dry-eye-treatment/\" class=\"btn-secondary\">Dry Eye Spa</a>
@@ -273,6 +427,7 @@ def render_page(path: str, scraped: ScrapedArticle, header: str, footer: str) ->
 {scraped.content_html}
       </article>
 {'' if not extra_body_blocks else ('\\n'.join(extra_body_blocks[1:] if canonical_path.startswith('/eye-treatment/') else extra_body_blocks))}
+{_build_medical_review_footer(authors) if is_medical else ''}
       <div class="mt-12 bg-cvc-cream rounded-2xl p-8">
         <h2 class="font-display text-2xl text-cvc-charcoal mb-3">Need help now?</h2>
         <p class="text-gray-600 mb-6">If you are dealing with symptoms and want a clear plan, we can help. Book an appointment or call the location closest to you.</p>
@@ -315,6 +470,7 @@ def main() -> int:
         return 2
 
     header, footer = read_layout_blocks()
+    authors, community_slugs = _load_authors()
 
     generated = 0
     skipped = 0
@@ -327,7 +483,8 @@ def main() -> int:
 
         dest.parent.mkdir(parents=True, exist_ok=True)
         scraped = scrape_article(path)
-        page_html = render_page(path, scraped, header=header, footer=footer)
+        author_slug = _assign_author(path, community_slugs)
+        page_html = render_page(path, scraped, header=header, footer=footer, author_slug=author_slug, authors=authors)
         dest.write_text(page_html, encoding="utf-8")
         print(f"[OK]   {path} → {dest.relative_to(BASE_DIR)}")
         generated += 1

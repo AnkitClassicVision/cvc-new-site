@@ -30,6 +30,159 @@ from bs4 import BeautifulSoup
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# ---------------------------------------------------------------------------
+# Authorship helpers
+# ---------------------------------------------------------------------------
+
+def _load_authors() -> tuple[dict[str, Any], set[str]]:
+    path = BASE_DIR / "content" / "authors.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    community_slugs = set(data.pop("_community_slugs", []))
+    return data, community_slugs
+
+
+def _assign_author(slug: str, community_slugs: set[str]) -> str:
+    return "ankit-patel" if slug in community_slugs else "dr-mital-patel"
+
+
+def _clean_headline(raw: str) -> str:
+    for sep in (" | ", " - Classic Vision Care"):
+        if sep in raw:
+            raw = raw.split(sep)[0]
+    return raw.strip()
+
+
+def _build_article_schema(
+    canonical_url: str,
+    meta: "PostMeta",
+    author_slug: str,
+    authors: dict[str, Any],
+) -> str:
+    origin = DEFAULT_ORIGIN
+    author = authors[author_slug]
+    is_medical = author_slug == "dr-mital-patel"
+    headline = _clean_headline(meta.title)
+
+    graph: list[dict[str, Any]] = []
+
+    article: dict[str, Any] = {
+        "@type": "MedicalWebPage" if is_medical else ["Article", "BlogPosting"],
+        "@id": f"{canonical_url}#article",
+        "headline": headline,
+        "author": {"@id": author["schema_id"]},
+        "publisher": {"@id": f"{origin}/#organization"},
+        "mainEntityOfPage": {"@id": canonical_url},
+        "inLanguage": "en-US",
+    }
+    if meta.date_published:
+        article["datePublished"] = meta.date_published
+    if meta.date_modified:
+        article["dateModified"] = meta.date_modified
+    if meta.description:
+        article["description"] = meta.description
+    if meta.featured_image:
+        img = meta.featured_image
+        article["image"] = img if img.startswith("http") else f"{origin}{img}"
+    graph.append(article)
+
+    webpage: dict[str, Any] = {
+        "@type": "WebPage",
+        "@id": canonical_url,
+        "url": canonical_url,
+        "name": meta.title,
+        "isPartOf": {"@id": f"{origin}/#website"},
+        "author": {"@id": author["schema_id"]},
+        "breadcrumb": {"@id": f"{canonical_url}#breadcrumb"},
+        "inLanguage": "en-US",
+    }
+    if meta.date_published:
+        webpage["datePublished"] = meta.date_published
+    if meta.date_modified:
+        webpage["dateModified"] = meta.date_modified
+    if meta.description:
+        webpage["description"] = meta.description
+    graph.append(webpage)
+
+    author_node: dict[str, Any] = {
+        "@type": author["schema_type"],
+        "@id": author["schema_id"],
+        "name": author["name"],
+        "url": f"{origin}{author['author_page']}",
+        "image": f"{origin}{author['image']}",
+        "jobTitle": author["title"],
+        "sameAs": author.get("sameAs", []),
+        "worksFor": {"@id": f"{origin}/#organization"},
+    }
+    graph.append(author_node)
+
+    graph.append({
+        "@type": "BreadcrumbList",
+        "@id": f"{canonical_url}#breadcrumb",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{origin}/"},
+            {"@type": "ListItem", "position": 2, "name": "Resources", "item": f"{origin}/blog/"},
+            {"@type": "ListItem", "position": 3, "name": headline},
+        ],
+    })
+
+    graph.append({
+        "@type": "Organization",
+        "@id": f"{origin}/#organization",
+        "name": "Classic Vision Care",
+        "url": f"{origin}/",
+        "logo": f"{origin}/images/logos/EOP1600_Classic_Logo_FN.png",
+    })
+
+    return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
+
+
+def _build_rich_byline(meta: "PostMeta", author_slug: str, authors: dict[str, Any]) -> str:
+    author = authors[author_slug]
+    date_text = ""
+    if meta.date_published:
+        try:
+            parsed = dt.datetime.fromisoformat(meta.date_published.replace("Z", "+00:00"))
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=dt.timezone.utc)
+            parsed = parsed.astimezone(dt.timezone.utc)
+            date_text = f"{parsed.strftime('%B')} {parsed.day}, {parsed.year}"
+        except Exception:
+            pass
+
+    safe_name = html.escape(author["name"])
+    safe_img = html.escape(author["image"], quote=True)
+    safe_alt = html.escape(author["image_alt"], quote=True)
+    safe_page = html.escape(author["author_page"], quote=True)
+    date_line = f'<p class="text-xs text-gray-500">{html.escape(date_text)}</p>' if date_text else ""
+
+    return (
+        f'<div class="mt-4 flex items-center gap-3">\n'
+        f'        <img src="{safe_img}" alt="{safe_alt}" '
+        f'class="w-10 h-10 rounded-full object-cover" width="40" height="40" loading="lazy">\n'
+        f'        <div>\n'
+        f'          <p class="text-sm font-medium text-cvc-charcoal">'
+        f'<a href="{safe_page}" class="hover:underline">{safe_name}</a></p>\n'
+        f'          {date_line}\n'
+        f'        </div>\n'
+        f'      </div>'
+    )
+
+
+def _build_medical_review_footer(authors: dict[str, Any]) -> str:
+    a = authors["dr-mital-patel"]
+    return (
+        f'<div class="mt-8 flex items-center gap-3 border-t border-gray-100 pt-6">\n'
+        f'        <img src="{a["image"]}" alt="{html.escape(a["image_alt"], quote=True)}" '
+        f'class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy">\n'
+        f'        <div>\n'
+        f'          <p class="text-sm text-gray-500">Medically reviewed by</p>\n'
+        f'          <p class="text-sm font-medium text-cvc-charcoal">'
+        f'<a href="{a["author_page"]}" class="hover:underline">{html.escape(a["name"])}</a>'
+        f' &middot; Optometrist</p>\n'
+        f'        </div>\n'
+        f'      </div>'
+    )
+
 DEFAULT_ORIGIN = "https://classicvisioncare.com"
 
 DIVI_SHORTCODE_RE = re.compile(r"\[(?:/?et_pb|et_pb_section|et_pb_row|et_pb_text)\b", re.IGNORECASE)
@@ -339,9 +492,11 @@ def render_post_page(
     content_html: str,
     header: str,
     footer: str,
-    schema: dict[str, Any] | None,
+    author_slug: str,
+    authors: dict[str, Any],
 ) -> str:
     canonical_url = f"{origin.rstrip('/')}{meta.path}"
+    is_medical = author_slug == "dr-mital-patel"
 
     def build_faq_jsonld(faq_items: list[tuple[str, str]]) -> str:
         payload = {
@@ -360,8 +515,7 @@ def render_post_page(
         return json.dumps(payload, ensure_ascii=False)
 
     schema_blocks: list[str] = []
-    if schema:
-        schema_blocks.append(json.dumps(schema, ensure_ascii=False))
+    schema_blocks.append(_build_article_schema(canonical_url, meta, author_slug, authors))
 
     extra_section_blocks: list[str] = []
 
@@ -422,23 +576,7 @@ def render_post_page(
             lines.append(f'  <script type="application/ld+json">{block}</script>')
         schema_block = "\n".join(lines) + "\n"
 
-    published_human = None
-    if meta.date_published:
-        try:
-            parsed = dt.datetime.fromisoformat(meta.date_published.replace("Z", "+00:00"))
-            if parsed.tzinfo is None:
-                parsed = parsed.replace(tzinfo=dt.timezone.utc)
-            parsed = parsed.astimezone(dt.timezone.utc)
-            published_human = f"{parsed.strftime('%B')} {parsed.day}, {parsed.year}"
-        except Exception:
-            published_human = None
-
-    byline_parts = []
-    if published_human:
-        byline_parts.append(published_human)
-    if meta.author:
-        byline_parts.append(f"By {meta.author}")
-    byline = " • ".join(byline_parts)
+    byline_html = _build_rich_byline(meta, author_slug, authors)
 
     description = meta.description or ""
     safe_title = html.escape(meta.title)
@@ -468,7 +606,7 @@ def render_post_page(
       </nav>
       <h1 class="font-display text-3xl md:text-5xl text-cvc-charcoal leading-tight mb-4">{safe_title}</h1>
       {f'<p class="text-lg text-gray-600 max-w-2xl">{safe_description_text}</p>' if description else ''}
-      {f'<p class="mt-4 text-sm text-gray-500">{byline}</p>' if byline else ''}
+      {byline_html}
 {featured_block}
       <div class="mt-8 flex flex-col sm:flex-row gap-3">
         <a href="/book-now/" class="btn-primary">Book an appointment</a>
@@ -515,6 +653,7 @@ def render_post_page(
 {content_html}
       </article>
 {'' if not extra_section_blocks else ('\\n'.join(extra_section_blocks))}
+{_build_medical_review_footer(authors) if is_medical else ''}
       <div class="mt-12 bg-cvc-cream rounded-2xl p-8">
         <h2 class="font-display text-2xl text-cvc-charcoal mb-3">Need help now?</h2>
         <p class="text-gray-600 mb-6">If you are dealing with symptoms and want a clear plan, we can help. Book an appointment or call the location closest to you.</p>
@@ -634,6 +773,7 @@ def main() -> int:
     origin_hosts = set(DEFAULT_EXTRA_ORIGIN_HOSTS) | {origin_host}
 
     header, footer = read_layout_blocks()
+    authors, community_slugs = _load_authors()
 
     posts = fetch_posts(origin)
     print(f"Found {len(posts)} published posts via WP API")
@@ -649,8 +789,6 @@ def main() -> int:
 
     for post in posts:
         meta = build_post_meta(origin, post)
-
-        schema = yoast_schema(post)
 
         rendered = post.get("content", {}).get("rendered", "")
         if not isinstance(rendered, str):
@@ -682,6 +820,8 @@ def main() -> int:
         if meta.featured_image and "/wp-content/uploads/" in meta.featured_image:
             upload_paths.add(meta.featured_image.split("/wp-content/uploads/", 1)[1].split("?", 1)[0].split("#", 1)[0])
 
+        author_slug = _assign_author(meta.slug, community_slugs)
+
         dest = dest_for_path(meta.path)
         if dest.exists() and not args.overwrite:
             skipped += 1
@@ -693,7 +833,8 @@ def main() -> int:
                 content_html=content_html,
                 header=header,
                 footer=footer,
-                schema=schema,
+                author_slug=author_slug,
+                authors=authors,
             )
             dest.write_text(page_html, encoding="utf-8")
             written += 1
@@ -707,7 +848,9 @@ def main() -> int:
                 "description": meta.description,
                 "date_published": meta.date_published,
                 "date_modified": meta.date_modified,
-                "author": meta.author,
+                "author": authors[author_slug]["name"],
+                "author_slug": author_slug,
+                "content_type": "community" if author_slug == "ankit-patel" else "medical",
                 "featured_image": meta.featured_image,
             }
         )

@@ -72,15 +72,24 @@ def post_row(post: dict) -> str:
     title = str(post.get("title") or "").strip() or path
     desc = str(post.get("description") or "").strip()
     date_text = fmt_date(post.get("date_published"))
+    author = str(post.get("author") or "").strip()
 
     safe_title = html.escape(title)
     safe_desc = html.escape(desc)
     safe_path = html.escape(path, quote=True)
     safe_meta = html.escape(date_text or "")
+    safe_author = html.escape(author)
+
+    meta_parts = []
+    if date_text:
+        meta_parts.append(safe_meta)
+    if author:
+        meta_parts.append(safe_author)
+    meta_line = " &middot; ".join(meta_parts)
 
     return f"""
           <a href=\"{safe_path}\" class=\"block rounded-2xl border border-gray-100 bg-white p-6 hover:shadow-md transition-shadow\">
-            {f'<p class=\"text-xs text-gray-500 mb-2\">{safe_meta}</p>' if date_text else ''}
+            {f'<p class=\"text-xs text-gray-500 mb-2\">{meta_line}</p>' if meta_line else ''}
             <h3 class=\"font-semibold text-cvc-charcoal mb-2\">{safe_title}</h3>
             {f'<p class=\"text-gray-600 text-sm leading-relaxed\">{safe_desc}</p>' if desc else ''}
           </a>

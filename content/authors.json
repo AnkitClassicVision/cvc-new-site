@@ -1,0 +1,50 @@
+{
+  "dr-mital-patel": {
+    "name": "Dr. Mital Patel, OD",
+    "short_name": "Dr. Mital Patel",
+    "slug": "dr-mital-patel",
+    "role": "Founder & Optometrist",
+    "title": "Doctor of Optometry",
+    "bio": "Dr. Mital Patel is the founder of Classic Vision Care, serving Kennesaw and East Cobb/Marietta for over 25 years. She earned her Doctor of Optometry from the Southern College of Optometry and specializes in dry eye treatment, specialty contact lenses, and comprehensive eye care. Dr. Patel is certified in IPL, radio-frequency, and BlephEx treatments, and has fitted over 2,000 scleral lenses.",
+    "image": "/images/doctors/dr-mital-patel-headshot.jpg",
+    "image_alt": "Dr. Mital Patel, OD - Optometrist at Classic Vision Care",
+    "author_page": "/dr-mital-patel-od/",
+    "schema_id": "https://classicvisioncare.com/dr-mital-patel-od/#physician",
+    "schema_type": "Physician",
+    "sameAs": [
+      "https://www.healthgrades.com/physician/dr-mital-patel-2hhks"
+    ],
+    "content_type": "medical",
+    "credentials": {
+      "degree": "OD",
+      "school": "Southern College of Optometry",
+      "certifications": ["IPL Treatment", "Radio-Frequency Treatment", "BlephEx Treatment"],
+      "specialties": ["Dry Eye Treatment", "Specialty Contact Lenses", "Comprehensive Eye Care"]
+    }
+  },
+  "ankit-patel": {
+    "name": "Ankit Patel",
+    "short_name": "Ankit Patel",
+    "slug": "ankit-patel",
+    "role": "Co-Founder",
+    "title": "Practice Co-Founder & Community Voice",
+    "bio": "Ankit Patel is the co-founder of Classic Vision Care. He writes about the communities CVC serves and helps patients make the most of their vision benefits.",
+    "image": "/images/ankit-patel-headshot.jpg",
+    "image_alt": "Ankit Patel - Co-Founder of Classic Vision Care",
+    "author_page": "/author/ankit-patel/",
+    "schema_id": "https://classicvisioncare.com/author/ankit-patel/#person",
+    "schema_type": "Person",
+    "sameAs": [
+      "https://mybcat.com/author/ankit-patel/",
+      "https://www.linkedin.com/in/ankitpatel"
+    ],
+    "content_type": "community"
+  },
+  "_community_slugs": [
+    "top-things-to-do-and-see-in-kennesaw-ga",
+    "top-things-to-do-and-see-in-marietta",
+    "why-we-love-serving-the-marietta-and-kennesaw-communities",
+    "investing-in-eyewear-before-the-years-end",
+    "reinvent-your-look-in-the-new-year-with-new-designer-eyewear"
+  ]
+}
