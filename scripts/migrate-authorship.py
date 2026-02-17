@@ -475,7 +475,7 @@ def generate_ankit_author_page(
   <meta property="og:type" content="profile">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/styles/tailwind.css">
-  <link rel="stylesheet" href="/styles/editorial-forest.css?v=2">
+  <link rel="stylesheet" href="/styles/editorial-forest.css?v=3">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/fonts/TT_Norms_Pro_Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -644,7 +644,7 @@ def generate_dr_mital_author_page(
   <meta property="og:type" content="profile">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/styles/tailwind.css">
-  <link rel="stylesheet" href="/styles/editorial-forest.css?v=2">
+  <link rel="stylesheet" href="/styles/editorial-forest.css?v=3">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/fonts/TT_Norms_Pro_Regular.woff2" as="font" type="font/woff2" crossorigin>

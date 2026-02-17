@@ -388,12 +388,13 @@ body.cvc-editorial ::-moz-selection {
 }
 
 .cvc-editorial .ef-nav a {
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: var(--charcoal);
   position: relative;
+  white-space: nowrap;
 }
 
 .cvc-editorial .ef-nav a::after {
@@ -448,14 +449,15 @@ body.cvc-editorial ::-moz-selection {
   align-items: center;
   gap: 0.25rem;
   padding: 0.5rem 0;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: var(--charcoal);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .cvc-editorial .nav-trigger:hover,
@@ -840,9 +842,10 @@ body.cvc-editorial ::-moz-selection {
 /* Small Button Variant - for navigation/header */
 .cvc-editorial .btn-primary.btn-sm,
 .cvc-editorial .ef-cta.btn-sm {
-  padding: 0.75rem 1.25rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 /* Outline Button */
