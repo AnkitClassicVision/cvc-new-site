@@ -266,6 +266,16 @@ FAQPAGE_RE = re.compile(
 BYLINE_RE = re.compile(
     r'<p class="mt-4 text-sm text-gray-500">[^<]*</p>'
 )
+RICH_BYLINE_RE = re.compile(
+    r'<div class="mt-4 flex items-center gap-3">\s*'
+    r'<img src="[^"]*"[^>]*>\s*'
+    r'<div>\s*'
+    r'<p class="text-sm font-medium text-cvc-charcoal">[^<]*<a[^>]*>[^<]*</a></p>\s*'
+    r'(?:<p class="text-xs text-gray-500">[^<]*</p>\s*)?'
+    r'</div>\s*'
+    r'</div>',
+    re.DOTALL,
+)
 
 
 def migrate_article(
@@ -304,7 +314,9 @@ def migrate_article(
     # ---- 2. Replace byline ----
     new_byline = build_rich_byline(post, author_slug, authors)
 
-    if BYLINE_RE.search(text):
+    if RICH_BYLINE_RE.search(text):
+        text = RICH_BYLINE_RE.sub(new_byline, text, count=1)
+    elif BYLINE_RE.search(text):
         text = BYLINE_RE.sub(new_byline, text, count=1)
     else:
         # Try to insert after description <p> in hero
@@ -319,12 +331,26 @@ def migrate_article(
             if h1_m:
                 text = text[: h1_m.end()] + f"\n      {new_byline}" + text[h1_m.end() :]
 
-    # ---- 3. Add medical review footer ----
-    if is_medical and "Medically reviewed by" not in text:
-        footer = build_medical_review_footer(authors)
-        anchor = '<div class="mt-12 bg-cvc-cream rounded-2xl p-8">'
-        if anchor in text:
-            text = text.replace(anchor, f"{footer}\n      {anchor}", 1)
+    # ---- 3. Add or update medical review footer ----
+    if is_medical:
+        new_footer = build_medical_review_footer(authors)
+        # Replace existing footer if present
+        existing_footer_re = re.compile(
+            r'<div class="mt-8 flex items-center gap-3 border-t border-gray-100 pt-6">\s*'
+            r'<img src="[^"]*"[^>]*>\s*'
+            r'<div>\s*'
+            r'<p class="text-sm text-gray-500">Medically reviewed by</p>\s*'
+            r'<p class="text-sm font-medium text-cvc-charcoal">[^<]*<a[^>]*>[^<]*</a>[^<]*</p>\s*'
+            r'</div>\s*'
+            r'</div>',
+            re.DOTALL,
+        )
+        if existing_footer_re.search(text):
+            text = existing_footer_re.sub(new_footer, text, count=1)
+        elif "Medically reviewed by" not in text:
+            anchor = '<div class="mt-12 bg-cvc-cream rounded-2xl p-8">'
+            if anchor in text:
+                text = text.replace(anchor, f"{new_footer}\n      {anchor}", 1)
 
     if text != original:
         file_path.write_text(text, encoding="utf-8")
@@ -363,7 +389,58 @@ def generate_ankit_author_page(
           </a>
 """
 
+    # Book section
+    book = a.get("book")
+    book_section = ""
+    if book:
+        safe_book_title = html.escape(book["title"])
+        safe_book_url = html.escape(book["url"], quote=True)
+        book_section = f"""
+  <section class="py-16 lg:py-20 bg-cvc-cream">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-display text-2xl md:text-3xl text-cvc-charcoal mb-6">Book</h2>
+      <div class="flex flex-col sm:flex-row items-start gap-6 bg-white rounded-2xl p-8 shadow-sm">
+        <div class="shrink-0">
+          <svg class="w-16 h-20 text-cvc-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-display text-xl text-cvc-charcoal mb-2">{safe_book_title}</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">A guide for optometry practice owners on mastering resourcing, performance, and building a thriving practice.</p>
+          <a href="{safe_book_url}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cvc-teal-600 font-medium hover:underline text-sm">
+            View on Amazon
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+"""
+
     # Schema: Person + ProfilePage
+    person_node: dict[str, Any] = {
+        "@type": "Person",
+        "@id": a["schema_id"],
+        "name": a["name"],
+        "url": f"{ORIGIN}/author/ankit-patel/",
+        "image": f"{ORIGIN}{a['image']}",
+        "jobTitle": a["title"],
+        "description": a["bio"],
+        "sameAs": a.get("sameAs", []),
+        "worksFor": {
+            "@type": "Organization",
+            "@id": f"{ORIGIN}/#organization",
+            "name": "Classic Vision Care",
+        },
+    }
+    if book:
+        person_node["author"] = {
+            "@type": "Book",
+            "name": book["title"],
+            "url": book["url"],
+        }
+
     schema_obj = {
         "@context": "https://schema.org",
         "@graph": [
@@ -376,21 +453,7 @@ def generate_ankit_author_page(
                 "isPartOf": {"@id": f"{ORIGIN}/#website"},
                 "inLanguage": "en-US",
             },
-            {
-                "@type": "Person",
-                "@id": a["schema_id"],
-                "name": a["name"],
-                "url": f"{ORIGIN}/author/ankit-patel/",
-                "image": f"{ORIGIN}{a['image']}",
-                "jobTitle": a["title"],
-                "description": a["bio"],
-                "sameAs": a.get("sameAs", []),
-                "worksFor": {
-                    "@type": "Organization",
-                    "@id": f"{ORIGIN}/#organization",
-                    "name": "Classic Vision Care",
-                },
-            },
+            person_node,
         ],
     }
     schema_json = json.dumps(schema_obj, ensure_ascii=False).replace("</", "<\\/")
@@ -460,6 +523,7 @@ def generate_ankit_author_page(
     </div>
   </section>
 
+{book_section}
   <section class="py-16 bg-cvc-cream">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="font-display text-2xl md:text-3xl text-cvc-charcoal mb-4">Want a personalized plan?</h2>
@@ -479,6 +543,199 @@ def generate_ankit_author_page(
 """
 
     dest = BASE_DIR / "author" / "ankit-patel" / "index.html"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(page_html, encoding="utf-8")
+    print(f"  [OK] Generated {dest.relative_to(BASE_DIR)}")
+
+
+# ---------------------------------------------------------------------------
+# Author page generation (Dr. Mital Patel)
+# ---------------------------------------------------------------------------
+
+def generate_dr_mital_author_page(
+    authors: dict[str, Any],
+    manifest: list[dict[str, Any]],
+    community_slugs: set[str],
+    header: str,
+    footer: str,
+) -> None:
+    a = authors["dr-mital-patel"]
+
+    # Collect medical posts
+    posts = [p for p in manifest if p["slug"] not in community_slugs]
+    posts.sort(key=lambda p: str(p.get("date_published") or ""), reverse=True)
+
+    post_cards = ""
+    for p in posts[:12]:
+        safe_path = html.escape(p["path"], quote=True)
+        safe_title = html.escape(_clean_title(p.get("title") or ""))
+        safe_desc = html.escape(p.get("description") or "")
+        date_text = _fmt_date(p.get("date_published"))
+        post_cards += f"""
+          <a href="{safe_path}" class="block rounded-2xl border border-gray-100 bg-white p-6 hover:shadow-md transition-shadow">
+            {f'<p class="text-xs text-gray-500 mb-2">{html.escape(date_text)}</p>' if date_text else ''}
+            <h3 class="font-semibold text-cvc-charcoal mb-2">{safe_title}</h3>
+            {f'<p class="text-gray-600 text-sm leading-relaxed">{safe_desc}</p>' if safe_desc else ''}
+          </a>
+"""
+
+    # Schema: Physician + ProfilePage
+    schema_obj = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "ProfilePage",
+                "@id": f"{ORIGIN}/author/dr-mital-patel/",
+                "url": f"{ORIGIN}/author/dr-mital-patel/",
+                "name": f"{a['name']} — Author at Classic Vision Care",
+                "mainEntity": {"@id": a["schema_id"]},
+                "isPartOf": {"@id": f"{ORIGIN}/#website"},
+                "inLanguage": "en-US",
+            },
+            {
+                "@type": "Physician",
+                "@id": a["schema_id"],
+                "name": a["name"],
+                "url": f"{ORIGIN}/author/dr-mital-patel/",
+                "image": f"{ORIGIN}{a['image']}",
+                "jobTitle": a["title"],
+                "description": a["bio"],
+                "sameAs": a.get("sameAs", []),
+                "medicalSpecialty": "Optometry",
+                "knowsAbout": a["credentials"]["specialties"],
+                "alumniOf": {
+                    "@type": "EducationalOrganization",
+                    "name": a["credentials"]["school"],
+                },
+                "worksFor": {
+                    "@type": "Organization",
+                    "@id": f"{ORIGIN}/#organization",
+                    "name": "Classic Vision Care",
+                    "url": f"{ORIGIN}/",
+                },
+            },
+        ],
+    }
+    schema_json = json.dumps(schema_obj, ensure_ascii=False).replace("</", "<\\/")
+
+    # Build credentials HTML
+    creds = a.get("credentials", {})
+    cert_items = ""
+    for cert in creds.get("certifications", []):
+        cert_items += f'<li class="text-gray-600 text-sm">{html.escape(cert)}</li>\n'
+    spec_items = ""
+    for spec in creds.get("specialties", []):
+        spec_items += f'<li class="text-gray-600 text-sm">{html.escape(spec)}</li>\n'
+
+    page_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{html.escape(a['name'])} — Author | Classic Vision Care</title>
+  <meta name="description" content="{html.escape(a['bio'], quote=True)}">
+  <link rel="canonical" href="{ORIGIN}/author/dr-mital-patel/">
+  <meta property="og:title" content="{html.escape(a['name'])} — Author | Classic Vision Care">
+  <meta property="og:description" content="{html.escape(a['bio'], quote=True)}">
+  <meta property="og:url" content="{ORIGIN}/author/dr-mital-patel/">
+  <meta property="og:image" content="{ORIGIN}{a['image']}">
+  <meta property="og:site_name" content="Classic Vision Care">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="profile">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/styles/tailwind.css">
+  <link rel="stylesheet" href="/styles/editorial-forest.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/fonts/TT_Norms_Pro_Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/TT_Norms_Pro_Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"></noscript>
+  <script type="application/ld+json">{schema_json}</script>
+</head>
+<body class="cvc-editorial font-body text-cvc-charcoal bg-white">
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+{header}
+
+<main id="main-content">
+  <section class="py-16 lg:py-24 bg-gradient-to-br from-cvc-teal-50 to-cvc-cream">
+    <div class="max-w-4xl mx-auto px-6">
+      <nav class="text-sm text-gray-600 mb-6" aria-label="Breadcrumb">
+        <ol class="flex flex-wrap gap-2">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/blog/" class="hover:underline">Resources</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-cvc-charcoal">{html.escape(a['name'])}</li>
+        </ol>
+      </nav>
+      <div class="flex flex-col md:flex-row items-start gap-8">
+        <img src="{a['image']}" alt="{html.escape(a['image_alt'], quote=True)}"
+             class="w-32 h-32 rounded-2xl object-cover shadow-md" width="128" height="128">
+        <div>
+          <h1 class="font-display text-3xl md:text-4xl text-cvc-charcoal leading-tight mb-2">{html.escape(a['name'])}</h1>
+          <p class="text-cvc-teal-500 font-medium mb-4">{html.escape(a['role'])}</p>
+          <p class="text-gray-600 leading-relaxed max-w-2xl mb-4">{html.escape(a['bio'])}</p>
+          <a href="{a.get('doctor_page', '/dr-mital-patel-od/')}" class="text-cvc-teal-600 font-medium hover:underline text-sm">View full doctor profile &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="bg-cvc-cream rounded-2xl p-6">
+          <h3 class="font-semibold text-cvc-charcoal mb-3 text-sm uppercase tracking-wider">Education</h3>
+          <p class="text-gray-600 text-sm">{html.escape(creds.get('degree', 'OD'))}, {html.escape(creds.get('school', ''))}</p>
+        </div>
+        <div class="bg-cvc-cream rounded-2xl p-6">
+          <h3 class="font-semibold text-cvc-charcoal mb-3 text-sm uppercase tracking-wider">Certifications</h3>
+          <ul class="space-y-1">
+{cert_items}          </ul>
+        </div>
+        <div class="bg-cvc-cream rounded-2xl p-6">
+          <h3 class="font-semibold text-cvc-charcoal mb-3 text-sm uppercase tracking-wider">Specialties</h3>
+          <ul class="space-y-1">
+{spec_items}          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+        <h2 class="font-display text-2xl md:text-3xl text-cvc-charcoal">Articles by {html.escape(a['short_name'])}</h2>
+        <a href="/blog/" class="text-cvc-teal-600 font-medium hover:underline text-sm">View all articles &rarr;</a>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+{post_cards}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-cvc-cream">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-2xl md:text-3xl text-cvc-charcoal mb-4">Want a personalized plan?</h2>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Dr. Patel takes time to listen, explain, and recommend options that fit your goals. Book an appointment at the location closest to you.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/book-now/" class="btn-primary">Book an appointment</a>
+        <a href="/eye-doctor-kennesaw-ga/" class="btn-secondary">Kennesaw</a>
+        <a href="/eye-doctor-marietta/" class="btn-secondary">East Cobb</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+{footer}
+</body>
+</html>
+"""
+
+    dest = BASE_DIR / "author" / "dr-mital-patel" / "index.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(page_html, encoding="utf-8")
     print(f"  [OK] Generated {dest.relative_to(BASE_DIR)}")
@@ -505,47 +762,49 @@ def enhance_dr_mital_page(
     posts = [p for p in manifest if p["slug"] not in community_slugs]
     posts.sort(key=lambda p: str(p.get("date_published") or ""), reverse=True)
 
-    # ---- 1. Add Physician schema if not present ----
-    if "application/ld+json" not in text:
-        schema_obj = {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "Physician",
-                    "@id": a["schema_id"],
-                    "name": a["name"],
-                    "url": f"{ORIGIN}{a['author_page']}",
-                    "image": f"{ORIGIN}{a['image']}",
-                    "jobTitle": a["title"],
-                    "description": a["bio"],
-                    "sameAs": a.get("sameAs", []),
-                    "medicalSpecialty": "Optometry",
-                    "knowsAbout": a["credentials"]["specialties"],
-                    "alumniOf": {
-                        "@type": "EducationalOrganization",
-                        "name": a["credentials"]["school"],
-                    },
-                    "worksFor": {
-                        "@type": "Organization",
-                        "@id": f"{ORIGIN}/#organization",
-                        "name": "Classic Vision Care",
-                        "url": f"{ORIGIN}/",
-                    },
+    # ---- 1. Update Physician schema (replace if present, add if not) ----
+    schema_obj = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Physician",
+                "@id": a["schema_id"],
+                "name": a["name"],
+                "url": f"{ORIGIN}{a['author_page']}",
+                "image": f"{ORIGIN}{a['image']}",
+                "jobTitle": a["title"],
+                "description": a["bio"],
+                "sameAs": a.get("sameAs", []),
+                "medicalSpecialty": "Optometry",
+                "knowsAbout": a["credentials"]["specialties"],
+                "alumniOf": {
+                    "@type": "EducationalOrganization",
+                    "name": a["credentials"]["school"],
                 },
-                {
-                    "@type": "ProfilePage",
-                    "@id": f"{ORIGIN}/dr-mital-patel-od/",
-                    "url": f"{ORIGIN}/dr-mital-patel-od/",
-                    "name": f"{a['name']} — Eye Doctor at Classic Vision Care",
-                    "mainEntity": {"@id": a["schema_id"]},
-                    "isPartOf": {"@id": f"{ORIGIN}/#website"},
-                    "inLanguage": "en-US",
+                "worksFor": {
+                    "@type": "Organization",
+                    "@id": f"{ORIGIN}/#organization",
+                    "name": "Classic Vision Care",
+                    "url": f"{ORIGIN}/",
                 },
-            ],
-        }
-        schema_json = json.dumps(schema_obj, ensure_ascii=False).replace("</", "<\\/")
-        schema_tag = f'  <script type="application/ld+json">{schema_json}</script>\n'
-        text = text.replace("</head>", f"{schema_tag}</head>")
+            },
+            {
+                "@type": "ProfilePage",
+                "@id": f"{ORIGIN}/dr-mital-patel-od/",
+                "url": f"{ORIGIN}/dr-mital-patel-od/",
+                "name": f"{a['name']} — Eye Doctor at Classic Vision Care",
+                "mainEntity": {"@id": a["schema_id"]},
+                "isPartOf": {"@id": f"{ORIGIN}/#website"},
+                "inLanguage": "en-US",
+            },
+        ],
+    }
+    schema_json = json.dumps(schema_obj, ensure_ascii=False).replace("</", "<\\/")
+    schema_tag = f'  <script type="application/ld+json">{schema_json}</script>\n'
+
+    # Remove existing JSON-LD, then insert fresh
+    text = JSONLD_RE.sub("", text)
+    text = text.replace("</head>", f"{schema_tag}</head>")
 
     # ---- 2. Add articles section if not present ----
     if "Articles by Dr." not in text:
@@ -643,12 +902,13 @@ def main() -> int:
 
     print(f"\nArticles: migrated={migrated}, unchanged={skipped}, missing={missing}\n")
 
-    # ---- Step 2: Generate Ankit's author page ----
-    print("--- Generating Ankit Patel author page ---")
+    # ---- Step 2: Generate author pages ----
+    print("--- Generating author pages ---")
     generate_ankit_author_page(authors, manifest, community_slugs, header, footer)
+    generate_dr_mital_author_page(authors, manifest, community_slugs, header, footer)
 
-    # ---- Step 3: Enhance Dr. Mital Patel's page ----
-    print("\n--- Enhancing Dr. Mital Patel page ---")
+    # ---- Step 3: Enhance Dr. Mital Patel's doctor page ----
+    print("\n--- Enhancing Dr. Mital Patel doctor page ---")
     enhance_dr_mital_page(authors, manifest, community_slugs)
 
     # ---- Step 4: Write updated manifest ----
