@@ -22,9 +22,10 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Optometrist",
+        "@type": "MedicalClinic",
         "@id": "https://classicvisioncare.com/eye-doctor-kennesaw-ga/#location",
         "name": "Classic Vision Care - Kennesaw",
+        "medicalSpecialty": "https://schema.org/Optometric",
         "image": "https://classicvisioncare.com/images/locations/kennesaw-office.jpg",
         "url": "https://classicvisioncare.com/eye-doctor-kennesaw-ga/",
         "telephone": "+1-770-499-2020",
@@ -72,7 +73,20 @@
             {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Myopia Control"}},
             {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Contact Lens Fitting"}}
           ]
-        }
+        },
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "name": "Book an eye exam",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://classicvisioncare.com/book-now/?location=kennesaw",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          }
+        },
+        "parentOrganization": {"@id": "https://classicvisioncare.com/#organization"}
       },
       {
         "@type": "BreadcrumbList",
@@ -381,9 +395,9 @@
       <div class="max-w-7xl mx-auto px-6 py-4">
         <!-- Services Accordion -->
         <div class="mobile-accordion border-b border-gray-100">
-          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-services">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-services" aria-expanded="false" aria-controls="mobile-services">
             Services
-            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
@@ -413,9 +427,9 @@
 
         <!-- Dry Eye Accordion -->
 	        <div class="mobile-accordion border-b border-gray-100">
-	          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-dryeye">
+	          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-dryeye" aria-expanded="false" aria-controls="mobile-dryeye">
 	            Dry Eye Spa
-            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
@@ -435,9 +449,9 @@
 
         <!-- Myopia Accordion -->
         <div class="mobile-accordion border-b border-gray-100">
-          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-myopia">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-myopia" aria-expanded="false" aria-controls="mobile-myopia">
             Myopia Control
-            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
@@ -454,9 +468,9 @@
 
         <!-- Eyewear Accordion -->
         <div class="mobile-accordion border-b border-gray-100">
-          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-eyewear">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-eyewear" aria-expanded="false" aria-controls="mobile-eyewear">
             Eyewear
-            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
@@ -474,9 +488,9 @@
 
         <!-- Locations Accordion -->
         <div class="mobile-accordion border-b border-gray-100">
-          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-locations">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-locations" aria-expanded="false" aria-controls="mobile-locations">
             Locations
-            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
@@ -489,9 +503,9 @@
 
         <!-- Resources Accordion -->
         <div class="mobile-accordion border-b border-gray-100">
-          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-resources">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-resources" aria-expanded="false" aria-controls="mobile-resources">
             Resources
-            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
@@ -510,9 +524,9 @@
 
         <!-- About Accordion -->
 	        <div class="mobile-accordion border-b border-gray-100">
-	          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-about">
+	          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-about" aria-expanded="false" aria-controls="mobile-about">
 	            About
-            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
@@ -532,9 +546,9 @@
 
         <!-- Patients Accordion (NEW) -->
         <div class="mobile-accordion border-b border-gray-100">
-          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-patients">
+          <button class="accordion-toggle w-full flex items-center justify-between py-3 text-gray-700 font-medium" data-target="mobile-patients" aria-expanded="false" aria-controls="mobile-patients">
             Patients
-            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>

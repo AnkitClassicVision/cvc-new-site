@@ -1,5 +1,55 @@
 const MAX_BODY_BYTES = 1024 * 64;
 
+// --- Rate limiting (in-memory, per warm instance) ---
+// Vercel reuses warm instances, so this catches repeated abuse within a session.
+// For production-grade limits, consider Upstash Redis or Vercel KV.
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+const RATE_LIMIT_MAX = 10; // max 10 requests per IP per minute
+const rateLimitMap = new Map();
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now - entry.start > RATE_LIMIT_WINDOW_MS) {
+    rateLimitMap.set(ip, { start: now, count: 1 });
+    return false;
+  }
+  entry.count++;
+  if (entry.count > RATE_LIMIT_MAX) return true;
+  return false;
+}
+
+// Prune stale entries every 5 minutes to prevent memory leaks
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, entry] of rateLimitMap) {
+    if (now - entry.start > RATE_LIMIT_WINDOW_MS * 2) rateLimitMap.delete(ip);
+  }
+}, 5 * 60 * 1000).unref();
+
+// --- CORS ---
+const ALLOWED_ORIGINS = [
+  "https://classicvisioncare.com",
+  "https://www.classicvisioncare.com",
+];
+
+function setCorsHeaders(req, res) {
+  const origin = req.headers.origin || "";
+  if (ALLOWED_ORIGINS.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+  res.setHeader("Access-Control-Max-Age", "86400");
+}
+
+// --- Validation ---
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function isValidEmail(email) {
+  return EMAIL_RE.test(email) && email.length <= 254;
+}
+
 function isTruthy(value) {
   return value === true || value === "true" || value === "1" || value === 1;
 }
@@ -132,11 +182,30 @@ async function sendResendEmail(payload) {
 }
 
 module.exports = async (req, res) => {
+  setCorsHeaders(req, res);
+
+  // Handle CORS preflight
+  if (req.method === "OPTIONS") {
+    res.statusCode = 204;
+    res.end();
+    return;
+  }
+
   if (req.method !== "POST") {
     res.statusCode = 405;
-    res.setHeader("Allow", "POST");
+    res.setHeader("Allow", "POST, OPTIONS");
     res.setHeader("Content-Type", "application/json; charset=utf-8");
     res.end(JSON.stringify({ ok: false, error: "Method not allowed" }));
+    return;
+  }
+
+  // Rate limiting
+  const clientIp = String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "").split(",")[0].trim();
+  if (isRateLimited(clientIp)) {
+    res.statusCode = 429;
+    res.setHeader("Content-Type", "application/json; charset=utf-8");
+    res.setHeader("Retry-After", "60");
+    res.end(JSON.stringify({ ok: false, error: "Too many requests. Please try again later." }));
     return;
   }
 
@@ -176,6 +245,20 @@ module.exports = async (req, res) => {
       return;
     }
 
+    if (!isValidEmail(email)) {
+      const error = "Please provide a valid email address.";
+      if (!wantsJson(req)) {
+        res.statusCode = 303;
+        res.setHeader("Location", buildRedirectLocation(req, false));
+        res.end();
+        return;
+      }
+      res.statusCode = 400;
+      res.setHeader("Content-Type", "application/json; charset=utf-8");
+      res.end(JSON.stringify({ ok: false, error }));
+      return;
+    }
+
     const payload = {
       submittedAt: new Date().toISOString(),
       formType,
@@ -190,7 +273,7 @@ module.exports = async (req, res) => {
       message,
       consentToContact: isTruthy(body.consentToContact) || isTruthy(body.consent),
       meta: {
-        ip: String(req.headers["x-forwarded-for"] || "").split(",")[0].trim(),
+        ip: clientIp,
         userAgent: String(req.headers["user-agent"] || ""),
       },
     };
@@ -239,4 +322,3 @@ module.exports = async (req, res) => {
     res.end(JSON.stringify({ ok: false, error: message }));
   }
 };
-
