@@ -5,28 +5,28 @@ module.exports = {
     extend: {
       colors: {
         "cvc-teal": {
-          50: "rgba(17, 71, 85, 0.05)",
-          100: "rgba(17, 71, 85, 0.1)",
-          200: "rgba(17, 71, 85, 0.2)",
-          300: "#2d4a3e",
-          400: "#1a3028",
+          50: "rgba(82, 199, 225, 0.05)",
+          100: "rgba(82, 199, 225, 0.1)",
+          200: "#52C7E1",
+          300: "#3294A3",
+          400: "#15737A",
           500: "#114755",
           600: "#0d3640",
-          700: "#0f1f18",
-          800: "#0a1510",
-          900: "#050a08"
+          700: "#0a2e38",
+          800: "#071f26",
+          900: "#041114"
         },
         "cvc-gold": {
-          light: "#e8d48a",
-          DEFAULT: "#c9a227",
-          dark: "#a68620"
+          light: "#7ED4E6",
+          DEFAULT: "#52C7E1",
+          dark: "#3294A3"
         },
-        "cvc-cream": "#f8f5f0",
-        "cvc-charcoal": "#0f1f18"
+        "cvc-cream": "#ffffff",
+        "cvc-charcoal": "#1A1A1A"
       },
       fontFamily: {
-        display: ["Fraunces", "Georgia", "serif"],
-        body: ['"Instrument Sans"', "system-ui", "sans-serif"]
+        display: ['"TT Norms Pro"', "Helvetica Neue", "Arial", "sans-serif"],
+        body: ["Montserrat", "system-ui", "sans-serif"]
       }
     }
   },

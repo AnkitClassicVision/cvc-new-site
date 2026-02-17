@@ -1,9 +1,37 @@
 /* ==========================================================================
    FOREST EDITORIAL DESIGN SYSTEM
-   Classic Vision Care - Refined Nature-Inspired Aesthetic
+   Classic Vision Care - Brand Guide Aligned
    ========================================================================== */
 
-/* Google Fonts are loaded via <link> tags in the page head for best performance. */
+/* Self-hosted TT Norms Pro (Main Font per Brand Guide) */
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('/fonts/TT_Norms_Pro_Regular.woff2') format('woff2'),
+       url('/fonts/TT_Norms_Pro_Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('/fonts/TT_Norms_Pro_Bold.woff2') format('woff2'),
+       url('/fonts/TT_Norms_Pro_Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('/fonts/TT_Norms_Pro_Black.woff2') format('woff2'),
+       url('/fonts/TT_Norms_Pro_Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat loaded via Google Fonts <link> tag in page head */
 
 /* ==========================================================================
    CSS CUSTOM PROPERTIES
@@ -18,18 +46,18 @@
   --sage-light: #52C7E1;
 
   /* Neutrals (Brand Guide) */
-  --cream: #f8f5f0;
-  --cream-dark: #f1f5f7;
-  --charcoal: #0f1f18;
+  --cream: #ffffff;
+  --cream-dark: #f5f5f5;
+  --charcoal: #1A1A1A;
   --white: #ffffff;
   --gray-50: #f8fafb;
   --gray-100: #f1f5f7;
   --gray-600: #475569;
 
-  /* Accent Colors (gold) */
-  --gold: #c9a227;
-  --gold-light: #e8d48a;
-  --gold-glow: rgba(201, 162, 39, 0.3);
+  /* Accent Colors (light teal - replaces gold per brand guide) */
+  --gold: #52C7E1;
+  --gold-light: #7ED4E6;
+  --gold-glow: rgba(82, 199, 225, 0.3);
 
   /* Legacy variable mappings for compatibility */
   --cvc-forest: var(--forest);
@@ -58,8 +86,8 @@
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Typography Scale */
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'TT Norms Pro', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -208,7 +236,7 @@ body.cvc-editorial {
   .cvc-editorial .ef-topbar {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    background: rgba(248, 245, 240, 0.98);
+    background: rgba(255, 255, 255, 0.98);
   }
 }
 
@@ -331,7 +359,7 @@ body.cvc-editorial ::-moz-selection {
 .cvc-editorial .ef-header {
   border-bottom: 1px solid var(--cvc-line);
   /* Use solid background instead of blur for buttery smooth scrolling */
-  background: rgba(248, 245, 240, 0.98);
+  background: rgba(255, 255, 255, 0.98);
   transition:
     background-color 0.3s ease-out,
     box-shadow 0.3s ease-out,
@@ -348,7 +376,7 @@ body.cvc-editorial ::-moz-selection {
 }
 
 .cvc-editorial .ef-header.scrolled {
-  background: rgba(248, 245, 240, 0.98);
+  background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 1px 0 var(--cream-dark);
 }
 
@@ -1370,7 +1398,7 @@ body.cvc-editorial ::-moz-selection {
 }
 
 .cvc-editorial .bg-cvc-cream {
-  background: rgba(248, 245, 240, 0.8);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .cvc-editorial .ef-kicker {
@@ -1575,7 +1603,7 @@ body.cvc-editorial ::-moz-selection {
 }
 
 .cvc-editorial .ef-section {
-  background: rgba(248, 245, 240, 0.7);
+  background: rgba(255, 255, 255, 0.7);
   border: 1px solid var(--cvc-line);
   border-left: 4px solid var(--gold);
   border-radius: 16px;
@@ -1837,7 +1865,7 @@ body.cvc-editorial ::-moz-selection {
 .cvc-editorial .header-scrolled {
   /* OPTIMIZED: Removed backdrop-filter - causes scroll jank on fixed header */
   /* Using solid background instead for smooth 60fps scrolling */
-  background: rgba(248, 245, 240, 0.995);
+  background: rgba(255, 255, 255, 0.995);
   box-shadow: 0 2px 20px rgba(26, 48, 40, 0.08);
 }
 
