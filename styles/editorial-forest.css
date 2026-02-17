@@ -46,8 +46,8 @@
   --sage-light: #52C7E1;
 
   /* Neutrals (Brand Guide) */
-  --cream: #ffffff;
-  --cream-dark: #f5f5f5;
+  --cream: #faf8f5;
+  --cream-dark: #f3f0eb;
   --charcoal: #1A1A1A;
   --white: #ffffff;
   --gray-50: #f8fafb;
@@ -931,6 +931,58 @@ body.cvc-editorial ::-moz-selection {
   transform-origin: left center;
 }
 
+/* Secondary Button (outline variant used across site) */
+.cvc-editorial .btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.75rem;
+  background: transparent;
+  color: var(--forest);
+  border: 2px solid var(--forest);
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    color 0.4s var(--ease-out-expo),
+    border-color 0.4s var(--ease-out-expo),
+    transform 0.4s var(--ease-out-expo),
+    box-shadow 0.4s var(--ease-out-expo);
+}
+
+.cvc-editorial .btn-secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--forest);
+  transform: translateY(100%);
+  transition: transform 0.2s ease-out;
+  z-index: -1;
+}
+
+.cvc-editorial .btn-secondary:hover {
+  color: var(--white);
+  border-color: var(--forest);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.cvc-editorial .btn-secondary:hover::before {
+  transform: translateY(0);
+}
+
+.cvc-editorial .btn-secondary:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
 /* Magnetic Button Class - will-change only added when active via JS */
 .cvc-editorial .magnetic {
   display: inline-flex;
@@ -1398,7 +1450,7 @@ body.cvc-editorial ::-moz-selection {
 }
 
 .cvc-editorial .bg-cvc-cream {
-  background: rgba(255, 255, 255, 0.8);
+  background: #faf8f5;
 }
 
 .cvc-editorial .ef-kicker {
@@ -1646,9 +1698,11 @@ body.cvc-editorial ::-moz-selection {
   color: var(--gold);
 }
 
-.cvc-editorial .text-gray-600,
+.cvc-editorial .text-gray-600 {
+  color: var(--gray-600);
+}
 .cvc-editorial .text-gray-500 {
-  color: var(--charcoal);
+  color: #64748b;
 }
 
 .cvc-editorial .text-gray-400 {
