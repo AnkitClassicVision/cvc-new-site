@@ -52,6 +52,7 @@ module.exports = (req, res) => {
       "Disallow: /",
       "",
       "Sitemap: https://classicvisioncare.com/sitemap.xml",
+      "Sitemap: https://classicvisioncare.com/sitemap-core.xml",
     ].join("\n");
   } else {
     // Prevent preview/staging domains (e.g., *.vercel.app) from being indexed.

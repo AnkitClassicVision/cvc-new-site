@@ -38,18 +38,23 @@
           "postalCode": "30062",
           "addressCountry": "US"
         },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 33.9365,
+          "longitude": -84.4483
+        },
         "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Wednesday"],
+            "opens": "08:00",
+            "closes": "17:00"
+          },
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Tuesday", "Thursday"],
             "opens": "09:00",
             "closes": "18:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Wednesday", "Friday"],
-            "opens": "08:00",
-            "closes": "17:00"
           }
         ],
         "aggregateRating": {
@@ -88,6 +93,60 @@
           {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://classicvisioncare.com/"},
           {"@type": "ListItem", "position": 2, "name": "Locations", "item": "https://classicvisioncare.com/our-locations/"},
           {"@type": "ListItem", "position": 3, "name": "East Cobb", "item": "https://classicvisioncare.com/eye-doctor-marietta/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://classicvisioncare.com/eye-doctor-marietta/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What days are you open?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We're open Monday through Thursday (closed Friday, Saturday, and Sunday). Hours vary by day, so check our schedule for details."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer specialty contact lenses here?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Specialty contact lens evaluations are available at this location, including options for hard-to-fit eyes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you accept insurance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We work with many vision plans. Visit our insurance page or call to confirm your plan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I book an appointment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Schedule online or call our East Cobb team for assistance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you adjust my glasses if I didn't buy them here?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We're happy to help with adjustments and many minor repairs, even if your frames were purchased elsewhere."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you take walk-ins?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Scheduling is the best way to guarantee time with the doctor, especially for contact lens fittings and medical evaluations. If you need a same-day visit, call and we will check openings."
+            }
+          }
         ]
       }
     ]
