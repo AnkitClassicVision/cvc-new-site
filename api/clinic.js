@@ -1,4 +1,7 @@
-{
+// Serverless function: /api/clinic.json → /api/clinic
+// Returns machine-readable clinic facts for AI agents.
+
+const data = {
   "name": "Classic Vision Care",
   "url": "https://classicvisioncare.com",
   "founded": 1998,
@@ -105,4 +108,11 @@
     "Blue Cross Blue Shield", "Aetna", "Cigna", "United Healthcare",
     "Medicare", "Medicaid"
   ]
+};
+
+export default function handler(req, res) {
+  res.setHeader("Content-Type", "application/json; charset=utf-8");
+  res.setHeader("Cache-Control", "public, max-age=3600");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.status(200).json(data);
 }
