@@ -740,6 +740,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.getElementById('mobile-menu');
 
   if (mobileMenuBtn && mobileMenu) {
+    // Helper to close mobile menu
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    // Inject close button at top of mobile menu for accessibility
+    const closeBtn = document.createElement('button');
+    closeBtn.setAttribute('aria-label', 'Close navigation menu');
+    closeBtn.className = 'absolute top-3 right-4 p-2 min-w-[44px] min-h-[44px] text-gray-500 hover:text-gray-700';
+    closeBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+    closeBtn.addEventListener('click', closeMobileMenu);
+    mobileMenu.style.position = 'relative';
+    mobileMenu.insertBefore(closeBtn, mobileMenu.firstChild);
+
     mobileMenuBtn.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.contains('hidden');
 
@@ -748,9 +764,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuBtn.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
       } else {
-        mobileMenu.classList.add('hidden');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        closeMobileMenu();
       }
     });
 
@@ -759,18 +773,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!mobileMenu.classList.contains('hidden') &&
           !mobileMenu.contains(e.target) &&
           !mobileMenuBtn.contains(e.target)) {
-        mobileMenu.classList.add('hidden');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        closeMobileMenu();
       }
     });
 
     // Close on escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.add('hidden');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        closeMobileMenu();
       }
     });
   }
