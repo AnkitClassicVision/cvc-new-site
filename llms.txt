@@ -16,6 +16,7 @@
 
 ## Core pages
 - [Home](https://classicvisioncare.com/)
+- [AI Profile](https://classicvisioncare.com/ai-profile/)
 - [Contact us](https://classicvisioncare.com/contact-us/)
 - [Book an appointment](https://classicvisioncare.com/book-now/)
 - [Our locations](https://classicvisioncare.com/our-locations/)
