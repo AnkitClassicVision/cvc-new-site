@@ -72,6 +72,18 @@
     { "source": "/wp-json/:path*", "destination": "/", "permanent": true },
     { "source": "/xmlrpc.php", "destination": "/", "permanent": true },
 
+    { "source": "/ocular-rosacea/", "destination": "/ocular-rosacea/all-about-ocular-rosacea/", "permanent": true },
+    { "source": "/eye-treatments/eye-pain/", "destination": "/eye-treatment/dull-pain-behind-your-eyes-heres-why/", "permanent": true },
+    { "source": "/eye-treatments/:path*", "destination": "/eye-care-services/", "permanent": true },
+    { "source": "/dry-eyes/punctal-plugs/", "destination": "/dry-eyes/punctal-plugs-for-dry-eyes-guide/", "permanent": true },
+    { "source": "/dry-eyes/what-causes-dry-eyes/", "destination": "/dry-eyes/dry-eyes-symptoms-causes-and-treatment/", "permanent": true },
+    { "source": "/eye-doctor-east-cobb-marietta-ga/", "destination": "/eye-doctor-marietta/", "permanent": true },
+    { "source": "/eye-doctor-east-cobb-marietta-ga", "destination": "/eye-doctor-marietta/", "permanent": true },
+    { "source": "/glaucoma/8-tips-to-prevent-glaucoma/", "destination": "/glaucoma/8-troubling-signs-of-glaucoma/", "permanent": true },
+    { "source": "/eye-care/how-to-choose-an-eye-doctor/", "destination": "/eye-care-services/", "permanent": true },
+    { "source": "/dr-mital-patel/", "destination": "/dr-mital-patel-od/", "permanent": true },
+    { "source": "/dr-mital-patel", "destination": "/dr-mital-patel-od/", "permanent": true },
+
     { "source": "/contact", "destination": "/contact-us/", "permanent": true },
     { "source": "/contact/", "destination": "/contact-us/", "permanent": true },
 
