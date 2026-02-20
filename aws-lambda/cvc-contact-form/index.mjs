@@ -32,20 +32,9 @@ async function getSecrets() {
 }
 
 // ── CORS ───────────────────────────────────────────────────────
-const ALLOWED_ORIGINS = [
-  "https://classicvisioncare.com",
-  "https://www.classicvisioncare.com",
-];
-
-function corsHeaders(origin) {
-  const allowed = ALLOWED_ORIGINS.includes(origin) ? origin : "";
-  return {
-    "access-control-allow-origin": allowed,
-    "access-control-allow-methods": "POST, OPTIONS",
-    "access-control-allow-headers": "content-type, accept",
-    "access-control-max-age": "86400",
-  };
-}
+// CORS is handled by the Lambda Function URL configuration.
+// Do NOT set CORS headers here — duplicate headers cause browsers
+// to reject the response.
 
 // ── Validation ─────────────────────────────────────────────────
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -119,19 +108,16 @@ async function sendEmail(secrets, payload) {
 
 // ── Lambda handler ─────────────────────────────────────────────
 export const handler = async (event) => {
-  const origin = event.headers?.origin || "";
-  const cors = corsHeaders(origin);
-
-  // CORS preflight
+  // CORS preflight is handled by Lambda Function URL config
   if (event.requestContext?.http?.method === "OPTIONS") {
-    return { statusCode: 204, headers: cors };
+    return { statusCode: 204 };
   }
 
   // POST only
   if (event.requestContext?.http?.method !== "POST") {
     return {
       statusCode: 405,
-      headers: { ...cors, "content-type": "application/json" },
+      headers: { "content-type": "application/json" },
       body: JSON.stringify({ ok: false, error: "Method not allowed" }),
     };
   }
@@ -147,7 +133,7 @@ export const handler = async (event) => {
     if (body.website || body.company_website) {
       return {
         statusCode: 200,
-        headers: { ...cors, "content-type": "application/json" },
+        headers: { "content-type": "application/json" },
         body: JSON.stringify({ ok: true }),
       };
     }
@@ -171,14 +157,14 @@ export const handler = async (event) => {
     if (!name || !email) {
       return {
         statusCode: 400,
-        headers: { ...cors, "content-type": "application/json" },
+        headers: { "content-type": "application/json" },
         body: JSON.stringify({ ok: false, error: "Please include your name and email." }),
       };
     }
     if (!isValidEmail(email)) {
       return {
         statusCode: 400,
-        headers: { ...cors, "content-type": "application/json" },
+        headers: { "content-type": "application/json" },
         body: JSON.stringify({ ok: false, error: "Please provide a valid email address." }),
       };
     }
@@ -224,14 +210,14 @@ export const handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers: { ...cors, "content-type": "application/json" },
+      headers: { "content-type": "application/json" },
       body: JSON.stringify({ ok: true }),
     };
   } catch (err) {
     console.error("Form processing error:", err.message);
     return {
       statusCode: 500,
-      headers: { ...cors, "content-type": "application/json" },
+      headers: { "content-type": "application/json" },
       body: JSON.stringify({ ok: false, error: "Something went wrong. Please call us." }),
     };
   }
