@@ -204,7 +204,7 @@ def write_report(results: list[CheckResult], output_path: Path) -> None:
     lines.append("")
     lines.append("- Set Vercel env vars for form delivery:")
     lines.append("  - `CONTACT_WEBHOOK_URL` (recommended) **or** `RESEND_API_KEY` + `CONTACT_EMAIL_TO`")
-    lines.append("- Confirm GTM container `GTM-TT6JRB7` has triggers for:")
+    lines.append("- Confirm GTM container `GTM-WG6M9ZDV` has triggers for:")
     lines.append("  - `cvc_phone_click`, `cvc_book_click`, and `cvc_form_submit` events (dataLayer)")
     lines.append("- After launch: submit `https://classicvisioncare.com/sitemap.xml` in Google Search Console and monitor Coverage + Rankings for 7–14 days.")
     lines.append("")

@@ -25,7 +25,7 @@ EXCLUDE_DIRS = {
     "scripts",  # avoid modifying templates/generators
 }
 
-GTM_ID = "GTM-TT6JRB7"
+GTM_ID = "GTM-WG6M9ZDV"
 
 HEAD_SNIPPET = f"""<!-- Google Tag Manager -->
 <script>

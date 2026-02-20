@@ -38,7 +38,7 @@ This is a **hosting/platform cutover with URL structure changes** — same domai
 
 ### Compliance
 - [ ] Audit /api/contact.js for PHI logging
-- [ ] Audit GTM container GTM-TT6JRB7 for PHI capture
+- [ ] Audit GTM container GTM-WG6M9ZDV for PHI capture
 - [ ] Review COMPLIANCE_AUDIT.md HIGH issues
 
 ### Cloudflare Setup
