@@ -44,9 +44,6 @@
   </style>
   <link rel="stylesheet" href="/styles/tailwind.css">
   <link rel="stylesheet" href="/styles/editorial-forest.css?v=4">
-<!-- DataLayer init (GTM loads after page interactive for faster LCP) -->
-<script>window.dataLayer=window.dataLayer||[];</script>
-<script src="/scripts/tracking.js" defer></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Physician", "@id": "https://classicvisioncare.com/author/dr-mital-patel/#physician", "name": "Dr. Mital Patel, OD", "url": "https://classicvisioncare.com/author/dr-mital-patel/", "image": "https://classicvisioncare.com/images/doctors/dr-mital-patel-headshot.jpg", "jobTitle": "Doctor of Optometry", "description": "Dr. Mital Patel is the founder of Classic Vision Care, serving Kennesaw and East Cobb/Marietta for over 25 years. She earned her Doctor of Optometry from the Southern College of Optometry and specializes in dry eye treatment, specialty contact lenses, and comprehensive eye care. Dr. Patel is certified in IPL, radio-frequency, and BlephEx treatments, and has fitted over 2,000 scleral lenses.", "sameAs": ["https://classicvisioncare.com/dr-mital-patel-od/", "https://www.healthgrades.com/physician/dr-mital-patel-2hhks"], "medicalSpecialty": "Optometry", "knowsAbout": ["Dry Eye Treatment", "Specialty Contact Lenses", "Comprehensive Eye Care"], "alumniOf": {"@type": "EducationalOrganization", "name": "Southern College of Optometry"}, "worksFor": {"@type": "Organization", "@id": "https://classicvisioncare.com/#organization", "name": "Classic Vision Care", "url": "https://classicvisioncare.com/"}}, {"@type": "ProfilePage", "@id": "https://classicvisioncare.com/dr-mital-patel-od/", "url": "https://classicvisioncare.com/dr-mital-patel-od/", "name": "Dr. Mital Patel, OD — Eye Doctor at Classic Vision Care", "mainEntity": {"@id": "https://classicvisioncare.com/author/dr-mital-patel/#physician"}, "isPartOf": {"@id": "https://classicvisioncare.com/#website"}, "inLanguage": "en-US"},
       {
         "@type": "FAQPage",
@@ -100,8 +97,19 @@
           }
         ]
       }]}</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WG6M9ZDV');</script>
+<!-- End Google Tag Manager -->
 </head>
 <body class="cvc-editorial font-body text-cvc-charcoal bg-white">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG6M9ZDV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -918,28 +926,5 @@
 
   <!-- Forest Editorial Interactive Effects -->
   <script src="/scripts/editorial-forest.js"></script>
-
-  <!-- Deferred GTM Loading - loads after page is interactive -->
-  <script>
-  (function(){
-    function loadGTM(){
-      if(window.__gtmLoaded)return;
-      window.__gtmLoaded=true;
-      var d=document,s='script',l='dataLayer',i='GTM-WG6M9ZDV';
-      window[l]=window[l]||[];
-      window[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],j=d.createElement(s);
-      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;
-      f.parentNode.insertBefore(j,f);
-    }
-    if('requestIdleCallback' in window){
-      requestIdleCallback(loadGTM,{timeout:3000});
-    }else{
-      setTimeout(loadGTM,2000);
-    }
-  })();
-  </script>
-  <!-- GTM noscript fallback -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG6M9ZDV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </body>
 </html>
