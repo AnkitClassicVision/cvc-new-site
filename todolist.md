@@ -65,16 +65,16 @@
 - Organization schema on the page referencing `#organization`
 
 **Success Criteria:**
-- [ ] `/ai-profile/` returns HTTP 200
-- [ ] Page contains: clinic name, both addresses, phone numbers, hours
-- [ ] Page contains: doctor names + credentials (Dr. Mital Patel OD, Dr. Bhumi Patel OD)
-- [ ] Page contains: services list matching service pages
-- [ ] Page contains: patient guidance (what to bring, insurance basics, booking steps)
-- [ ] Page contains: medical disclaimer ("This page is for informational purposes only...")
-- [ ] Page contains: direct booking link + phone numbers
-- [ ] Footer includes "AI Profile" link pointing to `/ai-profile/`
-- [ ] NAP is consistent with Google Business Profile
-- [ ] `llms.txt` updated to include `/ai-profile/` link
+- [x] `/ai-profile/` returns HTTP 200
+- [x] Page contains: clinic name, both addresses, phone numbers, hours
+- [x] Page contains: doctor names + credentials (Dr. Mital Patel OD, Dr. Bhumi Patel OD)
+- [x] Page contains: services list matching service pages
+- [x] Page contains: patient guidance (what to bring, insurance basics, booking steps)
+- [x] Page contains: medical disclaimer ("This page is for informational purposes only...")
+- [x] Page contains: direct booking link + phone numbers
+- [x] Footer includes "AI Profile" link pointing to `/ai-profile/`
+- [x] NAP is consistent with Google Business Profile
+- [x] `llms.txt` updated to include `/ai-profile/` link
 
 ---
 
@@ -86,8 +86,8 @@
 - Updated `llms.txt` with AI Profile link
 
 **Success Criteria:**
-- [ ] llms.txt "Start here" section includes `[AI Profile](https://classicvisioncare.com/ai-profile/)`
-- [ ] File validates as UTF-8 and returns HTTP 200
+- [x] llms.txt "Start here" section includes `[AI Profile](https://classicvisioncare.com/ai-profile/)`
+- [x] File validates as UTF-8 and returns HTTP 200
 
 ---
 
@@ -107,10 +107,10 @@
 - Existing FAQPage schema preserved and updated to match new headings
 
 **Success Criteria:**
-- [ ] All 7 service pages use question-style H2s (e.g., "What Happens During a Contact Lens Exam?" not "The Exam Process")
-- [ ] H2s feel natural and match patient search queries
-- [ ] FAQPage schema remains valid (Google Rich Results Test passes)
-- [ ] No content meaning is lost — only heading phrasing changes
+- [x] All 7 service pages use question-style H2s (e.g., "What Happens During a Contact Lens Exam?" not "The Exam Process")
+- [x] H2s feel natural and match patient search queries
+- [x] FAQPage schema remains valid (Google Rich Results Test passes)
+- [x] No content meaning is lost — only heading phrasing changes
 
 ---
 
@@ -135,11 +135,11 @@
 - Minimal CSS (already Tailwind-based, use utility classes)
 
 **Success Criteria:**
-- [ ] All 6 pages have a visible TOC after the intro
-- [ ] TOC links use anchor hrefs (`#section-name`) that scroll to correct H2
-- [ ] TOC uses semantic `<nav aria-label="Table of contents">` with `<ol>`
-- [ ] Blog index page is excluded (it's a listing page, not long-form content) — adjust to 5 pages
-- [ ] No layout shift introduced by the TOC
+- [x] All 6 pages have a visible TOC after the intro
+- [x] TOC links use anchor hrefs (`#section-name`) that scroll to correct H2
+- [x] TOC uses semantic `<nav aria-label="Table of contents">` with `<ol>`
+- [x] Blog index page is excluded (it's a listing page, not long-form content) — adjust to 5 pages
+- [x] No layout shift introduced by the TOC
 
 ---
 
@@ -154,9 +154,9 @@
 - Checklist template for clinician sign-off on new health pages
 
 **Success Criteria:**
-- [ ] Policy document covers: no diagnosis language, no guaranteed outcomes, clinician review loop, citation requirements (AAO/CDC/NIH preferred)
-- [ ] Checklist exists for content review before publishing health pages
-- [ ] Existing disclaimers on 25+ pages remain intact
+- [x] Policy document covers: no diagnosis language, no guaranteed outcomes, clinician review loop, citation requirements (AAO/CDC/NIH preferred)
+- [x] Checklist exists for content review before publishing health pages
+- [x] Existing disclaimers on 25+ pages remain intact
 
 ---
 
@@ -172,10 +172,10 @@
 - Vercel config updated to serve the key file
 
 **Success Criteria:**
-- [ ] IndexNow key file returns HTTP 200 at `https://classicvisioncare.com/<KEY>.txt`
-- [ ] Script successfully submits a URL and gets 200/202 response from `api.indexnow.org`
-- [ ] `robots.txt` or sitemap references are not affected
-- [ ] Script can be called manually or integrated into deploy pipeline
+- [x] IndexNow key file returns HTTP 200 at `https://classicvisioncare.com/<KEY>.txt`
+- [x] Script successfully submits a URL and gets 200/202 response from `api.indexnow.org`
+- [x] `robots.txt` or sitemap references are not affected
+- [x] Script can be called manually or integrated into deploy pipeline
 
 ---
 
@@ -210,10 +210,10 @@
 - Verify `forms.js` and `tracking.js` also use `defer` or load at end of body
 
 **Success Criteria:**
-- [ ] All `<script>` tags in `<head>` use `defer` or `async` (except inline critical scripts)
-- [ ] TBT stays at or below 100ms
-- [ ] Mobile menu, forms, and tracking all still function correctly
-- [ ] No console errors introduced
+- [x] All `<script>` tags in `<head>` use `defer` or `async` (except inline critical scripts)
+- [x] TBT stays at or below 100ms
+- [x] Mobile menu, forms, and tracking all still function correctly
+- [x] No console errors introduced
 
 ---
 
@@ -262,9 +262,9 @@
 - Ensure all below-fold images DO have `loading="lazy"`
 
 **Success Criteria:**
-- [ ] Hero images use responsive `srcset` serving appropriate size per viewport
-- [ ] No above-fold images have `loading="lazy"`
-- [ ] All below-fold images have `loading="lazy"`
+- [x] Hero images use responsive `srcset` serving appropriate size per viewport
+- [x] No above-fold images have `loading="lazy"`
+- [x] All below-fold images have `loading="lazy"`
 - [ ] Total image transfer for homepage mobile < 300KB
 - [ ] LCP improves (target: < 4.0s lab, currently 5.7s)
 
@@ -295,8 +295,8 @@
 - Add `<link rel="dns-prefetch">` as fallback
 
 **Success Criteria:**
-- [ ] `preconnect` tags present for: `https://www.googletagmanager.com`, `https://www.google-analytics.com`, and any other third-party origins
-- [ ] No duplicate preconnect tags
+- [x] `preconnect` tags present for: `https://www.googletagmanager.com`, `https://www.google-analytics.com`, and any other third-party origins
+- [x] No duplicate preconnect tags
 - [ ] FCP improves by ~100-200ms
 
 ---
@@ -343,7 +343,7 @@
 
 **Success Criteria:**
 - [ ] Lighthouse "Identical links have the same purpose" passes
-- [ ] Screen reader users can distinguish between similarly-named links
+- [x] Screen reader users can distinguish between similarly-named links
 
 ---
 
@@ -389,10 +389,10 @@
   - `Cross-Origin-Opener-Policy: same-origin`
 
 **Success Criteria:**
-- [ ] HSTS header present on all responses
+- [x] HSTS header present on all responses
 - [ ] CSP header present (at minimum report-only mode)
-- [ ] COOP header present
-- [ ] No functionality broken by new headers
+- [x] COOP header present
+- [x] No functionality broken by new headers
 - [ ] Best Practices score improves to 100
 
 ---
