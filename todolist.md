@@ -36,24 +36,31 @@
 
 ---
 
-## Post-Optimization Results (Feb 20 2026, after all changes)
+## Post-Optimization Results (Feb 20 2026, final after all changes)
 
-| Metric | Before | After | Change |
-|--------|--------|-------|--------|
-| Performance (mobile) | 67 | **81** | **+14** |
+| Metric | Baseline | Final | Change |
+|--------|----------|-------|--------|
+| Performance (mobile) | 67 | **90** | **+23** |
 | Accessibility | 97 | **100** | **+3** |
 | Best Practices | 92 | **96** | **+4** |
 | SEO | 100 | **100** | maintained |
 
 ### Lab Data (Post-Optimization)
 
-| Metric | Before | After | Change |
-|--------|--------|-------|--------|
-| First Contentful Paint | 3.8s | **1.2s** | **-2.6s** |
-| Largest Contentful Paint | 5.7s | **5.0s** | **-0.7s** |
+| Metric | Baseline | Final | Change |
+|--------|----------|-------|--------|
+| First Contentful Paint | 3.8s | **0.9s** | **-2.9s** |
+| Largest Contentful Paint | 5.7s | **3.6s** | **-2.1s** |
 | Total Blocking Time | 100ms | **70ms** | **-30ms** |
 | Speed Index | 5.3s | **1.7s** | **-3.6s** |
 | Cumulative Layout Shift | 0 | **0** | same |
+
+### Optimization Commits (This Session)
+
+1. `f4958d1` — Fix SEO score: comment out Llms-txt directive, fix footer/kicker contrast
+2. `25e50b1` — Update todolist with post-optimization results and verification
+3. `c873a6d` — Add CSS/JS minification build step (CSS -37%, JS -54%)
+4. `d1dfff6` — Optimize homepage images: 64x64 WebP logo + fix responsive sizes attributes
 
 ---
 
@@ -202,7 +209,7 @@
 
 ### P — Performance Improvements (from PageSpeed Insights)
 
-> **Goal:** Raise mobile Performance score from 67 to 85+ without breaking existing functionality.
+> **Goal:** Raise mobile Performance score from 67 to 85+ without breaking existing functionality. **ACHIEVED: 90**
 > **Constraint:** All changes must be safe, reversible, and testable. No framework rewrites.
 
 #### Item P.1: Eliminate Render-Blocking CSS [HIGH IMPACT]
@@ -217,7 +224,7 @@
 **Status:** SKIPPED — Source code documents FOUC issues with deferred CSS loading (see editorial-forest.css comments). Risk too high for the "don't break anything" constraint. FCP improved to 1.2s via other optimizations (defer JS, preconnect, dns-prefetch).
 
 **Success Criteria:**
-- [x] FCP improves (target: < 2.5s lab, currently 3.8s) — ACHIEVED via other means: FCP now 1.2s
+- [x] FCP improves (target: < 2.5s lab, currently 3.8s) — ACHIEVED via other means: FCP now **0.9s**
 - [ ] No visible flash of unstyled content (FOUC) — N/A (skipped)
 - [ ] All pages render identically before and after — N/A (skipped)
 - [ ] `<noscript>` fallback preserves styling for non-JS users — N/A (skipped)
@@ -292,8 +299,8 @@
 - [x] Hero images use responsive `srcset` serving appropriate size per viewport
 - [x] No above-fold images have `loading="lazy"`
 - [x] All below-fold images have `loading="lazy"`
-- [ ] Total image transfer for homepage mobile < 300KB — PageSpeed still flags 291 KiB savings (image compression/sizing)
-- [x] LCP improves (target: < 4.0s lab, currently 5.7s) — LCP now 5.0s (improved but below target; limited by hero image)
+- [x] Total image transfer for homepage mobile < 300KB — "Improve image delivery" audit eliminated from PageSpeed after sizes fix
+- [x] LCP improves (target: < 4.0s lab, currently 5.7s) — **LCP now 3.6s** (improved 2.1s via responsive sizes fix + logo optimization)
 
 ---
 
@@ -326,7 +333,7 @@
 **Success Criteria:**
 - [x] `preconnect` tags present for: `https://www.googletagmanager.com`, `https://www.google-analytics.com`, and any other third-party origins
 - [x] No duplicate preconnect tags
-- [x] FCP improves by ~100-200ms — FCP improved by 2.6s (3.8s → 1.2s), far exceeding target
+- [x] FCP improves by ~100-200ms — FCP improved by 2.9s (3.8s → 0.9s), far exceeding target
 
 ---
 
@@ -455,7 +462,7 @@
 
 ## Verification (after all items)
 
-- [ ] PageSpeed mobile Performance >= 85 — Score is 81 (improved from 67, remaining 4 pts require render-blocking CSS fix or image compression which risk FOUC/breakage)
+- [x] PageSpeed mobile Performance >= 85 — **Score is 90** (improved from 67 via CSS/JS minification + responsive image optimization)
 - [x] PageSpeed Accessibility >= 97 (maintain or improve) — **100** (perfect score)
 - [x] PageSpeed Best Practices >= 95 — **96**
 - [x] PageSpeed SEO stays at 100 — **100**
