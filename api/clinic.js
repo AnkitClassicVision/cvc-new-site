@@ -113,7 +113,9 @@ const data = {
     { "platform": "Instagram", "url": "https://www.instagram.com/classic_vision_care/" },
     { "platform": "Yelp (Kennesaw)", "url": "https://www.yelp.com/biz/classic-vision-care-kennesaw-kennesaw-2" },
     { "platform": "Yelp (East Cobb)", "url": "https://www.yelp.com/biz/classic-vision-care-east-cobb-marietta-3" },
-    { "platform": "Apple Maps", "url": "https://maps.apple.com/place?place-id=IF88A2D772D41FED" }
+    { "platform": "Apple Maps", "url": "https://maps.apple.com/place?place-id=IF88A2D772D41FED" },
+    { "platform": "Google Maps (Kennesaw)", "url": "https://www.google.com/maps?cid=766182488100234452" },
+    { "platform": "Google Maps (East Cobb)", "url": "https://www.google.com/maps?cid=8257995811434454820" }
   ]
 };
 

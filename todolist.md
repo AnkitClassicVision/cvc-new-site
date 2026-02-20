@@ -69,12 +69,12 @@
 | Spec Item | Status | Notes |
 |-----------|--------|-------|
 | 1. /llms.txt at site root | DONE | Complete with NAP, hours, services, doctors, insurance, privacy. robots.txt references it. .well-known rewrite configured. |
-| 2. AI Profile page + footer link | MISSING | /ai-profile/ does not exist. Not in footer. |
-| 3. FAQ-first H2s on service pages | PARTIAL | 5 of 7 service pages use question-style H2s. contact-lens-exams, dry-eye-treatment, specialty-contact-lenses use descriptive H2s. All 7 have FAQPage schema. |
-| 4. TOC for pages >= 2000 words | MISSING | 6 pages exceed 2000 words with no TOC. |
+| 2. AI Profile page + footer link | DONE | /ai-profile/ returns 200, linked in footer, referenced in llms.txt |
+| 3. FAQ-first H2s on service pages | DONE | All 7 service pages use question-style H2s. All 7 have FAQPage schema. |
+| 4. TOC for pages >= 2000 words | DONE | 5 long-form pages have `<nav aria-label="Table of contents">` with anchor links. Blog index excluded (listing page). |
 | 5. YMYL safety guardrails | DONE | Medical disclaimers on 25+ health pages. |
-| 6. IndexNow integration | MISSING | No key file, no code, no integration. |
-| 7. Footer links (general) | DONE | All major sections linked. Only missing AI Profile (page doesn't exist). |
+| 6. IndexNow integration | DONE | API key file served, submit script works, Vercel config updated. |
+| 7. Footer links (general) | DONE | All major sections linked including AI Profile. |
 | 8. Monitoring / KPIs | NOT ASSESSED | No dashboards or alerting reviewed. |
 
 ---
