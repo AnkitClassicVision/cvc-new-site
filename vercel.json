@@ -60,8 +60,17 @@
     }
   ],
   "redirects": [
-    { "source": "/blog/page/2/", "destination": "/blog/", "permanent": true },
-    { "source": "/blog/page/4/", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/page/:num(\\d+)/", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/page/:num(\\d+)", "destination": "/blog/", "permanent": true },
+
+    { "source": "/feed/", "destination": "/blog/", "permanent": true },
+    { "source": "/feed", "destination": "/blog/", "permanent": true },
+    { "source": "/wp-login.php", "destination": "/", "permanent": true },
+    { "source": "/wp-admin/", "destination": "/", "permanent": true },
+    { "source": "/wp-admin", "destination": "/", "permanent": true },
+    { "source": "/wp-content/uploads/:path*", "destination": "/", "permanent": true },
+    { "source": "/wp-json/:path*", "destination": "/", "permanent": true },
+    { "source": "/xmlrpc.php", "destination": "/", "permanent": true },
 
     { "source": "/contact", "destination": "/contact-us/", "permanent": true },
     { "source": "/contact/", "destination": "/contact-us/", "permanent": true },
