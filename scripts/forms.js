@@ -1,4 +1,7 @@
 (function () {
+  var FORM_ENDPOINT =
+    "https://dfi7etyxk2ugdsbdy7s7m43sxy0egmvg.lambda-url.us-east-1.on.aws/";
+
   function setStatus(el, type, message) {
     if (!el) return;
     el.classList.remove("hidden");
@@ -46,8 +49,8 @@
           if (type) data.set("form_type", type);
         }
 
-        const response = await fetch(form.action, {
-          method: form.method || "POST",
+        const response = await fetch(FORM_ENDPOINT, {
+          method: "POST",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",

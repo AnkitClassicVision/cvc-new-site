@@ -2,7 +2,6 @@
   "trailingSlash": true,
   "rewrites": [
     { "source": "/robots.txt", "destination": "/api/robots" },
-    { "source": "/api/contact/", "destination": "/api/contact" },
     { "source": "/.well-known/:path*", "destination": "/.well-known/:path*" }
   ],
   "headers": [
