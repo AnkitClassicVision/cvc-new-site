@@ -54,8 +54,8 @@ module.exports = (req, res) => {
       "Sitemap: https://classicvisioncare.com/sitemap.xml",
       "Sitemap: https://classicvisioncare.com/sitemap-core.xml",
       "",
-      "# LLM context file",
-      "Llms-txt: https://classicvisioncare.com/llms.txt",
+      "# LLM context file (llms.txt served at /llms.txt and /.well-known/llms.txt)",
+      "# Llms-txt: https://classicvisioncare.com/llms.txt",
     ].join("\n");
   } else {
     // Prevent preview/staging domains (e.g., *.vercel.app) from being indexed.

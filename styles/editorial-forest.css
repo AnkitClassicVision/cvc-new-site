@@ -1526,6 +1526,7 @@ body.cvc-editorial ::-moz-selection {
   color: var(--cream);
 }
 
+.cvc-editorial .ef-footer h3,
 .cvc-editorial .ef-footer h4 {
   color: var(--cream);
   font-weight: 500;
@@ -1816,6 +1817,21 @@ body.cvc-editorial ::-moz-selection {
   .cvc-editorial [data-parallax] {
     transform: none !important;
   }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY - Color Contrast (WCAG 2.1 AA)
+   #52C7E1 fails 4.5:1 on white (1.98:1). Use #0C7A8A (5.58:1) instead.
+   ========================================================================== */
+
+/* Kicker/label text using text-cvc-gold on light backgrounds */
+.cvc-editorial main .text-cvc-gold {
+  color: #0C7A8A;
+}
+
+/* Preserve bright cyan on dark-background sections */
+.cvc-editorial main .about-section .text-cvc-gold {
+  color: var(--gold);
 }
 
 /* ==========================================================================
