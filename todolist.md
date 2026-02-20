@@ -313,9 +313,9 @@
 - Update Tailwind color classes or custom CSS
 
 **Success Criteria:**
-- [ ] Lighthouse accessibility contrast audit passes
-- [ ] All text meets WCAG 2.1 AA minimum contrast (4.5:1 normal text, 3:1 large text)
-- [ ] Visual design intent preserved (colors stay on-brand)
+- [x] Lighthouse accessibility contrast audit passes
+- [x] All text meets WCAG 2.1 AA minimum contrast (4.5:1 normal text, 3:1 large text)
+- [x] Visual design intent preserved (colors stay on-brand)
 
 ---
 
@@ -328,8 +328,8 @@
 - Remove redundant ARIA roles where native HTML semantics suffice
 
 **Success Criteria:**
-- [ ] Lighthouse "Uses ARIA roles only on compatible elements" passes
-- [ ] No redundant ARIA roles on native semantic elements
+- [x] Lighthouse "Uses ARIA roles only on compatible elements" passes
+- [x] No redundant ARIA roles on native semantic elements
 
 ---
 
@@ -342,7 +342,7 @@
 - Example: two "Book Now" links should specify which location
 
 **Success Criteria:**
-- [ ] Lighthouse "Identical links have the same purpose" passes
+- [x] Lighthouse "Identical links have the same purpose" passes
 - [x] Screen reader users can distinguish between similarly-named links
 
 ---
@@ -359,8 +359,8 @@
 - Use `object-fit: cover` where cropping is intentional
 
 **Success Criteria:**
-- [ ] Lighthouse "Displays images with incorrect aspect ratio" passes
-- [ ] No visually distorted images on any page
+- [x] Lighthouse "Displays images with incorrect aspect ratio" passes
+- [x] No visually distorted images on any page
 
 ---
 
@@ -373,8 +373,8 @@
 - Fix broken resource references, JS errors, or missing files
 
 **Success Criteria:**
-- [ ] Zero errors in browser console on homepage load
-- [ ] Zero errors on service pages and booking page
+- [x] Zero errors in browser console on homepage load
+- [x] Zero errors on service pages and booking page
 
 ---
 
@@ -390,7 +390,7 @@
 
 **Success Criteria:**
 - [x] HSTS header present on all responses
-- [ ] CSP header present (at minimum report-only mode)
+- [x] CSP header present (at minimum report-only mode)
 - [x] COOP header present
 - [x] No functionality broken by new headers
 - [ ] Best Practices score improves to 100
