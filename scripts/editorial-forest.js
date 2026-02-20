@@ -744,6 +744,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeMobileMenu() {
       mobileMenu.classList.add('hidden');
       mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
       document.body.style.overflow = '';
     }
 
@@ -762,6 +763,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isOpen) {
         mobileMenu.classList.remove('hidden');
         mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        mobileMenuBtn.setAttribute('aria-label', 'Close navigation menu');
         document.body.style.overflow = 'hidden';
       } else {
         closeMobileMenu();

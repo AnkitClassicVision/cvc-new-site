@@ -1118,6 +1118,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     id="name"
                     name="name"
                     required
+                    aria-required="true"
                     class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-0 focus:border-cvc-teal-500"
                     placeholder="Your full name"
                   >
@@ -1129,6 +1130,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     id="email"
                     name="email"
                     required
+                    aria-required="true"
                     class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-0 focus:border-cvc-teal-500"
                     placeholder="your@email.com"
                   >
@@ -1198,7 +1200,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </svg>
               </button>
             </form>
-            <div id="contact-form-status" data-cvc-status class="hidden mt-4 rounded-lg p-4 text-sm"></div>
+            <div id="contact-form-status" data-cvc-status class="hidden mt-4 rounded-lg p-4 text-sm" aria-live="polite" role="alert"></div>
           </div>
 
           <!-- Quick Answers -->
