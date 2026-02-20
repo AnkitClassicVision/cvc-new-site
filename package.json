@@ -3,9 +3,12 @@
     "playwright": "^1.58.1"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.17"
+    "csso-cli": "^4.0.2",
+    "tailwindcss": "^3.4.17",
+    "terser": "^5.46.0"
   },
   "scripts": {
-    "build:tailwind": "tailwindcss -c tailwind.config.js -i styles/tailwind-input.css -o styles/tailwind.css --minify"
+    "build:tailwind": "tailwindcss -c tailwind.config.js -i styles/tailwind-input.css -o styles/tailwind.css --minify",
+    "build": "npx csso styles/editorial-forest.css -o styles/editorial-forest.css && npx terser scripts/editorial-forest.js -o scripts/editorial-forest.js -c -m"
   }
 }

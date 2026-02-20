@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
   "trailingSlash": true,
   "rewrites": [
     { "source": "/robots.txt", "destination": "/api/robots" },
