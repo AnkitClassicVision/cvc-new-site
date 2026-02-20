@@ -1469,6 +1469,10 @@ body.cvc-editorial ::-moz-selection {
   letter-spacing: 0.2em;
   font-size: 0.7rem;
   font-weight: 600;
+  color: #0C7A8A;
+}
+
+.cvc-editorial .about-section .ef-kicker {
   color: var(--gold);
 }
 
