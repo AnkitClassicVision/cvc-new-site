@@ -65,7 +65,7 @@ function parseBody(rawBody, contentType) {
 
 // ── SES email ──────────────────────────────────────────────────
 async function sendEmail(secrets, payload) {
-  const to = secrets.CONTACT_EMAIL_TO;
+  const to = secrets.CONTACT_EMAIL_TO.split(",").map((e) => e.trim());
   const from = secrets.SES_FROM_ADDRESS || "Classic Vision Care <no-reply@classicvisioncare.com>";
 
   const subject = `[CVC] ${payload.formType === "booking" ? "Booking request" : "Contact form"} — ${payload.name || "New lead"}`;
@@ -97,7 +97,7 @@ async function sendEmail(secrets, payload) {
   await ses.send(
     new SendEmailCommand({
       Source: from,
-      Destination: { ToAddresses: [to] },
+      Destination: { ToAddresses: to },
       Message: {
         Subject: { Data: subject, Charset: "UTF-8" },
         Body: { Text: { Data: lines.join("\n"), Charset: "UTF-8" } },
