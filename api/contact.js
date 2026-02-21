@@ -210,8 +210,15 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const raw = await readRawBody(req);
-    const body = parseBody(raw, req.headers["content-type"]);
+    // Vercel may pre-parse the body into an object; use it directly to avoid
+    // stringify→re-parse roundtrip that breaks urlencoded content-type detection.
+    let body;
+    if (req.body && typeof req.body === "object" && !Buffer.isBuffer(req.body)) {
+      body = req.body;
+    } else {
+      const raw = await readRawBody(req);
+      body = parseBody(raw, req.headers["content-type"]);
+    }
 
     // Honeypot
     if (body.website || body.company_website) {
