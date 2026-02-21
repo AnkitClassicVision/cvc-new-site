@@ -1,6 +1,6 @@
 (function () {
-  var FORM_ENDPOINT =
-    "https://dfi7etyxk2ugdsbdy7s7m43sxy0egmvg.lambda-url.us-east-1.on.aws/";
+  var FORM_ENDPOINT = "/api/contact";
+  var formLoadTime = Date.now();
 
   function setStatus(el, type, message) {
     if (!el) return;
@@ -31,6 +31,13 @@
       if (!window.fetch || !window.URLSearchParams || !window.FormData) return;
       e.preventDefault();
 
+      // Verify Turnstile token exists (if widget is present on the page)
+      var turnstileInput = form.querySelector('[name="cf-turnstile-response"]');
+      if (turnstileInput && !turnstileInput.value) {
+        setStatus(statusEl, "error", "Please complete the security check before submitting.");
+        return;
+      }
+
       try {
         if (submitBtn) {
           submitBtn.disabled = true;
@@ -49,6 +56,9 @@
           if (type) data.set("form_type", type);
         }
 
+        // Add elapsed time since page load for bot detection
+        data.set("_elapsed_ms", String(Date.now() - formLoadTime));
+
         const response = await fetch(FORM_ENDPOINT, {
           method: "POST",
           headers: {
@@ -64,6 +74,13 @@
         }
 
         form.reset();
+
+        // Reset Turnstile widget so the form can be reused
+        if (window.turnstile) {
+          var widget = form.querySelector(".cf-turnstile");
+          if (widget) window.turnstile.reset(widget);
+        }
+
         setStatus(statusEl, "success", "Thanks! We got your message and will reach out soon.");
 
         window.dataLayer = window.dataLayer || [];
@@ -133,4 +150,3 @@
     showFlashMessages();
   });
 })();
-

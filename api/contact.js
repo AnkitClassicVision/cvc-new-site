@@ -221,6 +221,45 @@ module.exports = async (req, res) => {
       return;
     }
 
+    // Time-based validation: bots fill forms instantly
+    const elapsedMs = parseInt(body._elapsed_ms, 10);
+    if (elapsedMs >= 0 && elapsedMs < 3000) {
+      // Silently accept without processing (same pattern as honeypot)
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "application/json; charset=utf-8");
+      res.end(JSON.stringify({ ok: true }));
+      return;
+    }
+
+    // Cloudflare Turnstile verification
+    const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+    if (turnstileSecret) {
+      const turnstileToken = body["cf-turnstile-response"];
+      if (!turnstileToken) {
+        res.statusCode = 400;
+        res.setHeader("Content-Type", "application/json; charset=utf-8");
+        res.end(JSON.stringify({ ok: false, error: "Security verification required. Please try again." }));
+        return;
+      }
+
+      const verifyRes = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          secret: turnstileSecret,
+          response: turnstileToken,
+          remoteip: clientIp,
+        }).toString(),
+      });
+      const verifyData = await verifyRes.json();
+      if (!verifyData.success) {
+        res.statusCode = 403;
+        res.setHeader("Content-Type", "application/json; charset=utf-8");
+        res.end(JSON.stringify({ ok: false, error: "Security verification failed. Please try again." }));
+        return;
+      }
+    }
+
     const name = String(body.name || `${body.firstName || ""} ${body.lastName || ""}`).trim();
     const email = String(body.email || "").trim();
     const phone = String(body.phone || "").trim();
