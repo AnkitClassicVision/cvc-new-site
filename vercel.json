@@ -114,6 +114,10 @@
 
     { "source": "/dry-eye-treatment-miboflo/", "destination": "/dry-eye-treatment-radio-frequency/", "permanent": true },
     { "source": "/dry-eyes/what-is-mibo-thermoflo/", "destination": "/dry-eye-treatment-radio-frequency/", "permanent": true },
+    { "source": "/ipl-dry-eye-treatment/", "destination": "/dry-eye-treatment-intense-pulsed-light/", "permanent": true },
+    { "source": "/ipl-dry-eye-treatment", "destination": "/dry-eye-treatment-intense-pulsed-light/", "permanent": true },
+    { "source": "/miboflo-treatment-dry-eye/", "destination": "/dry-eye-treatment-radio-frequency/", "permanent": true },
+    { "source": "/miboflo-treatment-dry-eye", "destination": "/dry-eye-treatment-radio-frequency/", "permanent": true },
     { "source": "/pages/eyewear/contact-lenses.html", "destination": "/contact-lenses/", "permanent": true },
     { "source": "/pages/eyewear/eyeglasses.html", "destination": "/eyeglasses/", "permanent": true },
     { "source": "/pages/eyewear/index.html", "destination": "/eyewear/", "permanent": true },
@@ -166,12 +170,14 @@
     { "source": "/eye-doctor-near-me/", "destination": "/our-locations/", "permanent": true },
 
     { "source": "/eye-treatment/ipl/", "destination": "/dry-eyes/what-is-intense-pulsed-light-treatment/", "permanent": true },
-    { "source": "/eye-treatment/miboflo/", "destination": "/dry-eyes/what-is-mibo-thermoflo/", "permanent": true },
+    { "source": "/eye-treatment/miboflo/", "destination": "/dry-eye-treatment-radio-frequency/", "permanent": true },
     { "source": "/eye-treatment/supplements/", "destination": "/dry-eye-treatment-eye-supplements/", "permanent": true },
 
     { "source": "/location/ga/kennesaw/", "destination": "/eye-doctor-kennesaw-ga/", "permanent": true },
     { "source": "/scleral-lenses/", "destination": "/scleral-lenses-for-dry-eyes/", "permanent": true },
 
+    { "source": "/services/glaucoma", "destination": "/glaucoma/", "permanent": true },
+    { "source": "/services/glaucoma/", "destination": "/glaucoma/", "permanent": true },
     { "source": "/services/", "destination": "/eye-care-services/", "permanent": true },
 
     { "source": "/dryeye-landing/", "destination": "/dry-eye-treatment/", "permanent": true },
