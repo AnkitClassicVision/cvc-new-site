@@ -592,7 +592,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div>
-            <img fetchpriority="high" src="/images/services/punctal-plugs.jpg" alt="Punctal plug insertion" class="rounded-2xl shadow-2xl w-full" width="1163" height="651">
+            <picture>
+              <source
+              type="image/webp"
+              srcset="/images/services/responsive/punctal-plugs-640w.webp 640w,
+                                      /images/services/responsive/punctal-plugs-1024w.webp 1024w,
+                                      /images/services/responsive/punctal-plugs-1920w.webp 1920w"
+              sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 50vw, 640px">
+              <img fetchpriority="high" src="/images/services/punctal-plugs.jpg" alt="Punctal plug insertion" class="rounded-2xl shadow-2xl w-full" width="1163" height="651">
+            </picture>
           </div>
         </div>
       </div>

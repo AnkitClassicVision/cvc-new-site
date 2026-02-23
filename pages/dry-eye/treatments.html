@@ -817,13 +817,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="relative animate-fade-in" style="animation-delay: 0.3s">
             <div class="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl image-reveal">
               <div class="absolute inset-0 bg-gradient-to-br from-cvc-teal-400/20 to-transparent z-10"></div>
-              <img
+              <picture>
+                <source
+                type="image/webp"
+                srcset="/images/services/responsive/dry-eye-treatment-640w.webp 640w,
+                                        /images/services/responsive/dry-eye-treatment-1024w.webp 1024w,
+                                        /images/services/responsive/dry-eye-treatment-1920w.webp 1920w"
+                sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 50vw, 640px">
+                <img
                 src="/images/services/dry-eye-treatment.jpg"
                 alt="Relaxing spa treatment environment for dry eye therapy"
                 class="w-full h-full object-cover ef-hero-kenburns"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async" width="1163" height="651">
+              </picture>
             </div>
 
             <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-5 max-w-[220px] animate-float">
@@ -1029,12 +1037,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div class="relative reveal order-2 lg:order-1">
             <div class="aspect-[4/5] rounded-2xl overflow-hidden">
-              <img
+              <picture>
+                <source
+                type="image/webp"
+                srcset="/images/services/responsive/what-is-dry-eye-640w.webp 640w,
+                                        /images/services/responsive/what-is-dry-eye-1024w.webp 1024w,
+                                        /images/services/responsive/what-is-dry-eye-1920w.webp 1920w"
+                sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 50vw, 640px">
+                <img
                 src="/images/services/what-is-dry-eye.jpg"
                 alt="Serene spa environment for dry eye treatment"
                 class="w-full h-full object-cover"
                 loading="lazy"
                 decoding="async" width="400" height="400">
+              </picture>
             </div>
             <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-cvc-gold/10 rounded-2xl -z-10"></div>
             <div class="absolute -top-8 -left-8 w-32 h-32 border border-cvc-teal-200 rounded-2xl -z-10"></div>

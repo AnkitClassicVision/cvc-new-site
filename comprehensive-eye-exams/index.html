@@ -645,7 +645,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="relative">
-            <img fetchpriority="high" src="/images/services/eye-exam-header.jpg" alt="Comprehensive eye exam at Classic Vision Care" class="rounded-2xl shadow-2xl w-full" width="1920" height="631">
+            <picture>
+              <source
+              type="image/webp"
+              srcset="/images/services/responsive/eye-exam-header-640w.webp 640w,
+                                      /images/services/responsive/eye-exam-header-1024w.webp 1024w,
+                                      /images/services/responsive/eye-exam-header-1920w.webp 1920w"
+              sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 50vw, 640px">
+              <img fetchpriority="high" src="/images/services/eye-exam-header.jpg" alt="Comprehensive eye exam at Classic Vision Care" class="rounded-2xl shadow-2xl w-full" width="1920" height="631">
+            </picture>
           </div>
         </div>
       </div>

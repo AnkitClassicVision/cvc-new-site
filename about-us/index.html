@@ -30,10 +30,7 @@
         "@id": "https://classicvisioncare.com/#organization",
         "name": "Classic Vision Care",
         "url": "https://classicvisioncare.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://classicvisioncare.com/images/logos/cropped-EOP1600_Classic_Logo_FN.png"
-        },
+        "logo": "https://classicvisioncare.com/images/logos/cropped-EOP1600_Classic_Logo_FN.png",
         "description": "Family-owned optometry practice serving Kennesaw and Marietta, Georgia since 1998.",
         "foundingDate": "1998",
         "numberOfEmployees": {
@@ -878,12 +875,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- Image Side -->
           <div class="relative reveal">
             <div class="aspect-[4/5] rounded-2xl overflow-hidden">
-              <img fetchpriority="high"
+              <picture>
+                <source
+                type="image/webp"
+                srcset="/images/services/responsive/building-640w.webp 640w,
+                                        /images/services/responsive/building-1024w.webp 1024w,
+                                        /images/services/responsive/building-1920w.webp 1920w"
+                sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 50vw, 640px">
+                <img fetchpriority="high"
                 src="/images/services/building.jpg"
                 alt="Classic Vision Care office building"
                 class="w-full h-full object-cover"
                
                 decoding="async" width="400" height="400">
+              </picture>
             </div>
             <!-- Accent element -->
             <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-cvc-gold/10 rounded-2xl -z-10"></div>
@@ -1385,7 +1390,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="lg:col-span-5">
             <div class="relative rounded-2xl overflow-hidden shadow-2xl image-reveal">
-              <img loading="lazy" src="/images/heroes/about-us-hero.jpg" alt="Classic Vision Care team and patient experience" class="w-full h-full object-cover" width="1920" height="1080">
+              <picture>
+                <source
+                type="image/webp"
+                srcset="/images/heroes/responsive/about-us-hero-640w.webp 640w,
+                                        /images/heroes/responsive/about-us-hero-1024w.webp 1024w,
+                                        /images/heroes/responsive/about-us-hero-1920w.webp 1920w"
+                sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 50vw, 640px">
+                <img loading="lazy" src="/images/heroes/about-us-hero.jpg" alt="Classic Vision Care team and patient experience" class="w-full h-full object-cover" width="1920" height="1080">
+              </picture>
             </div>
             <p class="mt-4 text-sm text-gray-500">Two convenient locations in Kennesaw and East Cobb/Marietta. Call if you want help choosing the best appointment type.</p>
           </div>

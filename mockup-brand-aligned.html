@@ -764,7 +764,15 @@
       </div>
 
       <div class="hero-image">
-        <img src="/images/heroes/about-us-hero.jpg" alt="Eye examination at Classic Vision Care">
+        <picture>
+          <source
+          type="image/webp"
+          srcset="/images/heroes/responsive/about-us-hero-640w.webp 640w,
+                                  /images/heroes/responsive/about-us-hero-1024w.webp 1024w,
+                                  /images/heroes/responsive/about-us-hero-1920w.webp 1920w"
+          sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 50vw, 640px">
+          <img src="/images/heroes/about-us-hero.jpg" alt="Eye examination at Classic Vision Care">
+        </picture>
 
         <div class="floating-card">
           <div class="floating-card-icon">

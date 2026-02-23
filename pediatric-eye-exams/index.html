@@ -625,7 +625,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="relative">
-            <img fetchpriority="high" src="/images/services/pediatric-exam.jpg" alt="Child receiving friendly eye exam" class="rounded-2xl shadow-2xl w-full" width="379" height="385">
+            <picture>
+              <source
+              type="image/webp"
+              srcset="/images/services/responsive/pediatric-exam-640w.webp 640w,
+                                      /images/services/responsive/pediatric-exam-1024w.webp 1024w,
+                                      /images/services/responsive/pediatric-exam-1920w.webp 1920w"
+              sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 50vw, 640px">
+              <img fetchpriority="high" src="/images/services/pediatric-exam.jpg" alt="Child receiving friendly eye exam" class="rounded-2xl shadow-2xl w-full" width="379" height="385">
+            </picture>
           </div>
         </div>
       </div>
@@ -805,7 +813,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="lg:col-span-5">
             <div class="relative rounded-2xl overflow-hidden shadow-2xl image-reveal">
-              <img src="/images/services/pediatric-exam.jpg" alt="Pediatric eye exam in a comfortable setting" class="w-full h-full object-cover" width="379" height="385">
+              <picture>
+                <source
+                type="image/webp"
+                srcset="/images/services/responsive/pediatric-exam-640w.webp 640w,
+                                        /images/services/responsive/pediatric-exam-1024w.webp 1024w,
+                                        /images/services/responsive/pediatric-exam-1920w.webp 1920w"
+                sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 50vw, 640px">
+                <img src="/images/services/pediatric-exam.jpg" alt="Pediatric eye exam in a comfortable setting" class="w-full h-full object-cover" width="379" height="385">
+              </picture>
             </div>
             <p class="mt-4 text-sm text-gray-500">Two convenient locations in Kennesaw and East Cobb/Marietta. Call if you want help choosing the best appointment type.</p>
           </div>

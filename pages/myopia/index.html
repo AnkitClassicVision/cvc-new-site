@@ -831,13 +831,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div class="relative animate-fade-in" style="animation-delay: 0.3s">
             <div class="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl image-reveal">
-              <img
+              <picture>
+                <source
+                type="image/webp"
+                srcset="/images/heroes/responsive/pediatric-hero-640w.webp 640w,
+                                        /images/heroes/responsive/pediatric-hero-1024w.webp 1024w,
+                                        /images/heroes/responsive/pediatric-hero-1920w.webp 1920w"
+                sizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 50vw, 640px">
+                <img
                 src="/images/heroes/pediatric-hero.jpg"
                 alt="Happy child with healthy vision wearing glasses"
                 class="w-full h-full object-cover ef-hero-kenburns"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async" width="2048" height="1152">
+              </picture>
             </div>
 
             <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-5 max-w-[220px] animate-float">
