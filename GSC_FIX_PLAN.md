@@ -225,9 +225,9 @@ If it 301s → fine. If 404 → need to add.
 |-----|-------------|--------|--------|
 | **FIX 0** | Breadcrumb fix on 54+6 pages | DONE | `cb59be2` |
 | **FIX 1** | Category 404 redirects (17 rules) | DONE | `cb59be2` |
-| **FIX 2** | Query param duplicate content redirect | DONE | `cb59be2` |
+| **FIX 2** | Query param duplicate content redirect | REMOVED — was no-op (dest=source, canonical tags handle it) | `2c2189b` |
 | **FIX 3** | Sitemap monitoring | MONITORING | — |
-| **FIX 4** | Ocular rosacea redirect chain fix | DONE | `cb59be2` |
+| **FIX 4** | Ocular rosacea redirect chain fix | REMOVED — dead code (trailingSlash fires first); 2-hop chain is SEO-acceptable | `2c2189b` |
 | **FIX 5** | CTR optimization (8 pages) | DONE | `9d6dfc6` |
 | **FIX 6** | www canonical audit | MONITORING | — |
 | **FIX 7** | Author page redirects + sitemap cleanup | DONE | `cb59be2` |
