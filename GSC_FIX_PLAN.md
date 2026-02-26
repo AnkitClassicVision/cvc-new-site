@@ -219,17 +219,19 @@ If it 301s → fine. If 404 → need to add.
 
 ---
 
-## Implementation Priority Order
+## Implementation Status
 
-1. **FIX 0** — Breadcrumb fix on 54+6 pages (HIGHEST IMPACT — affects top traffic pages, tells Google wrong hierarchy)
-2. **FIX 4** — Ocular rosacea redirect chain (top page, 220 clicks at risk)
-3. **FIX 1** — Category 404s (8 URLs returning 404 while indexed)
-4. **FIX 2** — Query param duplicate content
-5. **FIX 5** — CTR optimization (highest ROI, content changes only)
-6. **FIX 7** — Author page cleanup
-7. **FIX 6** — www canonical audit
-8. **FIX 3** — Sitemap monitoring
-9. **FIX 8** — East Cobb URL verification (already working)
+| Fix | Description | Status | Commit |
+|-----|-------------|--------|--------|
+| **FIX 0** | Breadcrumb fix on 54+6 pages | DONE | `cb59be2` |
+| **FIX 1** | Category 404 redirects (17 rules) | DONE | `cb59be2` |
+| **FIX 2** | Query param duplicate content redirect | DONE | `cb59be2` |
+| **FIX 3** | Sitemap monitoring | MONITORING | — |
+| **FIX 4** | Ocular rosacea redirect chain fix | DONE | `cb59be2` |
+| **FIX 5** | CTR optimization (8 pages) | DONE | `9d6dfc6` |
+| **FIX 6** | www canonical audit | MONITORING | — |
+| **FIX 7** | Author page redirects + sitemap cleanup | DONE | `cb59be2` |
+| **FIX 8** | East Cobb URL verification | VERIFIED — already working | — |
 
 ---
 
