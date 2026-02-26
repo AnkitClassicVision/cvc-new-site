@@ -74,7 +74,7 @@
     { "source": "/wp-login.php", "destination": "/", "permanent": true },
     { "source": "/wp-admin/", "destination": "/", "permanent": true },
     { "source": "/wp-admin", "destination": "/", "permanent": true },
-    { "source": "/wp-content/uploads/:path*", "destination": "/", "permanent": true },
+    { "source": "/wp-content/uploads/:path*", "destination": "/images/content/:path*", "permanent": true },
     { "source": "/wp-json/:path*", "destination": "/", "permanent": true },
     { "source": "/xmlrpc.php", "destination": "/", "permanent": true },
 
