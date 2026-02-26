@@ -78,6 +78,7 @@
     { "source": "/wp-json/:path*", "destination": "/", "permanent": true },
     { "source": "/xmlrpc.php", "destination": "/", "permanent": true },
 
+    { "source": "/ocular-rosacea", "destination": "/ocular-rosacea/all-about-ocular-rosacea/", "permanent": true },
     { "source": "/ocular-rosacea/", "destination": "/ocular-rosacea/all-about-ocular-rosacea/", "permanent": true },
     { "source": "/eye-treatments/eye-pain/", "destination": "/eye-treatment/dull-pain-behind-your-eyes-heres-why/", "permanent": true },
     { "source": "/eye-treatments/:path*", "destination": "/eye-care-services/", "permanent": true },
@@ -227,6 +228,31 @@
     { "source": "/blog/what-is-intense-pulsed-light-treatment-ipl-for-dry-eye-disease/", "destination": "/dry-eyes/what-is-intense-pulsed-light-treatment/", "permanent": true },
     { "source": "/blog/what-to-expect-from-a-comprehensive-eye-exam/", "destination": "/eye-care/what-to-expect-from-a-comprehensive-eye-exam/", "permanent": true },
     { "source": "/blog/who-is-at-risk-for-glaucoma/", "destination": "/glaucoma/who-is-at-risk-for-glaucoma/", "permanent": true },
-    { "source": "/blog/why-sunglasses-are-important-all-year-long/", "destination": "/glasses/why-sunglasses-are-important-all-year-long/", "permanent": true }
+    { "source": "/blog/why-sunglasses-are-important-all-year-long/", "destination": "/glasses/why-sunglasses-are-important-all-year-long/", "permanent": true },
+
+    { "source": "/category/blog/", "destination": "/blog/", "permanent": true },
+    { "source": "/category/blog", "destination": "/blog/", "permanent": true },
+    { "source": "/category/childrens-eye-care/", "destination": "/pediatric-eye-care/", "permanent": true },
+    { "source": "/category/childrens-eye-care", "destination": "/pediatric-eye-care/", "permanent": true },
+    { "source": "/category/contact-lenses/", "destination": "/contact-lenses/", "permanent": true },
+    { "source": "/category/contact-lenses", "destination": "/contact-lenses/", "permanent": true },
+    { "source": "/category/dry-eye/", "destination": "/dry-eye-treatment/", "permanent": true },
+    { "source": "/category/dry-eye", "destination": "/dry-eye-treatment/", "permanent": true },
+    { "source": "/category/eye-care/", "destination": "/eye-care-services/", "permanent": true },
+    { "source": "/category/eye-care", "destination": "/eye-care-services/", "permanent": true },
+    { "source": "/category/eye-health/", "destination": "/eye-care-services/", "permanent": true },
+    { "source": "/category/eye-health", "destination": "/eye-care-services/", "permanent": true },
+    { "source": "/category/glasses/", "destination": "/eyeglasses/", "permanent": true },
+    { "source": "/category/glasses", "destination": "/eyeglasses/", "permanent": true },
+    { "source": "/category/myopia/", "destination": "/myopia-control/", "permanent": true },
+    { "source": "/category/myopia", "destination": "/myopia-control/", "permanent": true },
+    { "source": "/category/:path*", "destination": "/blog/", "permanent": true },
+
+    { "source": "/author/ankit-patel/", "destination": "/blog/", "permanent": true },
+    { "source": "/author/ankit-patel", "destination": "/blog/", "permanent": true },
+    { "source": "/author/dr-mital-patel/", "destination": "/our-doctors/", "permanent": true },
+    { "source": "/author/dr-mital-patel", "destination": "/our-doctors/", "permanent": true },
+
+    { "source": "/:path*", "has": [{ "type": "query", "key": "page_id" }], "destination": "/:path*", "permanent": true }
   ]
 }
