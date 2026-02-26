@@ -248,11 +248,11 @@ If it 301s → fine. If 404 → need to add.
 
 ## Rosacea Content Note
 
-The site has ONE ocular rosacea page (service/condition page):
-- **LIVE:** `/ocular-rosacea/all-about-ocular-rosacea/` — on `main`, indexed, 220 clicks
-- **NOT MERGED:** Branch `content/understanding-ocular-rosacea-a-patient-guide` has a blog post version that was never merged
+The site has TWO ocular rosacea pages:
+- **Service page:** `/ocular-rosacea/all-about-ocular-rosacea/` — indexed, 220 clicks, 25K impressions
+- **Blog post:** `/blog/ocular-rosacea/` — published 2026-02-25 (commits `2477a7a`, `1c6e812`, `8df9206`)
 
-The live page is incorrectly classified as a blog post via breadcrumbs. It should be classified as a service/condition page under Eye Care Services.
+Stale branch `content/understanding-ocular-rosacea-a-patient-guide` deleted — content was already on `main`.
 
 ---
 
