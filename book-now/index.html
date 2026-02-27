@@ -777,9 +777,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
 
               <label class="flex items-start gap-3 text-sm text-gray-600">
+                <input type="checkbox" name="urgent" value="1" class="mt-1">
+                <span>I'd like to be seen as soon as possible</span>
+              </label>
+
+              <label class="flex items-start gap-3 text-sm text-gray-600">
                 <input type="checkbox" name="consent" value="1" class="mt-1">
                 <span>I agree to be contacted by phone/text/email to confirm my appointment.</span>
               </label>
+
+              <p class="text-xs leading-relaxed" style="color:#9ca3af">For eye emergencies (sudden vision loss, chemical exposure, eye injury), please call 911 or go to your nearest emergency room. This form is for scheduling requests only and is not monitored for emergencies.</p>
 
               <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
                 <label for="company_website_hp" class="sr-only">Do not fill this field</label>
@@ -1033,5 +1040,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Forest Editorial Interactive Effects -->
   <script src="/scripts/editorial-forest.js" defer></script>
   <script src="/scripts/forms.js"></script>
+  <script src="/scripts/booking-scheduler.js" defer></script>
 </body>
 </html>

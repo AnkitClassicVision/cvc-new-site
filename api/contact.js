@@ -142,7 +142,8 @@ async function sendResendEmail(payload) {
   const from = process.env.CONTACT_EMAIL_FROM || "Classic Vision Care <no-reply@classicvisioncare.com>";
   if (!apiKey || !to) return;
 
-  const subject = `[CVC] ${payload.formType === "booking" ? "Booking request" : "Contact form"} — ${payload.name || "New lead"}`;
+  const urgentPrefix = payload.urgent ? "[PRIORITY] " : "";
+  const subject = `${urgentPrefix}[CVC] ${payload.formType === "booking" ? "Booking request" : "Contact form"} — ${payload.name || "New lead"}`;
   const lines = [
     `Form: ${payload.formType}`,
     payload.page ? `Page: ${payload.page}` : null,
@@ -276,6 +277,7 @@ module.exports = async (req, res) => {
     const preferredDate = String(body.preferredDate || body.requestedDate || "").trim();
     const message = String(body.message || "").trim();
     const formType = String(body.form_type || body.formType || "contact").trim() || "contact";
+    const urgent = isTruthy(body.urgent);
 
     if (!name || !email) {
       const error = "Please include your name and email.";
@@ -317,6 +319,7 @@ module.exports = async (req, res) => {
       service,
       preferredDate,
       message,
+      urgent,
       consentToContact: isTruthy(body.consentToContact) || isTruthy(body.consent),
       meta: {
         ip: clientIp,
