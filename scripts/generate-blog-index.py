@@ -61,7 +61,7 @@ def read_layout_blocks() -> tuple[str, str]:
         raise RuntimeError("Could not extract header from index.html")
 
     footer_match = re.search(
-        r"(<!-- Footer -->.*?<script src=\"/scripts/editorial-forest\.js\"></script>)",
+        r"(<!-- Footer -->.*?<script\b[^>]*\bsrc=[\"']/scripts/editorial-forest\.js[\"'][^>]*></script>)",
         index_text,
         flags=re.DOTALL,
     )
