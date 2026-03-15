@@ -80,6 +80,7 @@
 
     { "source": "/ocular-rosacea/", "destination": "/ocular-rosacea/all-about-ocular-rosacea/", "permanent": true },
     { "source": "/eye-treatments/eye-pain/", "destination": "/eye-treatment/dull-pain-behind-your-eyes-heres-why/", "permanent": true },
+    { "source": "/blog/dull-pain-behind-your-eyes-heres-why/", "destination": "/eye-treatment/dull-pain-behind-your-eyes-heres-why/", "permanent": true },
     { "source": "/eye-treatments/:path*", "destination": "/eye-care-services/", "permanent": true },
     { "source": "/dry-eyes/punctal-plugs/", "destination": "/dry-eyes/punctal-plugs-for-dry-eyes-guide/", "permanent": true },
     { "source": "/dry-eyes/what-causes-dry-eyes/", "destination": "/dry-eyes/dry-eyes-symptoms-causes-and-treatment/", "permanent": true },
